@@ -10,6 +10,9 @@ local placeId = game.PlaceId
 		NewWorld = true
 	elseif placeId == 7449423635 then
 		ThreeWorld = true
+		BF = true
+	elseif placeId == 3956818381 then
+    Ninjalegend = true
 	end
 	repeat wait() until game:IsLoaded()
 	if getgenv().Setting then else
@@ -8295,7 +8298,10 @@ end
 end
 	end)
 	AutoFarmTab:Toggle("Fast Attack", getgenv().Setting["fastattack"],function(a)
- local concac
+  getgenv().fastattack = a
+ end)
+ spawn(function()
+     local concac
 if getupvalues then concac=getupvalues end
 if debug then 
   if debug.getupvalues then concac=debug.getupvalues end
@@ -8307,12 +8313,16 @@ while wait() do
     ret.activeController.hitboxMagnitude=60
     ret.activeController:attack()
   end)
-end
- end)
+end 
+end)
    AutoFarmTab:Toggle("Bring mobs", getgenv().Setting["bringmobs"],function(a)
    getgenv().bringmobs = a 
-   end)
+   StartMagnetAutoFarmLevel:Start()
    loadstring(game:HttpGet"https://raw.githubusercontent.com/PrimeHubx0/Tool/main/BringMobByNegus.lua")()
+   else
+    StartMagnetAutoFarmLevel:Stop()
+   end)
+   
 	if OldWorld then
 		AutoFarmTab:Line()
 		-- Auto New World
@@ -9092,6 +9102,25 @@ end
 			end 
 		end
 	end)
+	local Weaponlist = {}
+local Weapon = nil
+
+for i,v in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
+    table.insert(Weaponlist,v.Name)
+end
+
+AutoFarmTab:Toggle("Equip Melee", false, function(a)
+EquipMelee = a
+spawn(function()
+while wait() do
+if EquipMelee then
+pcall(function()
+game.Players.LocalPlayer.Character.Humanoid:EquipMelee(game:GetService("Players").LocalPlayer.Backpack:FindFirstChild(Melee))
+end)
+end
+end
+end)
+end)
 	----------------------------------------------------------------------------------------------------------------------------
        local Stats = Window:Taps("Stats")
        
@@ -9141,3 +9170,214 @@ StatsTab:Slider("Point",1,1,100,1,function(x)
 Point = x
 end)
 	----------------------------------------------------------------------------------------------------------------------------
+local Misc = Window:Taps("Misc")
+local miscTab = Misc:newpage()
+miscTab:Toggle("Hitbox",false,function(a)
+_G.Hitbox = a 
+for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+    v.HumanoidRootPart.Size = Vector3.new(35, 35, 35)
+    v.HumanoidRootPart.Transparency = 60
+end
+end)
+miscTab:Toggle("Auto Click",false,function(a)
+_G.AutoClick = a 
+spawn(function()
+		while wait() do
+			if AuctoClick then
+				Click()
+			end
+		end
+	end)
+	spawn(function()
+		while wait() do
+			if AuctoClick then
+				Click()
+			end
+		end
+end)
+end)
+----------------------------------------------------------------------------------------------------------------------------
+if Ninjalegend then
+_G.Auto-Good Karma = false,
+_G.Auto-Bad Karma = false,
+_G.Auto-Swing = false,
+_G.Auto-Sell = false,
+_G.Auto-Full Sell = false,
+_G.Auto-Chi = false,
+_G.Auto-Robot Boss = false,
+_G.Auto-Eternal Boss = false,
+_G.Auto-Ancient Boss = false,
+_G.Auto-Santa Boss = false,
+_G.Auto-All Bosses = false,
+_G.Auto-Pet Levels = false,
+local SOMEXHUBMODILE = Instance.new("ScreenGui")
+local MODILEGUISOMEXHUB = Instance.new("TextButton")
+local MODILEGUISOMEXHUBHUI = Instance.new("UICorner")
+local MODILEMAGE = Instance.new("ImageLabel")
+SOMEXHUBMODILE.Name = "Cak"
+SOMEXHUBMODILE.Parent = game.CoreGui
+SOMEXHUBMODILE.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+MODILEGUISOMEXHUB.Name = "Cakx2"
+MODILEGUISOMEXHUB.Parent = SOMEXHUBMODILE
+MODILEGUISOMEXHUB.BackgroundColor3 = Color3.fromRGB(255, 116, 178)
+MODILEGUISOMEXHUB.BackgroundTransparency = 0.1
+MODILEGUISOMEXHUB.BorderSizePixel = 0
+MODILEGUISOMEXHUB.Position = UDim2.new(0.120833337, 0, 0.0952890813, 0)
+MODILEGUISOMEXHUB.Size = UDim2.new(0, 50, 0, 50)
+MODILEGUISOMEXHUB.Font = Enum.Font.SourceSans
+MODILEGUISOMEXHUB.Text = "Cak"
+MODILEGUISOMEXHUB.TextColor3 = Color3.fromRGB(0, 0, 0)
+MODILEGUISOMEXHUB.TextSize = 14.000
+MODILEGUISOMEXHUB.Draggable = true
+MODILEGUISOMEXHUB.MouseButton1Click:Connect(function()
+game:GetService("CoreGui"):FindFirstChild("SolarisLib").Enabled = not game:GetService("CoreGui"):FindFirstChild("SolarisLib").Enabled
+end)
+MODILEGUISOMEXHUBHUI.Name = "MODILEGUISOMEXHUBHUI"
+MODILEGUISOMEXHUBHUI.Parent = MODILEGUISOMEXHUB
+MODILEMAGE.Name = "MODILEMAGE"
+MODILEMAGE.Parent = MODILEGUISOMEXHUB
+MODILEMAGE.BackgroundColor3 = Color3.fromRGB(229, 0, 0)
+MODILEMAGE.BackgroundTransparency = 1.000
+MODILEMAGE.BorderSizePixel = 0
+MODILEMAGE.Position = UDim2.new(0.141116098,0,0.16842106,0)
+MODILEMAGE.Size = UDim2.new(0, 30, 0, 30)
+do  local ui =  game:GetService("CoreGui"):FindFirstChild("redui")  if ui then ui:Destroy() end end
+local SolarisLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/kickTh/New-Ui/main/SolarisLib.lua.txt"))()
+
+--[[SolarisLib:New({
+  Name - Title of the UI <string>
+  FolderToSave - Name of the folder where the UI files will be stored <string>
+})]]
+local win = SolarisLib:New({
+  Name = "CAK HUB",
+  FolderToSave = "Gui"
+})
+
+--win:Tab(title <string>)
+local tab = win:Tab("Tab 1")
+
+--tab:Section(title <string>)
+local Ninja = tab:Section("Main")
+
+--Ninja:Button(title <string>, callback <function>)
+Ninja:Button("Click to get cak", function()
+setclipboard(https://discord.gg/CNXexMHDc6)
+  SolarisLib:Notification("Test", "This is a notification test.")
+end)
+
+--Ninja:Toggle(title <string>,default <boolean>, flag <string>, callback <function>)
+local Ditmemay = Ninja:Toggle("Auto-Good Karma", false,"Toggle", function(t)
+  _G.Auto-Good Karma = t
+  {flag = "GK"})
+end)
+Ditmemay = Ninja:Toggle("Auto Click", false,"Toggle", function(a)
+  _G.Auto Click = a 
+  spawn(function()
+		while wait() do
+			if AuctoClick then
+				Click()
+			end
+		end
+	end)
+	spawn(function()
+		while wait() do
+			if AuctoClick then
+				Click()
+			end
+		end
+  end)
+Ditmemay = Ninja:Toggle("Auto-Bad Karma", false,"Toggle", function(a)
+  _G.Auto-Bad Karma = a
+  {flag = "BK"})
+end)
+Ditmemay = Ninja:Toggle("Auto Chi", false,"Toggle",function(a)
+_G.Auto-Chi = a 
+{flag = "Chi"})
+end)
+Ditmemay = Ninja:Toggle("Auto Pet Level", false,"Toggle",function(a)
+_G.Auto-Pet Levels = a 
+{flag = "L"}) 
+end)
+local label = Ninja:Label("Teleport")
+
+
+--win:Tab(title <string>)
+local tab = win:Tab("Tab 2")
+
+--tab:Section(title <string>)
+local Teleports = tab:Section("Tele")
+-- World/Island Teleports
+Teleports:Section("- Islands -")
+local Islands = {}
+for i,v in next, game.workspace.islandUnlockParts:GetChildren() do 
+if v then 
+table.insert(Islands, v.Name)
+end
+end
+Teleports:Dropdown('Teleports', {list = Islands}, function(a)
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.islandUnlockParts[a].islandSignPart.CFrame
+end)
+
+--[[
+toggle:Set(state <boolean>)
+]]
+
+--sec:Slider(title <string>,default <number>,max <number>,minimum <number>,increment <number>, flag <string>, callback <function>)
+local slider = sec:Slider("Slider", 0,25,0,2.5,"Slider", function(t)
+  print(t)
+end)
+
+--[[
+slider:Set(state <number>)
+]]
+
+--sec:Dropdown(title <string>,options <table>,default <string>, flag <string>, callback <function>)
+local dropdown = sec:Dropdown("Dropdown", {"a","b","c","d","e"},"","Dropdown", function(t)
+  print(t)
+end)
+
+--[[
+Dropdown:Refresh(options <table>, deletecurrent <boolean>)
+Dropdown:Set(option <string>)
+]]
+
+--sec:MultiDropdown(title <string>,options <table>,default <table>, flag <string>, callback <function>)
+local multidropdown =sec:MultiDropdown("Multi Dropdown", {"a","b","c","d","e"},{"b", "c"},"Dropdown", function(t)
+  print(table.concat(t, ", "))
+end)
+
+--[[
+Dropdown:Refresh(options <table>, deletecurrent <boolean>)
+Dropdown:Set(option <table>)
+]]
+
+--sec:Colorpicker(title <string>, default <color3>, flag <string>, callback <function>)
+sec:Colorpicker("Colorpicker", Color3.fromRGB(255,255,255),"Colorpicker", function(t)
+  print(t)
+end)
+
+--sec:Textbox(title <string> ,disappear <boolean>, callback <function>)
+sec:Textbox("Textbox", true, function(t)
+  print(t)
+end)
+
+--sec:Bind(title <string>, default <keycode>, hold <boolean>, flag <string>, callback <function>)
+sec:Bind("Hold Bind", Enum.KeyCode.E, true, "BindHold", function(t)
+  print(t)
+end)
+
+sec:Bind("Normal Bind", Enum.KeyCode.F, false, "BindNormal", function()
+  print("Bind pressed")
+end)
+
+--[[
+bind:Set(state <keycode>)
+]]
+
+--sec:Label(text <string>)
+local label = sec:Label("Label")
+
+--[[
+label:Set(text <string>)
+]]
+local tab2 = win:Tab("Tab 2")
