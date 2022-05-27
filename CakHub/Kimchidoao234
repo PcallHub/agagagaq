@@ -1,5 +1,5 @@
 local key = _G.Key
-local check = "https://rawhttps://raw.githubusercontent.com/Bestxemchua/Bestxemchua/main/CakHub/Congngu?key"..key
+local check = "https://https://raw.githubusercontent.com/Bestxemchua/Bestxemchua/main/CakHub/Congngu?key"..key
 if game:HttpGet(check) == "Whitelisted" then
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Bestxemchua/Bestxemchua/main/CakHub/River_Gui.txt"))()
 else
