@@ -97,13 +97,6 @@ MODILEMAGE.BorderSizePixel = 0
 MODILEMAGE.Position = UDim2.new(0.141116098,0,0.16842106,0)
 MODILEMAGE.Size = UDim2.new(0, 10, 0, 10)
 MODILEMAGE.Image =  "https://www.roblox.com/asset/?id=3570695787"
-local key = _G.Key
-local check = "acsu" 
-if game:HttpGet(check) == "Whitelisted" then
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Bestxemchua/Bestxemchua/main/CakHub/Congngu"))()
-else
-game.Players.LocalPlayer:Kick("Invalid Key! Please Rejoin And Try Again.")
-end
 local UserInputService = game:GetService("UserInputService")
 local TweenService = game:GetService("TweenService")
 local RunService = game:GetService("RunService")
