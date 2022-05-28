@@ -3,5 +3,5 @@ local check = "https://raw.githubusercontent.com/Bestxemchua/Bestxemchua/main/Ca
 if game:HttpGet(check) == "Whitelisted" then
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Bestxemchua/Bestxemchua/main/CakHub/River_Gui.txt"))()
 else
-game.Players.LocalPlayer:Kick("Invalid Key! Please Rejoin And Try Again.")
+game.Players.LocalPlayer:Kick("🥰😍🥰😍.")
 end
