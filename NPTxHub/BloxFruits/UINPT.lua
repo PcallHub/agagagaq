@@ -1213,7 +1213,7 @@ function hoho:Window(hub, the_game_name, main_color)
 	videoId.ZIndex = 11
 	videoId.Font = Enum.Font.Cartoon
 	videoId.PlaceholderColor3 = Color3.fromRGB(255, 255, 255)
-	videoId.PlaceholderText = "ID Video"
+	videoId.PlaceholderText = "5670799859"
 	videoId.Text = HoHo_Video_Id or "5670799859"
 	videoId.TextColor3 = main_color or Color3.fromRGB(0, 255, 127)
 	videoId.TextScaled = true
