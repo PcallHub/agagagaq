@@ -758,9 +758,9 @@ OPENCLOSE.TextWrapped=true
 OPENCLOSE.MouseButton1Click:Connect(function()
 game.CoreGui:FindFirstChild("YEU YAMA").Enabled = not game.CoreGui:FindFirstChild("YEU YAMA").Enabled
 end)
-local win = UILib:Window("BESTXEMCHUA HUB",Color3.fromRGB(6, 252, 206), Enum.KeyCode.RightControl)
-local AutoFarm = win:Tab("Main")
-local Stat = win:Tab("Stats")
+local win = UILib:Window("BESTXEMCHUA HUB","6026568198",Color3.fromRGB(6, 252, 206), Enum.KeyCode.RightControl)
+local AutoFarm = win:Tab("Main,"6034509993")
+local Stat = win:Tab("Stats","7040410130")
 lol = {}
 for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do  
     if v:IsA("Tool") then
