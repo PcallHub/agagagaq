@@ -838,7 +838,7 @@ function AutoQuest()     if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visibl
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
     end
 end
-function TP()
+function Tp()
     local mob = game:GetService("Workspace").Enemies:GetChildren()
     local MyLevel = game.Players.LocalPlayer.Data.Level.Value
     if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then
@@ -849,14 +849,15 @@ function TP()
                end
                game.Players.LocalPlayer.Character.HumanoidRootPart.Size = Vector3.new(2, 2.02, 1)
 			   v.HumanoidRootPart.Size = Vector3.new(60,60,60)
-			   totarget(v.HumanoidRootPart.CFrame * CFrame.new(0,12,4))
+			   chichdiem(v.HumanoidRootPart.CFrame * CFrame.new(0,12,4))
 			   EquipWeapon(getgenv().tool)
 			   game:GetService'VirtualUser':CaptureController()
-			   game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
+			    game:GetService'VirtualUser':Button1Down(Vector2.new(1280,1,0,1280))
+            end
             end
         end
-    end
 end
+    
                                
                            
                      
