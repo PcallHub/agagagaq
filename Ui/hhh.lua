@@ -838,7 +838,6 @@ function AutoQuest()     if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visibl
     end
 end
 function TP()
-    CheckQuest()
     local mob = game:GetService("Workspace").Enemies:GetChildren()
     local MyLevel = game.Players.LocalPlayer.Data.Level.Value
     if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then
