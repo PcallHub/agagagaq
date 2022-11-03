@@ -799,7 +799,7 @@ end)
 spawn(function()
     while wait() do
         if getgenv().AutoFarm then
-            Tp()
+            TP()
             AutoQuest()
         end
     end
