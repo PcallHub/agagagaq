@@ -737,7 +737,7 @@ end
 function EquipWeapon(ToolSe) if game.Players.LocalPlayer.Backpack:FindFirstChild(ToolSe) then local tool = game.Players.LocalPlayer.Backpack:FindFirstChild(ToolSe) wait(.4)
 	game.Players.LocalPlayer.Character.Humanoid:EquipTool(tool)end end
 
-local UILib = loadstring(game:HttpGet('https://raw.githubusercontent.com/kickTh/New-Ui/main/ABC_Ui.txt'))()
+local UILib = loadstring(game:HttpGet('https://raw.githubusercontent.com/Bestxemchua/agagagaq/main/Ui/GG.txt'))()
 
 local win = UILib:Window("BESTXEMCHUA HUB",Color3.fromRGB(6, 252, 206), Enum.KeyCode.RightControl)
 local AutoFarm = win:Tab("Main")
