@@ -99,7 +99,7 @@ local DragFrame = Instance.new("Frame")
 Main.Name = "Main"
 Main.Parent = knixhub
 Main.AnchorPoint = Vector2.new(0.5, 0.5)
-Main.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+Main.BackgroundColor3 = Color3.fromRGB(217, 200, 245)
 Main.BorderSizePixel = 0
 Main.Position = UDim2.new(0.5, 0, 0.5, 0)
 Main.Size = UDim2.new(0, 0, 0, 0)
@@ -108,7 +108,7 @@ Main.Visible = false
 
 TabHold.Name = "TabHold"
 TabHold.Parent = Main
-TabHold.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TabHold.BackgroundColor3 = Color3.fromRGB(171, 235, 231)
 TabHold.BackgroundTransparency = 1.000
 TabHold.Position = UDim2.new(0.0339285731, 0, 0.147335425, 0)
 TabHold.Size = UDim2.new(0, 107, 0, 254)
@@ -120,7 +120,7 @@ TabHoldLayout.Padding = UDim.new(0, 11)
 
 Title.Name = "Title"
 Title.Parent = Main
-Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Title.BackgroundColor3 = Color3.fromRGB(236, 175, 231)
 Title.BackgroundTransparency = 1.000
 Title.Position = UDim2.new(0.0339285731, 0, 0.0564263314, 0)
 Title.Size = UDim2.new(0, 200, 0, 23)
@@ -229,7 +229,7 @@ LoadText.Text = "Getting ready.."
 wait(.5)
 
 Barload:TweenSize(UDim2.new(0, 292,0, 2), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .3, true)
-LoadText.Text = "Ready!"
+LoadText.Text = "Ready! Ur mom is fat"
 
 wait(2)
 
