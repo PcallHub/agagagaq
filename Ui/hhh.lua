@@ -696,15 +696,43 @@ if ThreeWorld then
             PosQuest = CFrame.new(-1928.324462890625, 37.798133850097656, -12843.0517578125)
             CFrameMon = CFrame.new(-2000.436767578125, 385.1067810058594, -13096.3330078125)
             PosMon = CFrame.new(-2000.436767578125, 385.1067810058594, -13096.3330078125)
-        elseif MyLevel >= 2275 then
+        elseif MyLevel == 2275 or MyLevel <= 2300 then
+
             Ms = "Head Baker [Lv. 2275]"
+
             NaemQuest = "CakeQuest2"
             LevelQuest = 2
             NameMon = "Head Baker"
-            CFrameQuest = CFrame.new(-1928.324462890625, 37.798133850097656, -12843.0517578125)
-            PosQuest = CFrame.new(-1928.324462890625, 37.798133850097656, -12843.0517578125)
-            CFrameMon = CFrame.new(-2161.431640625, 93.0169448852539, -12989.7822265625)
-            PosMon = CFrame.new(-2161.431640625, 93.0169448852539, -12989.7822265625)
+            CFrameQuest = CFrame.new(-1927.9107666015625, 37.79813003540039, -12843.78515625)
+            CFrameMon = CFrame.new(-2203.302490234375, 109.90937042236328, -12788.7333984375)
+         elseif MyLevel == 2300 or Level <= 2324 then
+               Ms = "Cocoa Warrior [Lv. 2300]"
+               LevelQuest = 1
+               NaemQuest = "ChocQuest1"
+               NameMon = "Cocoa Warrior"
+               CFrameQuest = CFrame.new(231.742981, 25.3354111, -12199.0537, 0.998278677, -5.16006757e-08, 0.0586484075, 4.79685092e-08, 1, 6.33390442e-08, -0.0586484075, -6.04167383e-08, 0.998278677)
+               CFrameMon = CFrame.new(231.742981, 25.3354111, -12199.0537, 0.998278677, -5.16006757e-08, 0.0586484075, 4.79685092e-08, 1, 6.33390442e-08, -0.0586484075, -6.04167383e-08, 0.998278677)
+            elseif MyLevel == 2325 or Level <= 2349 then
+               Ms = "Chocolate Bar Battler [Lv. 2325]"
+               LevelQuest = 2
+               NaemQuest = "ChocQuest1"
+               NameMon = "Chocolate Bar Battler"
+              CFrameQuest = CFrame.new(231.742981, 25.3354111, -12199.0537, 0.998278677, -5.16006757e-08, 0.0586484075, 4.79685092e-08, 1, 6.33390442e-08, -0.0586484075, -6.04167383e-08, 0.998278677)
+              CFrameMon = CFrame.new(231.742981, 25.3354111, -12199.0537, 0.998278677, -5.16006757e-08, 0.0586484075, 4.79685092e-08, 1, 6.33390442e-08, -0.0586484075, -6.04167383e-08, 0.998278677)
+              elseif MyLevel == 2350 or Level <= 2374 then
+               Ms = "Sweet Thief [Lv. 2350]"
+               LevelQuest = 1
+               NaemQuest = "ChocQuest2"
+               NameMon = "Sweet Thief"
+              CFrameQuest = CFrame.new(149.867218, 24.8196201, -12775.5283, -0.0371122323, -7.14229245e-08, -0.99931109, -6.93553162e-08, 1, -6.88964548e-08, 0.99931109, 6.6750637e-08, -0.0371122323)
+              CFrameMon = CFrame.new(149.867218, 24.8196201, -12775.5283, -0.0371122323, -7.14229245e-08, -0.99931109, -6.93553162e-08, 1, -6.88964548e-08, 0.99931109, 6.6750637e-08, -0.0371122323)
+             elseif MyLevel >= 2375 then
+               Ms = "Candy Rebel [Lv. 2375]"
+               LevelQuest = 2
+               NaemQuest = "ChocQuest2"
+               NameMon = "Candy Rebel"
+              CFrameQuest = CFrame.new(149.867218, 24.8196201, -12775.5283, -0.0371122323, -7.14229245e-08, -0.99931109, -6.93553162e-08, 1, -6.88964548e-08, 0.99931109, 6.6750637e-08, -0.0371122323)
+              CFrameMon = CFrame.new(149.867218, 24.8196201, -12775.5283, -0.0371122323, -7.14229245e-08, -0.99931109, -6.93553162e-08, 1, -6.88964548e-08, 0.99931109, 6.6750637e-08, -0.0371122323)
         end
     end
 end
@@ -809,7 +837,8 @@ function AutoQuest()     if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visibl
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
     end
 end
-function Tp()
+function TP()
+    CheckQuest()
     local mob = game:GetService("Workspace").Enemies:GetChildren()
     local MyLevel = game.Players.LocalPlayer.Data.Level.Value
     if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then
@@ -820,15 +849,14 @@ function Tp()
                end
                game.Players.LocalPlayer.Character.HumanoidRootPart.Size = Vector3.new(2, 2.02, 1)
 			   v.HumanoidRootPart.Size = Vector3.new(60,60,60)
-			   chichdiem(v.HumanoidRootPart.CFrame * CFrame.new(5,10,7))
+			   totarget(v.HumanoidRootPart.CFrame * CFrame.new(0,12,4))
 			   EquipWeapon(getgenv().tool)
 			   game:GetService'VirtualUser':CaptureController()
-			    game:GetService'VirtualUser':Button1Down(Vector2.new(1280,1,0,1280))
-            end
+			   game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
             end
         end
+    end
 end
-    
                                
                            
                      
