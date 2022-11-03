@@ -1314,7 +1314,7 @@ function Click() game:GetService'VirtualUser':CaptureController() game:GetServic
             PosQuest = CFrame.new(-1928.324462890625, 37.798133850097656, -12843.0517578125)
             CFrameMon = CFrame.new(-2000.436767578125, 385.1067810058594, -13096.3330078125)
             PosMon = CFrame.new(-2000.436767578125, 385.1067810058594, -13096.3330078125)
-        elseif MyLevel == 2275 or MyLevel <= 2300 then
+        elseif MyLevel == 2275 and MyLevel <= 2300 then
 
             Ms = "Head Baker [Lv. 2275]"
 
@@ -1323,21 +1323,21 @@ function Click() game:GetService'VirtualUser':CaptureController() game:GetServic
             NameMon = "Head Baker"
             CFrameQuest = CFrame.new(-1927.9107666015625, 37.79813003540039, -12843.78515625)
             CFrameMon = CFrame.new(-2203.302490234375, 109.90937042236328, -12788.7333984375)
-         elseif MyLevel == 2300 or Level <= 2324 then
+         elseif MyLevel == 2300 and MyLevel <= 2324 then
                Ms = "Cocoa Warrior [Lv. 2300]"
                LevelQuest = 1
                NaemQuest = "ChocQuest1"
                NameMon = "Cocoa Warrior"
                CFrameQuest = CFrame.new(231.742981, 25.3354111, -12199.0537, 0.998278677, -5.16006757e-08, 0.0586484075, 4.79685092e-08, 1, 6.33390442e-08, -0.0586484075, -6.04167383e-08, 0.998278677)
                CFrameMon = CFrame.new(231.742981, 25.3354111, -12199.0537, 0.998278677, -5.16006757e-08, 0.0586484075, 4.79685092e-08, 1, 6.33390442e-08, -0.0586484075, -6.04167383e-08, 0.998278677)
-            elseif MyLevel == 2325 or Level <= 2349 then
+            elseif MyLevel == 2325 and MyLevel <= 2349 then
                Ms = "Chocolate Bar Battler [Lv. 2325]"
                LevelQuest = 2
                NaemQuest = "ChocQuest1"
                NameMon = "Chocolate Bar Battler"
               CFrameQuest = CFrame.new(231.742981, 25.3354111, -12199.0537, 0.998278677, -5.16006757e-08, 0.0586484075, 4.79685092e-08, 1, 6.33390442e-08, -0.0586484075, -6.04167383e-08, 0.998278677)
               CFrameMon = CFrame.new(231.742981, 25.3354111, -12199.0537, 0.998278677, -5.16006757e-08, 0.0586484075, 4.79685092e-08, 1, 6.33390442e-08, -0.0586484075, -6.04167383e-08, 0.998278677)
-              elseif MyLevel == 2350 or Level <= 2374 then
+              elseif MyLevel == 2350 and MyLevel <= 2374 then
                Ms = "Sweet Thief [Lv. 2350]"
                LevelQuest = 1
                NaemQuest = "ChocQuest2"
