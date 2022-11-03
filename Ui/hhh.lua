@@ -1,4 +1,5 @@
-  if game:GetService("CoreGui"):FindFirstChild("YEU YAMA") then game:GetService("CoreGui"):FindFirstChild("YEU YAMA"):Destroy()
+  if game:GetService("CoreGui"):FindFirstChild("YEU YAMA") then 
+game:GetService("CoreGui"):FindFirstChild("YEU YAMA"):Destroy()
 end
 local LocalPlayer = game:GetService("Players").LocalPlayer
 local VirtualUser = game:GetService('VirtualUser')
@@ -744,7 +745,7 @@ DINOHUB.Parent=game.CoreGui
 DINOHUB.ZIndexBehavior=Enum.ZIndexBehavior.Sibling
 OPENCLOSE.Name="OPENCLOSE"
 OPENCLOSE.Parent=DINOHUB
-OPENCLOSE.BackgroundColor3=Color3.fromRGB(255, 0, 0)
+OPENCLOSE.BackgroundColor3=Color3.fromRGB(255, 52, 0)
 OPENCLOSE.BorderSizePixel=0
 OPENCLOSE.Position=UDim2.new(0.120833337, 0, 0.0952890813, 0)
 OPENCLOSE.Size=UDim2.new(0.0447916649, 0, 0.0845824406, 0)
@@ -755,7 +756,7 @@ OPENCLOSE.TextScaled=true
 OPENCLOSE.TextSize=14.000
 OPENCLOSE.TextWrapped=true
 OPENCLOSE.MouseButton1Click:Connect(function()
-game.CoreGui:FindFirstChild("YEU YAMA").Enabled = not game.CoreGui:FindFirstChild("YEU YAMA").Enabled
+game.CoreGui:FindFirstChild("Best Xem Chùa").Enabled = not game.CoreGui:FindFirstChild("Best Xem Chùa").Enabled
 end)
 local win = UILib:Window("BESTXEMCHUA HUB",Color3.fromRGB(6, 252, 206), Enum.KeyCode.RightControl)
 local AutoFarm = win:Tab("Main")
