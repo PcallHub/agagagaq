@@ -738,7 +738,26 @@ function EquipWeapon(ToolSe) if game.Players.LocalPlayer.Backpack:FindFirstChild
 	game.Players.LocalPlayer.Character.Humanoid:EquipTool(tool)end end
 
 local UILib = loadstring(game:HttpGet('https://raw.githubusercontent.com/Bestxemchua/agagagaq/main/Ui/GG.txt'))()
-
+local DINOHUB = Instance.new("ScreenGui")
+local OPENCLOSE = Instance.new("TextButton") DINOHUB.Name="DINOHUB"
+DINOHUB.Parent=game.CoreGui
+DINOHUB.ZIndexBehavior=Enum.ZIndexBehavior.Sibling
+OPENCLOSE.Name="OPENCLOSE"
+OPENCLOSE.Parent=DINOHUB
+OPENCLOSE.BackgroundColor3=Color3.fromRGB(255, 0, 0)
+OPENCLOSE.BorderSizePixel=0
+OPENCLOSE.Position=UDim2.new(0.120833337, 0, 0.0952890813, 0)
+OPENCLOSE.Size=UDim2.new(0.0447916649, 0, 0.0845824406, 0)
+OPENCLOSE.Font=Enum.Font.DenkOne
+OPENCLOSE.Text="Open"
+OPENCLOSE.TextColor3=Color3.fromRGB(255, 0, 0)
+OPENCLOSE.Image = "rbxassetid://7769924685"
+OPENCLOSE.TextScaled=true
+OPENCLOSE.TextSize=14.000
+OPENCLOSE.TextWrapped=true
+OPENCLOSE.MouseButton1Click:Connect(function()
+game.CoreGui:FindFirstChild("YEU YAMA").Enabled = not game.CoreGui:FindFirstChild("YEU YAMA").Enabled
+end)
 local win = UILib:Window("BESTXEMCHUA HUB",Color3.fromRGB(6, 252, 206), Enum.KeyCode.RightControl)
 local AutoFarm = win:Tab("Main")
 local Stat = win:Tab("Stats")
