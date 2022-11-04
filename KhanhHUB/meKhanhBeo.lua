@@ -1406,14 +1406,13 @@ OPENCLOSE.Size=UDim2.new(0.0447916649, 0, 0.0845824406, 0)
 OPENCLOSE.Font=Enum.Font.DenkOne
 OPENCLOSE.Text="Open"
 OPENCLOSE.TextColor3=Color3.fromRGB(255, 0, 0)
-OPENCLOSE.Image = "rbxassetid://7769924685"
 OPENCLOSE.TextScaled=true
 OPENCLOSE.TextSize=14.000
 OPENCLOSE.TextWrapped=true
 OPENCLOSE.MouseButton1Click:Connect(function()
 game.CoreGui:FindFirstChild("NOOB HUB").Enabled = not game.CoreGui:FindFirstChild("NOOB HUB").Enabled
 end)
-local win = UILib:Window("😱Khanh_Beo HUB","9614132122",Color3.fromRGB(44, 120, 224), Enum.KeyCode.RightControl)
+local win = UILib:Window("😱Khanh_Beo HUB",Color3.fromRGB(44, 120, 224), Enum.KeyCode.RightControl)
 lol = {}
 for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do  
     if v:IsA("Tool") then
@@ -1425,11 +1424,11 @@ for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
        table.insert(lol, v.Name)
     end
 end
-local AutoFarm = win:Tab("8192163394","Auto Farm")
-local Stat = win:Tab("6026568198","Stats")
-local raid = win:Tab("6035190846","Raid")
-local Pvp = win:Tab("7251993295","Combat")
-local Misc = win:Tab("6034509993","Misc")
+local AutoFarm = win:Tab("Auto Farm")
+local Stat = win:Tab("Stats")
+local raid = win:Tab("Raid")
+local Pvp = win:Tab("Combat")
+local Misc = win:Tab("Misc")
 AutoFarm:Toggle("AutoFarm",false, function(beo)
 getgenv().AutoFarm=beo
 UILib:Notification("Notification", "Farm", "Okay")
