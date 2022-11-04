@@ -881,7 +881,6 @@ spawn(function()
 while wait() do
 if getgenv().lockmob then
 pcall(function()
-CheckQuest()
        for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
 for x,y in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
 if v.Name == Ms then
