@@ -1412,7 +1412,7 @@ OPENCLOSE.TextWrapped=true
 OPENCLOSE.MouseButton1Click:Connect(function()
 game.CoreGui:FindFirstChild("NOOB HUB").Enabled = not game.CoreGui:FindFirstChild("NOOB HUB").Enabled
 end)
-local win = UILib:Window("😱Khanh_Beo HUB",Color3.fromRGB(44, 120, 224), Enum.KeyCode.RightControl)
+local win = UILib:Window("Khanh_Beo HUB",Color3.fromRGB(44, 120, 224), Enum.KeyCode.RightControl)
 lol = {}
 for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do  
     if v:IsA("Tool") then
