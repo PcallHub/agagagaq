@@ -873,8 +873,69 @@ function Tp()
             end
         end
 end
-    
-                               
+    AutoFarm:Toggle("Lock Mob",false,function(lm)
+  getgenv().lockmob=lm 
+  UILib:Notification("Notification", "Lock mob", "don't use bring mob")
+end)
+spawn(function()
+while wait() do
+if getgenv().lockmob then
+pcall(function()
+CheckQuest()
+       for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+for x,y in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+if v.Name == Ms then
+    if y.Name == Ms then
+   v.HumanoidRootPart.Size = Vector3.new(60,60,60)
+   y.HumanoidRootPart.Size = Vector3.new(60,60,60)
+   v.HumanoidRootPart.Anchored = true
+   v.HumanoidRootPart.CanCollide = false
+   y.HumanoidRootPart.CanCollide = false
+   v.Humanoid.WalkSpeed = 0
+   y.Humanoid.WalkSpeed = 0
+   v.Humanoid.JumpPower = 0
+   y.Humanoid.JumpPower = 0
+   if sethiddenproperty then
+     sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
+     end
+end
+end
+end
+end
+end)
+end
+end
+end)
+                      AutoFarm:Toggle("Fast Attack",false,function(chim)
+  getgenv().fastattack = chim
+UILib:Notification("Notification", "Fast Attack", "Okay")
+end)
+local concac
+if getupvalues then concac=getupvalues end
+if debug then 
+  if debug.getupvalues then concac=debug.getupvalues end
+end
+require(game.Players.LocalPlayer.PlayerScripts.CombatFramework.CameraShaker).Shake = function() end
+local v = concac(require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework))[2]
+while wait() do 
+spawn(function()
+game:GetService("RunService").RenderStepped:Connect(function()
+                        if getgenv().fastattack then
+                            pcall(function()
+   v.activeController.timeToNextAttack = -(math.huge^math.huge^math.huge)
+                                     v.activeController.attacking = false
+                                     v.activeController.increment = 4
+                                     v.activeController.blocking = false  
+                                     v.activeController.humanoid.AutoRotate = true
+                                       v.activeController.focusStart = 0
+                                       v.activeController.currentAttackTrack = 0
+                           sethiddenproperty(game:GetService("Players").LocalPlayer, "SimulationRaxNerous", math.huge)
+  end)
+end
+end)
+ end)
+end
+         
                            
                      
     
