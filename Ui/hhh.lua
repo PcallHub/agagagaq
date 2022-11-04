@@ -873,6 +873,23 @@ function Tp()
             end
         end
 end
+local SelectToolWeapona = AutoFarm:Dropdown("SelectWeapon",lol,function(Select)
+    getgenv().tool = Select
+end)
+
+AutoFarm:Button("Refresh Weapon", function()
+	SelectToolWeapona:Clear()
+	for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do  
+		if v:IsA("Tool") then
+			SelectToolWeapona:Add(v.Name)
+		end
+	end
+	for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do  
+		if v:IsA("Tool") then
+			SelectToolWeapona:Add(v.Name)
+		end
+	end
+end)
     AutoFarm:Toggle("Lock Mob",false,function(lm)
   getgenv().lockmob=lm 
   UILib:Notification("Notification", "Lock mob", "don't use bring mob")
@@ -906,56 +923,70 @@ end
 end
 end)
                       AutoFarm:Toggle("Fast Attack",false,function(chim)
-  getgenv().fastattack = chim
+  getgenv().fast = chim
 UILib:Notification("Notification", "Fast Attack", "Okay")
 end)
-local concac
-if getupvalues then concac=getupvalues end
-if debug then 
-  if debug.getupvalues then concac=debug.getupvalues end
-end
-require(game.Players.LocalPlayer.PlayerScripts.CombatFramework.CameraShaker).Shake = function() end
-local v = concac(require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework))[2]
-while wait() do 
-spawn(function()
-game:GetService("RunService").RenderStepped:Connect(function()
-                        if getgenv().fastattack then
-                            pcall(function()
-   v.activeController.timeToNextAttack = -(math.huge^math.huge^math.huge)
+coroutine.wrap(function()
+local StopCamera = require(game.ReplicatedStorage.Util.CameraShaker)StopCamera:Stop()
+    for v,v in pairs(getreg()) do
+        if typeof(v) == "function" and getfenv(v).script == game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework then
+             for v,v in pairs(debug.getupvalues(v)) do
+                if typeof(v) == "table" then
+                    spawn(function()
+                        game:GetService("RunService").RenderStepped:Connect(function()
+                            if getgenv().fast then
+                                 pcall(function()
+                                     v.activeController.timeToNextAttack = -(math.huge^math.huge^math.huge)
                                      v.activeController.attacking = false
-                                     v.activeController.increment = 4
-                                     v.activeController.blocking = false  
-                                     v.activeController.humanoid.AutoRotate = true
-                                       v.activeController.focusStart = 0
-                                       v.activeController.currentAttackTrack = 0
-                           sethiddenproperty(game:GetService("Players").LocalPlayer, "SimulationRaxNerous", math.huge)
-  end)
-end
+                                     v.activeController.increment = 3
+                                     v.activeController.blocking = false   
+                                     v.activeController.hitboxMagnitude = 50
+    		                         v.activeController.humanoid.AutoRotate = true
+    	                      	     v.activeController.focusStart = 0
+    	                      	     v.activeController.currentAttackTrack = 0
+                                     sethiddenproperty(game:GetService("Players").LocalPlayer, "SimulationRaxNerous", math.huge)
+ 
+                                 end)
+                             end
+                         end)
+                    end)
+                end
+            end
+        end
+    end
+end)();
+pcall(function()
+    spawn(function()
+         while wait() do
+        if getgenv().fast then
+        pcall(function()
+        for i, v in pairs(game.Workspace["_WorldOrigin"]:GetChildren()) do
+            if v.Name == "CurvedRing" or v.Name == "SlashHit" or v.Name == "SwordSlash" or v.Name == "Sounds" then
+                v:Destroy() 
+                 end
+              end
+            end)
+        end
+    end
 end)
- end)
-end
-         
+end)
+spawn(function()
+         while wait() do
+        if getgenv().fast then
+        pcall(function()
+        for i,v in pairs(game:GetService("Workspace").Map.Dressrosa.Tavern:GetDescendants()) do
+        if v.ClassName == "Seat" then
+            v:Destroy()
+                     end
+                  end
+            end)
+        end
+    end
+end) 
                            
                      
     
 
-local SelectToolWeapona = AutoFarm:Dropdown("SelectWeapon",lol,function(Select)
-    getgenv().tool = Select
-end)
-
-AutoFarm:Button("Refresh Weapon", function()
-	SelectToolWeapona:Clear()
-	for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do  
-		if v:IsA("Tool") then
-			SelectToolWeapona:Add(v.Name)
-		end
-	end
-	for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do  
-		if v:IsA("Tool") then
-			SelectToolWeapona:Add(v.Name)
-		end
-	end
-end)
 
 Stat:Toggle("Melee",false,function(val)
 	getgenv().melee = val
