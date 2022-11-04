@@ -759,8 +759,8 @@ OPENCLOSE.MouseButton1Click:Connect(function()
 game.CoreGui:FindFirstChild("Best Xem Chùa").Enabled = not game.CoreGui:FindFirstChild("Best Xem Chùa").Enabled
 end)
 local win = UILib:Window("BESTXEMCHUA HUB",Color3.fromRGB(6, 252, 206), Enum.KeyCode.RightControl)
-local AutoFarm = win:Tab("Main")
-local Stat = win:Tab("Stats")
+local AutoFarm = win:Tab("Main",6026568198)
+local Stat = win:Tab("Stats",7040410130)
 lol = {}
 for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do  
     if v:IsA("Tool") then
