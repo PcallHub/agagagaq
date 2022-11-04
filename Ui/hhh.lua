@@ -943,6 +943,9 @@ end)
 AutoFarm:Toggle("Hide Hitbox",true, function(cc)
   getgenv().HideHB=cc
 end)
+while getgenv().HideHB do wait()
+hitbox()
+end
 AutoFarm:Toggle("Auto Saber",false,function(vk)
   getgenv().FarmSaber = vk
 end)
