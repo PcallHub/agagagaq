@@ -915,7 +915,6 @@ OPENCLOSE.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
 OPENCLOSE.BorderSizePixel = 0
 OPENCLOSE.Position = UDim2.new(0.120833337, 0, 0.0952890813, 0)
 OPENCLOSE.Size = UDim2.new(0.0447916649, 0, 0.0845824406, 0)
-OPENCLOSE.Image = "rbxassetid://7769924685"
 OPENCLOSE.MouseButton1Click:Connect(function()
 game.CoreGui:FindFirstChild("Kimchidoao | Xem Chùa").Enabled = not game.CoreGui:FindFirstChild("Kimchidoao | Xem Chùa").Enabled
 end)
@@ -923,7 +922,7 @@ end)
 ---------raibow ui
 
 
-lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/vinhuchi/Island_Game/main/venyxUi.lua"))().new(getgenv().Version)
+lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/Bestxemchua/agagagaq/main/Ui/uiconcac.txt"))().new(getgenv().Version)
 spawn(function()
    while wait() do
       if getgenv().RainbowUi then
