@@ -4067,12 +4067,12 @@ if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false then CheckQues
 local mob = game:GetService("Workspace").Enemies:GetChildren()
     local MyLevel = game.Players.LocalPlayer.Data.Level.Value 
     for i,v in pairs(mob) do        if v.Name == Ms then              if not game.Players.LocalPlayer.Character:FindFirstChild("HasBuso") then                  game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Buso")            end 
-if game:GetService("Workspace").Enemies[Ms].Humanoid.Health == 0 then totarget(CFrameMon) elseif getgenv().farm1 then
+if game:GetService("Workspace").Enemies[Ms].Humanoid.Health == 0 then totarget(CFrameMon) elseif getgenv().farm==1then
     totarget(v.HumanoidRootPart.CFrame*CFrame.new(0,0,20))
     EquipWeapon(getgenv().tool)   game:GetService'VirtualUser':CaptureController()		    game:GetService'VirtualUser':Button1Down(Vector2.new(1280,1,0,1280))
-    elseif getgenv().farm2  then  totarget(v.HumanoidRootPart.CFrame*CFrame.new(0,30,0)) 
+    elseif getgenv().farm==2  then  totarget(v.HumanoidRootPart.CFrame*CFrame.new(0,30,0)) 
     EquipWeapon(getgenv().tool)   game:GetService'VirtualUser':CaptureController()		    game:GetService'VirtualUser':Button1Down(Vector2.new(1280,1,0,1280))
-        elseif getgenv().farm3 then          totarget(v.HumanoidRootPart.CFrame*CFrame.new(0,-10,0))
+        elseif getgenv().farm==3 then          totarget(v.HumanoidRootPart.CFrame*CFrame.new(0,-10,0))
         EquipWeapon(getgenv().tool)   game:GetService'VirtualUser':CaptureController()		    game:GetService'VirtualUser':Button1Down(Vector2.new(1280,1,0,1280))
         end
     end
@@ -4116,13 +4116,8 @@ Main:Button("Refresh Weapon", function()
 			SelectToolWeapona:Add(v.Name)
 		end end
 end)
-farm = {
-between = getgenv().farm1,
-above = getgenv().farm2,
-under = getgenv().farm3,
-}
 
-local a = Main:Dropdown("Choose Farm Mode",farm,function(v)
+local a = Main:Dropdown("Choose Farm Mode",{1,2,3},function(v)
     getgenv().farm = v
 end)
 Main:Button("Clear Farm Mode",function()
