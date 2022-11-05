@@ -1,39 +1,7 @@
   if game:GetService("CoreGui"):FindFirstChild("YEU YAMA") then 
 game:GetService("CoreGui"):FindFirstChild("YEU YAMA"):Destroy()
 end
--- Function
-function hitbox() -- HITBOX
-    local enamie = game:GetService("Workspace").Enemies:GetChildren()
-    
-    for i,v in pairs(enamie) do
-        v.HumanoidRootPart.Size = Vector3.new(100,100,100)
-        v.HumanoidRootPart.CanCollide = true
-        if getgenv().HideHB == true then
-        v.HumanoidRootPart.Transparency = 1
-        elseif getgenv().HideHB == false then
-            v.HumanoidRootPart.Transparency = 0.5
-            end
-        end
-    
-    end
-  
-    function Click()
-        game:GetService'VirtualUser':CaptureController()
-        game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
-    end
-function FarmBoss() -- FARM MODE
-if game:GetService("Workspace").Enemies[getgenv().Boss].Humanoid.Health == 0 then
-    totarget(CFrame.new(-1458.89502, 29.8870335, -50.633564, 0.858821094, 1.13848939e-08, 0.512275636, -4.85649254e-09, 1, -1.40823326e-08, -0.512275636, 9.6063415e-09, 0.858821094))
-elseif getgenv().FARMMETHOD == 1 then
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Enemies[getgenv().Boss].HumanoidRootPart.CFrame * CFrame.new(0,0,20)
-elseif getgenv().FARMMETHOD == 2 then
-    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Enemies[getgenv().Boss].HumanoidRootPart.CFrame * CFrame.new(0,30,0)
-elseif    getgenv().FARMMETHOD == 3 then
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Enemies[getgenv().Boss].HumanoidRootPart.CFrame * CFrame.new(0,-10,0)
-elseif getgenv().FARMMETHOD == 4 then
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Enemies[getgenv().Boss].HumanoidRootPart.CFrame * CFrame.new(5, 10, 7)
-        end
-end
+
 
 local LocalPlayer = game:GetService("Players").LocalPlayer
 local VirtualUser = game:GetService('VirtualUser')
@@ -940,24 +908,7 @@ end)
 end
 end
 end)
-AutoFarm:Toggle("Hide Hitbox",true, function(cc)
-  getgenv().HideHB=cc
-end)
-while getgenv().HideHB do wait()
-hitbox()
-end
-AutoFarm:Toggle("Auto Saber",false,function(vk)
-  getgenv().FarmSaber = vk
-end)
-while getgenv().FarmSaber do  wait()
-    print("Yama chop 1") -- kimchidoao
-    Click()
-    hitbox()
-    FarmBoss()
-    end
-AutoFarm:Dropdown("Select Farm Mode", {1,2,3,4}, function(beo)
-  getgenv().FARMMETHOD=beo
-end)
+
 AutoFarm:Toggle("Bring Mobs",false,function(bm)
         getgenv().bringmob=bm
  end)
