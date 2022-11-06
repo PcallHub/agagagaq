@@ -853,7 +853,7 @@ end
 function Tp()
     local mob = game:GetService("Workspace").Enemies:GetChildren()
     local MyLevel = game.Players.LocalPlayer.Data.Level.Value
-    if game:GetService("Workspace").Enemies.Humanoid.Health == 0 then
+    if game:GetService("Workspace").Enemies(mob).Humanoid.Health == 0 then
     totarget(CFrame.new(CFrameQuest))
     if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then
         for i,v in pairs(mob) do
@@ -941,7 +941,7 @@ function autofarm()
 								repeat wait()
 									if game:GetService("Workspace").Enemies:FindFirstChild(Ms) and v.Humanoid.Health > 0 and v:FindFirstChild("Humanoid") then
 										chichdiem(v.HumanoidRootPart.CFrame * CFrame.new(1,20,1))
-										EquipWeapon(getgenv().SelectWeapon)
+										EquipWeapon(getgenv().tool)
 										PosHee = v.HumanoidRootPart.CFrame
 										v.HumanoidRootPart.CanCollide = false
 										v.HumanoidRootPart.Size = Vector3.new(50, 50, 50)
