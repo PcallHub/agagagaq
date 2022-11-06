@@ -737,6 +737,7 @@ if ThreeWorld then
               CFrameMon = CFrame.new(149.867218, 24.8196201, -12775.5283, -0.0371122323, -7.14229245e-08, -0.99931109, -6.93553162e-08, 1, -6.88964548e-08, 0.99931109, 6.6750637e-08, -0.0371122323)end
     end
 end
+CheckQuest()
 function EquipWeapon(ToolSe) if game.Players.LocalPlayer.Backpack:FindFirstChild(ToolSe) then local tool = game.Players.LocalPlayer.Backpack:FindFirstChild(ToolSe) wait(.4)
 	game.Players.LocalPlayer.Character.Humanoid:EquipTool(tool)end end
 
@@ -806,7 +807,7 @@ spawn(function()
         if getgenv().AutoFarm then
             Tp()
             AutoQuest()
-            autofarm()
+            hitbox()
         end
     end
 end)
@@ -828,6 +829,12 @@ spawn(function()
         end
     end
 end)
+function hitbox()
+for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+    v.HumanoidRootPart.Size = Vector3.new(35, 35, 35)
+    v.HumanoidRootPart.Transparency = 0.5
+end
+end
 function AutoQuest()     if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false then
         CheckQuest()
         repeat wait()
