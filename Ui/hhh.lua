@@ -853,6 +853,8 @@ end
 function Tp()
     local mob = game:GetService("Workspace").Enemies:GetChildren()
     local MyLevel = game.Players.LocalPlayer.Data.Level.Value
+    if game:GetService("Workspace").Enemies[getgenv().MON].Humanoid.Health == 0 then
+    totarget(CFrame.new(CFrameQuest))
     if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then
         for i,v in pairs(mob) do
             if v.Name == Ms then
@@ -865,6 +867,7 @@ function Tp()
 			   EquipWeapon(getgenv().tool)
 			   game:GetService'VirtualUser':CaptureController()
 			   game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
+end
             end
         end
     end
