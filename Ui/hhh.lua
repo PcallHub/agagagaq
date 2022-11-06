@@ -778,7 +778,6 @@ end
 
 AutoFarm:Toggle("Auto Farm",false,function(vu)
     getgenv().AutoFarm= vu
-getgenv().Farmmethod=vu
 end)
 spawn(function()
 		while wait() do
@@ -865,7 +864,6 @@ game.Players.LocalPlayer.Character.HumanoidRootPart.Size = Vector3.new(2, 2.02, 
 v.HumanoidRootPart.Size = Vector3.new(60,60,60)
 if game:GetService("Workspace").Enemies[mob].Humanoid.Health == 0 then
 chichdiem(CFrame.new(CFrameMon)
-elseif getgenv().Farmmethod then
 chichdiem(v.HumanoidRootPart.CFrame * CFrame.new(0,0,20))
 EquipWeapon(getgenv().tool)
 			   game:GetService'VirtualUser':CaptureController()
