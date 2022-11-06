@@ -784,7 +784,7 @@ spawn(function()
 			if getgenv().AutoFarm then
 				Tp()
 				AutoQuest()
-                                hitbox()
+                                autofarm()
 			end
 		end
 	end)
@@ -861,13 +861,108 @@ function Tp()
                end
                game.Players.LocalPlayer.Character.HumanoidRootPart.Size = Vector3.new(2, 2.02, 1)
 			   v.HumanoidRootPart.Size = Vector3.new(60,60,60)
-			   totarget(v.HumanoidRootPart.CFrame * CFrame.new(0,12,4))
+			   chichdiem(v.HumanoidRootPart.CFrame * CFrame.new(0,12,4))
 			   EquipWeapon(getgenv().tool)
 			   game:GetService'VirtualUser':CaptureController()
 			   game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
             end
         end
     end
+end
+function autofarm()
+    pcall(function()
+	if getgenv().AutoFarm then
+		if AutoQuest then
+			if LocalPlayer.PlayerGui.Main.Quest.Visible == false then
+				StopTween()
+				StatrMagnet = false
+				CheckQuest()
+				repeat chichdiem(CFrameQuest) wait() until getgenv().StopTween == true or not getgenv().AutoFarm or (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameQuest.Position).Magnitude <= 8
+				wait(0.9)
+				if getgenv().AutoFarm then
+					game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
+					game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NaemQuest, LevelQuest)
+				end
+			elseif game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == true then
+				CheckQuest()
+				if game:GetService("Workspace").Enemies:FindFirstChild(Ms) then
+					pcall(function()
+							for i, v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+								CheckQuest()  
+								if v.Name == Ms then
+									repeat wait()
+										spawn(function()
+											if game:GetService("Workspace").Enemies:FindFirstChild(Ms) and v.Humanoid.Health > 0 and v:FindFirstChild("Humanoid") then
+												if LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text:find(NameMon) then
+													chichdiem(v.HumanoidRootPart.CFrame * CFrame.new(1,20,1))
+													PosHee = v.HumanoidRootPart.CFrame
+													EquipWeapon(getgenv().SelectWeapon)
+													PosHee = v.HumanoidRootPart.CFrame
+													v.HumanoidRootPart.CanCollide = false
+													v.HumanoidRootPart.Size = Vector3.new(50, 50, 50)
+													StatrMagnet = true
+												else
+													StopTween()
+													local args = {
+														[1] = "AbandonQuest"
+													 }
+													 game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+												end  
+											else
+												CheckQuest() 
+												StatrMagnet = false
+												repeat chichdiem(CFrameMon) wait() until getgenv().StopTween == true or not getgenv().AutoFarm or (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameMon.Position).Magnitude <= 8
+											end 
+										end)
+									until not v.Parent or v.Humanoid.Health <= 0 or getgenv().AutoFarm == false or LocalPlayer.PlayerGui.Main.Quest.Visible == false
+									CheckQuest() 
+									StatrMagnet = false
+								end
+							end
+						end
+					)
+				else
+					CheckQuest()
+					StatrMagnet = false
+					repeat chichdiem(CFrameMon) wait() until getgenv().StopTween == true or not getgenv().AutoFarm or (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameMon.Position).Magnitude <= 8
+				end 
+			end
+		else
+			CheckQuest()
+			if game:GetService("Workspace").Enemies:FindFirstChild(Ms) then
+				pcall(
+					function()
+						for i, v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+							CheckQuest() 
+							if v.Name == Ms then
+								repeat wait()
+									if game:GetService("Workspace").Enemies:FindFirstChild(Ms) and v.Humanoid.Health > 0 and v:FindFirstChild("Humanoid") then
+										chichdiem(v.HumanoidRootPart.CFrame * CFrame.new(1,20,1))
+										EquipWeapon(getgenv().SelectWeapon)
+										PosHee = v.HumanoidRootPart.CFrame
+										v.HumanoidRootPart.CanCollide = false
+										v.HumanoidRootPart.Size = Vector3.new(50, 50, 50)
+										StatrMagnet = true
+									else
+										CheckQuest() 
+										StatrMagnet = false
+										repeat chichdiem(CFrameMon) wait() until getgenv().StopTween == true or not getgenv().AutoFarm or (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameMon.Position).Magnitude <= 8
+									end 
+								until not v.Parent or v.Humanoid.Health <= 0 or getgenv().AutoFarm == false
+								CheckQuest() 
+								StatrMagnet = false
+							end
+						end
+					end
+				)
+			else
+				CheckQuest()
+				StatrMagnet = false
+				repeat chichdiem(CFrameMon) wait() until getgenv().StopTween == true or not getgenv().AutoFarm or (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameMon.Position).Magnitude <= 8
+		     	end 
+		    end
+	    end
+	end)
 end
 
 local SelectToolWeapona = AutoFarm:Dropdown("SelectWeapon",lol,function(Select)
