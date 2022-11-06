@@ -850,7 +850,26 @@ function AutoQuest()     if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visibl
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
     end
 end
-
+function TP()
+CheckQuest()
+    local mob = game:GetService("Workspace").Enemies:GetChildren()
+    local MyLevel = game.Players.LocalPlayer.Data.Level.Value
+if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then
+for i,v in pairs(mob) do
+            if v.Name == Ms then
+               if not game.Players.LocalPlayer.Character:FindFirstChild("HasBuso") then
+                  game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Buso")
+               end
+game.Players.LocalPlayer.Character.HumanoidRootPart.Size = Vector3.new(2, 2.02, 1)
+v.HumanoidRootPart.Size = Vector3.new(60,60,60)
+if game:GetService("Workspace").Enemies[mob].Humanoid.Health == 0 then
+chichdiem(v.HumanoidRootPart.CFrame * CFrame.new(0,0,20))
+EquipWeapon(getgenv().tool)
+			   game:GetService'VirtualUser':CaptureController()
+			   game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
+end
+end
+end
 function autofarm()
     pcall(function()
 	if getgenv().AutoFarm then
