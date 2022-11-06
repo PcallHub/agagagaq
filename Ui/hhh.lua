@@ -889,9 +889,9 @@ function autofarm()
 											if game:GetService("Workspace").Enemies:FindFirstChild(Ms) and v.Humanoid.Health > 0 and v:FindFirstChild("Humanoid") then
 												if LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text:find(NameMon) then
 													totarget(v.HumanoidRootPart.CFrame * CFrame.new(1,20,1))
-													PosHee = v.HumanoidRootPart.CFrame
-													EquipWeapon(getgenv().SelectWeapon)
-													PosHee = v.HumanoidRootPart.CFrame
+													PosMon = v.HumanoidRootPart.CFrame
+													EquipWeapon(getgenv().tool)
+													PosMon = v.HumanoidRootPart.CFrame
 													v.HumanoidRootPart.CanCollide = false
 													v.HumanoidRootPart.Size = Vector3.new(50, 50, 50)
 													StatrMagnet = true
