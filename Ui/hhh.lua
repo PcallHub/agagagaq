@@ -870,6 +870,8 @@ EquipWeapon(getgenv().tool)
 end
 end
 end
+end
+end
 function autofarm()
     pcall(function()
 	if getgenv().AutoFarm then
