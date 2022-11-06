@@ -853,7 +853,7 @@ end
 function Tp()
     local mob = game:GetService("Workspace").Enemies:GetChildren()
     local MyLevel = game.Players.LocalPlayer.Data.Level.Value
-    if game:GetService("Workspace").Enemies[getgenv().MON].Humanoid.Health == 0 then
+    if game:GetService("Workspace").Enemies[Ms].Humanoid.Health == 0 then
     totarget(CFrame.new(CFrameQuest))
     if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then
         for i,v in pairs(mob) do
