@@ -782,7 +782,6 @@ end)
 spawn(function()
 		while wait() do
 			if getgenv().AutoFarm then
-				hitbox()
 				AutoQuest()
                                 autofarm()
                                 TP()
@@ -809,7 +808,6 @@ spawn(function()
             autofarm()
             TP()
             AutoQuest()
-            hitbox()
         end
     end
 end)
@@ -831,12 +829,7 @@ spawn(function()
         end
     end
 end)
-function hitbox()
-for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-    v.HumanoidRootPart.Size = Vector3.new(35, 35, 35)
-    v.HumanoidRootPart.Transparency = 0.5
-end
-end
+
 function AutoQuest()     if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false then
         CheckQuest()
         repeat wait()
