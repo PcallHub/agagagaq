@@ -785,6 +785,7 @@ spawn(function()
 				hitbox()
 				AutoQuest()
                                 autofarm()
+                                TP()
 			end
 		end
 	end)
@@ -806,6 +807,7 @@ spawn(function()
     while wait() do
         if getgenv().AutoFarm then
             autofarm()
+            TP()
             AutoQuest()
             hitbox()
         end
@@ -863,7 +865,7 @@ for i,v in pairs(mob) do
 game.Players.LocalPlayer.Character.HumanoidRootPart.Size = Vector3.new(2, 2.02, 1)
 v.HumanoidRootPart.Size = Vector3.new(60,60,60)
 if game:GetService("Workspace").Enemies[mob].Humanoid.Health == 0 then
-chichdiem(CFrame.new(CFrameMon)
+chichdiem(CFrame.new(CFrameMon))
 chichdiem(v.HumanoidRootPart.CFrame * CFrame.new(0,0,20))
 EquipWeapon(getgenv().tool)
 			   game:GetService'VirtualUser':CaptureController()
