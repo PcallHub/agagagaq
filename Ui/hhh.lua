@@ -861,7 +861,7 @@ for i,v in pairs(mob) do
                end
 game.Players.LocalPlayer.Character.HumanoidRootPart.Size = Vector3.new(2, 2.02, 1)
 v.HumanoidRootPart.Size = Vector3.new(60,60,60)
-chichdiem(v.HumanoidRootPart.CFrame * CFrame.new(0,0,20))
+chichdiem(v.HumanoidRootPart.CFrame * CFrame.new(0,12,4))
 EquipWeapon(getgenv().tool)
 			   game:GetService'VirtualUser':CaptureController()
 			   game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
