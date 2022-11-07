@@ -857,6 +857,10 @@ CheckQuest()
     local mob = game:GetService("Workspace").Enemies:GetChildren()
     local MyLevel = game.Players.LocalPlayer.Data.Level.Value
 if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then
+repeat chichdiem(CFrameMon) wait() until getgenv().AutoFarm or (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameMon.Position).Magnitude <= 8
+											
+										
+											
 for i,v in pairs(mob) do
             if v.Name == Ms then
                if not game.Players.LocalPlayer.Character:FindFirstChild("HasBuso") then
@@ -864,8 +868,6 @@ for i,v in pairs(mob) do
                end
 game.Players.LocalPlayer.Character.HumanoidRootPart.Size = Vector3.new(2, 2.02, 1)
 v.HumanoidRootPart.Size = Vector3.new(60,60,60)
-if game:GetService("Workspace").Enemies[mob].Humanoid.Health == 0 then
-chichdiem(CFrame.new(CFrameMon))
 chichdiem(v.HumanoidRootPart.CFrame * CFrame.new(0,0,20))
 EquipWeapon(getgenv().tool)
 			   game:GetService'VirtualUser':CaptureController()
@@ -874,7 +876,7 @@ end
 end
 end
 end
-end
+
 function autofarm()
     pcall(function()
 	if getgenv().AutoFarm then
@@ -903,6 +905,8 @@ function autofarm()
 													chichdiem(v.HumanoidRootPart.CFrame * CFrame.new(1,20,1))
 													PosHee = v.HumanoidRootPart.CFrame
 													EquipWeapon(getgenv().tool)
+                                                                                                        game:GetService'VirtualUser':CaptureController()
+			   game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
 													PosHee = v.HumanoidRootPart.CFrame
 													v.HumanoidRootPart.CanCollide = false
 													v.HumanoidRootPart.Size = Vector3.new(50, 50, 50)
@@ -945,6 +949,8 @@ function autofarm()
 									if game:GetService("Workspace").Enemies:FindFirstChild(Ms) and v.Humanoid.Health > 0 and v:FindFirstChild("Humanoid") then
 										chichdiem(v.HumanoidRootPart.CFrame * CFrame.new(1,20,1))
 										EquipWeapon(getgenv().tool)
+game:GetService'VirtualUser':CaptureController()
+			   game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
 										PosHee = v.HumanoidRootPart.CFrame
 										v.HumanoidRootPart.CanCollide = false
 										v.HumanoidRootPart.Size = Vector3.new(50, 50, 50)
