@@ -775,7 +775,17 @@ for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
        table.insert(lol, v.Name)
     end
 end
-
+spawn(function()  game:GetService("RunService").Heartbeat:Connect(function() if getgenv().NoClip or getgenv().AutoFarm or getgenv().Observation or getgenv().AutoNew or getgenv().Factory or getgenv().GunMastery or getgenv().Mastery or FramBoss or FramAllBoss or getgenv().AutoBartilo or getgenv().MobAura or getgenv().AutoRengoku or getgenv().AutoSharkman or getgenv().Ectoplasm or getgenv().PoleHop or getgenv().SwanHop or getgenv().BlackBeardHop or getgenv().Chest or getgenv().Electro or rainbowhaki or Hunter or observationv2 or getgenv().ElitehuntHop or getgenv().EliteHunt or getgenv().Pole or getgenv().Tushitahop or getgenv().YamaHop or getgenv().StoreFruit or getgenv().HolyTorch then   if not game:GetService("Workspace"):FindFirstChild("LOL") then
+                local LOL = Instance.new("Part")
+                LOL.Name = "LOL"
+                LOL.Parent = game.Workspace
+                LOL.Anchored = true
+                LOL.Transparency = 1
+                LOL.Size = Vector3.new(30,-0.5,30)
+            elseif game:GetService("Workspace"):FindFirstChild("LOL") then  game.Workspace["LOL"].CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, -3.6, 0) end
+else  if game:GetService("Workspace"):FindFirstChild("LOL") then  game:GetService("Workspace"):FindFirstChild("LOL"):Destroy() end end end) end)
+spawn(function()  game:GetService("RunService").Stepped:Connect(function()  if getgenv().NoClip or getgenv().AutoFarm or getgenv().Observation or getgenv().AutoNew or getgenv().Factory or getgenv().GunMastery or getgenv().Mastery or FramBoss or FramAllBoss or getgenv().AutoBartilo or getgenv().MobAura or getgenv().AutoRengoku or getgenv().AutoSharkman or getgenv().Ectoplasm or getgenv().PoleHop or getgenv().SwanHop or getgenv().BlackBeardHop or getgenv().Chest or getgenv().Electro or rainbowhaki or Hunter or observationv2 or getgenv().ElitehuntHop or getgenv().EliteHunt or getgenv().Pole or getgenv().Tushitahop or getgenv().YamaHop or getgenv().StoreFruit or getgenv().HolyTorch then  for _, v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do  if v:IsA("BasePart") then
+   v.CanCollide = false end     end    end end) end)
 AutoFarm:Toggle("Auto Farm",false,function(vu)
     getgenv().AutoFarm= vu
 end)
@@ -783,8 +793,8 @@ spawn(function()
 		while wait() do
 			if getgenv().AutoFarm then
 				AutoQuest()
-                                autofarm()
-                                TP()
+				TP()
+				autofarm()
 			end
 		end
 	end)
@@ -804,10 +814,10 @@ end)
 
 spawn(function()
     while wait() do
-        if getgenv().AutoFarm then
-            autofarm()
-            TP()
+        if getgenv().farm then
             AutoQuest()
+            TP()
+            hitbox()
         end
     end
 end)
@@ -829,7 +839,6 @@ spawn(function()
         end
     end
 end)
-
 function AutoQuest()     if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false then
         CheckQuest()
         repeat wait()
@@ -959,6 +968,12 @@ function autofarm()
 		    end
 	    end
 	end)
+end
+function hitbox()
+for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+    v.HumanoidRootPart.Size = Vector3.new(35, 35, 35)
+    v.HumanoidRootPart.Transparency = 0.5
+end
 end
 
 local SelectToolWeapona = AutoFarm:Dropdown("SelectWeapon",lol,function(Select)
