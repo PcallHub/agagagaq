@@ -892,7 +892,7 @@ function autofarm()
 												if LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text:find(NameMon) then
 													chichdiem(v.HumanoidRootPart.CFrame * CFrame.new(1,20,1))
 													PosHee = v.HumanoidRootPart.CFrame
-													EquipWeapon(getgenv().SelectWeapon)
+													EquipWeapon(getgenv().tool)
 													PosHee = v.HumanoidRootPart.CFrame
 													v.HumanoidRootPart.CanCollide = false
 													v.HumanoidRootPart.Size = Vector3.new(50, 50, 50)
@@ -934,7 +934,7 @@ function autofarm()
 								repeat wait()
 									if game:GetService("Workspace").Enemies:FindFirstChild(Ms) and v.Humanoid.Health > 0 and v:FindFirstChild("Humanoid") then
 										chichdiem(v.HumanoidRootPart.CFrame * CFrame.new(1,20,1))
-										EquipWeapon(getgenv().SelectWeapon)
+										EquipWeapon(getgenv().tool)
 										PosHee = v.HumanoidRootPart.CFrame
 										v.HumanoidRootPart.CanCollide = false
 										v.HumanoidRootPart.Size = Vector3.new(50, 50, 50)
