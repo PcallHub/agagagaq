@@ -754,7 +754,6 @@ OPENCLOSE.Position=UDim2.new(0.120833337, 0, 0.0952890813, 0)
 OPENCLOSE.Size=UDim2.new(0.0447916649, 0, 0.0845824406, 0)
 OPENCLOSE.Font=Enum.Font.DenkOne
 OPENCLOSE.Text="Open"
-OPENCLOSE.Image = "https://www.roblox.com/library/8192163394/Pastel-Cute-Anime-Girl"
 OPENCLOSE.TextColor3=Color3.fromRGB(255, 0, 0)
 OPENCLOSE.TextScaled=true
 OPENCLOSE.TextSize=14.000
