@@ -849,27 +849,22 @@ function TP()
 CheckQuest()
     local mob = game:GetService("Workspace").Enemies:GetChildren()
     local MyLevel = game.Players.LocalPlayer.Data.Level.Value
-if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then
-repeat chichdiem(CFrameMon) wait() until getgenv().AutoFarm or (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameMon.Position).Magnitude <= 8
-											
-										
-											
-for i,v in pairs(mob) do
+    if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then
+        for i,v in pairs(mob) do
             if v.Name == Ms then
                if not game.Players.LocalPlayer.Character:FindFirstChild("HasBuso") then
                   game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Buso")
                end
-game.Players.LocalPlayer.Character.HumanoidRootPart.Size = Vector3.new(2, 2.02, 1)
-v.HumanoidRootPart.Size = Vector3.new(60,60,60)
-chichdiem(v.HumanoidRootPart.CFrame * CFrame.new(0,12,4))
-EquipWeapon(getgenv().tool)
+               game.Players.LocalPlayer.Character.HumanoidRootPart.Size = Vector3.new(2, 2.02, 1)
+			   v.HumanoidRootPart.Size = Vector3.new(60,60,60)
+			   chichdiem(v.HumanoidRootPart.CFrame * CFrame.new(0,12,4))
+			   EquipWeapon(getgenv().tool)
 			   game:GetService'VirtualUser':CaptureController()
 			   game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
+            end
+        end
+    end
 end
-end
-end
-end
-
 function autofarm()
     pcall(function()
 	if getgenv().AutoFarm then
