@@ -846,7 +846,7 @@ function AutoQuest()     if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visibl
     end
 end
 function TP()
-CheckQuest()
+    CheckQuest()
     local mob = game:GetService("Workspace").Enemies:GetChildren()
     local MyLevel = game.Players.LocalPlayer.Data.Level.Value
     if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then
@@ -892,9 +892,7 @@ function autofarm()
 												if LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text:find(NameMon) then
 													chichdiem(v.HumanoidRootPart.CFrame * CFrame.new(1,20,1))
 													PosHee = v.HumanoidRootPart.CFrame
-													EquipWeapon(getgenv().tool)
-                                                                                                        game:GetService'VirtualUser':CaptureController()
-			   game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
+													EquipWeapon(getgenv().SelectWeapon)
 													PosHee = v.HumanoidRootPart.CFrame
 													v.HumanoidRootPart.CanCollide = false
 													v.HumanoidRootPart.Size = Vector3.new(50, 50, 50)
@@ -936,9 +934,7 @@ function autofarm()
 								repeat wait()
 									if game:GetService("Workspace").Enemies:FindFirstChild(Ms) and v.Humanoid.Health > 0 and v:FindFirstChild("Humanoid") then
 										chichdiem(v.HumanoidRootPart.CFrame * CFrame.new(1,20,1))
-										EquipWeapon(getgenv().tool)
-game:GetService'VirtualUser':CaptureController()
-			   game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
+										EquipWeapon(getgenv().SelectWeapon)
 										PosHee = v.HumanoidRootPart.CFrame
 										v.HumanoidRootPart.CanCollide = false
 										v.HumanoidRootPart.Size = Vector3.new(50, 50, 50)
