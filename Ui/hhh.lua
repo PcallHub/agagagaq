@@ -1705,8 +1705,7 @@ function AutoHaki()
         end
     end
 Main:Toggle("Auto Enma Sword",false,function(vu)
-	getgenv().Yama = vu
-	
+	getgenv().Yama = vu	
 end)
 
 spawn(function()
@@ -2727,19 +2726,6 @@ end)
         getgenv().NOCLIP = value
     end)
 	
-
-spawn(function()
-    while wait() do
-        if sethiddenproperty then
-            sethiddenproperty(game.Players.LocalPlayer,"SimulationRadius",100)
-        end
-        if setscriptable then
-            setscriptable(game.Players.LocalPlayer, "SimulationRadius", true)
-            game.Players.LocalPlayer.SimulationRadius = math.huge * math.huge, math.huge * math.huge * 0 / 0 * 0 / 0 * 0 / 0 * 0 / 0 * 0 / 0
-        end
-    end
-end)
---C
 
 
 	
