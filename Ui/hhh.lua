@@ -1646,46 +1646,41 @@ spawn(function()
 		end
 	end
 end)
+function EquipWeapon(tool)  if game.Players.LocalPlayer.Backpack:FindFirstChild(tool) then   local tool_s = game.Players.LocalPlayer.Backpack:FindFirstChild(tool)    wait() game.Players.LocalPlayer.Character.Humanoid:EquipTool(tool_s) end end
+function EquipWeapon(ToolSe) if game.Players.LocalPlayer.Backpack:FindFirstChild(ToolSe) then local tool = game.Players.LocalPlayer.Backpack:FindFirstChild(ToolSe) wait(.4) 
+	game.Players.LocalPlayer.Character.Humanoid:EquipTool(tool)end end
+K = {}
+for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do  
+    if v:IsA("Tool") then
+       table.insert(K ,v.Name)
+    end
+end
+for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do  
+    if v:IsA("Tool") then
+       table.insert(K, v.Name)
+    end
+end
+local dropdowntoolo = MainPage:addDropdown("Selectweapon Auto Bone",K, function(daubuoi)
+    getgenv().toolo = daubuoi
+end)
+
+MainPage:addButton("Refresh",function()
+    dropdowntoolo:Clear()
+	for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do  
+		if v:IsA("Tool") then
+			dropdowntoolo:Add(v.Name)
+		end
+	end
+	for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do  
+		if v:IsA("Tool") then
+			dropdowntoolo:Add(v.Name)
+		end
+	end
+end)
 Main:Toggle("Auto Farm Bone",false,function(vu)
 	getgenv().Auto_Bone = vu
 	
 end)
-
-spawn(function()
-	while wait(.1) do
-		pcall(function()
-			if getgenv().Auto_Bone then
-				if game:GetService("Workspace").Enemies:FindFirstChild("Reborn Skeleton [Lv. 1975]") or game:GetService("Workspace").Enemies:FindFirstChild("Living Zombie [Lv. 2000]") or game:GetService("Workspace").Enemies:FindFirstChild("Domenic Soul [Lv. 2025]") or game:GetService("Workspace").Enemies:FindFirstChild("Posessed Mummy [Lv. 2050]") then
-					for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-						if v.Name == "Reborn Skeleton [Lv. 1975]" or v.Name == "Living Zombie [Lv. 2000]" or v.Name == "Demonic Soul [Lv. 2025]" or v.Name == "Posessed Mummy [Lv. 2050]" then
-							if v:WaitForChild("Humanoid").Health > 0 then
-								repeat game:GetService("RunService").Heartbeat:wait()
-									chichdiem(v.HumanoidRootPart.CFrame * CFrame.new(0,30,0))
-v.HumanoidRootPart.CFrame = y.HumanoidRootPart.CFrame
-   v.HumanoidRootPart.Transparency = 1
-
-									v.HumanoidRootPart.CanCollide = false
-									v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
-									game:GetService("VirtualUser"):CaptureController()
-									game:GetService("VirtualUser"):Button1Down(Vector2.new(1280, 670),workspace.CurrentCamera.CFrame)
-									MainMonBone = v.HumanoidRootPart.CFrame
-									BoneMagnet = true
-								until getgenv().Auto_Bone == false or not v.Parent or v.Humanoid.Health <= 0
-							end
-						end
-					end
-				else
-					
-					chichdiem(CFrame.new(-9501.64453, 582.052612, 6034.20117))
-if sethiddenproperty then
-     sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
-end
-				end
-			end
-		end)
-	end
-end)
-
 spawn(function()
         while wait() do 
             if getgenv().Auto_Bone and ThreeWorld then
@@ -1693,19 +1688,11 @@ spawn(function()
                     if game:GetService("Workspace").Enemies:FindFirstChild("Reborn Skeleton [Lv. 1975]") or game:GetService("Workspace").Enemies:FindFirstChild("Living Zombie [Lv. 2000]") or game:GetService("Workspace").Enemies:FindFirstChild("Demonic Soul [Lv. 2025]") or game:GetService("Workspace").Enemies:FindFirstChild("Posessed Mummy [Lv. 2050]") then
                         for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
                             if v.Name == "Reborn Skeleton [Lv. 1975]" or v.Name == "Living Zombie [Lv. 2000]" or v.Name == "Demonic Soul [Lv. 2025]" or v.Name == "Posessed Mummy [Lv. 2050]" then
-               if not game.Players.LocalPlayer.Character:FindFirstChild("HasBuso") then
-                  game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Buso")
-               end   
-if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+                                if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
                                     repeat task.wait()
-                                        game.Players.LocalPlayer.Character.HumanoidRootPart.Size = Vector3.new(2, 2.02, 1)
-			   v.HumanoidRootPart.Size = Vector3.new(60,60,60)
-			   chichdiem(v.HumanoidRootPart.CFrame * CFrame.new(0,30,0))
-                                        EquipWeapon(getgenv().tool)
-v.HumanoidRootPart.CFrame = y.HumanoidRootPart.CFrame
+                                        AutoHaki()
+                                        EquipWeapon(getgenv().toolo)
                                         v.HumanoidRootPart.CanCollide = false
-   v.HumanoidRootPart.Transparency = 1
-
                                         v.Humanoid.WalkSpeed = 0
                                         v.Head.CanCollide = false 
                                         StartMagnetBoneMon = true
@@ -1714,9 +1701,6 @@ v.HumanoidRootPart.CFrame = y.HumanoidRootPart.CFrame
                                         game:GetService("VirtualUser"):CaptureController()
                                         game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
                                     until not getgenv().Auto_Farm_Bone or not v.Parent or v.Humanoid.Health <= 0
-if sethiddenproperty then
-     sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
-end
                                 end
                             end
                         end
@@ -1738,23 +1722,11 @@ end
             end
         end
     end)
-
-   
-spawn(function()
-	while game:GetService("RunService").RenderStepped:wait() do
-		if getgenv().Auto_Bone then
-			pcall(function()
-				getgenv().type = "Melee" -- "Blox Fruit" ,"Sword" ,"Gun" ,"Wear"
-for i ,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
-    if v.ToolTip == getgenv().type then
-        game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+    function AutoHaki()
+        if not game:GetService("Players").LocalPlayer.Character:FindFirstChild("HasBuso") then
+            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Buso")
+        end
     end
-end
-
-			end)
-		end
-	end
-end)
 Main:Toggle("Auto Enma Sword",false,function(vu)
 	getgenv().Yama = vu
 	
