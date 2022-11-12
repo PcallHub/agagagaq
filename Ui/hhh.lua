@@ -1683,8 +1683,20 @@ spawn(function()
                 end)
             end
         end
-    end)
-function AutoHaki()
+    end
+if getgenv().Auto_Bone and StartMagnetBoneMon then
+                            if (v.Name == "Reborn Skeleton [Lv. 1975]" or v.Name == "Living Zombie [Lv. 2000]" or v.Name == "Demonic Soul [Lv. 2025]" or v.Name == "Posessed Mummy [Lv. 2050]") and (v.HumanoidRootPart.Position - PosMonBone.Position).Magnitude <= 250 and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+                                v.HumanoidRootPart.Size = Vector3.new(50,50,50)
+                                v.Humanoid:ChangeState(14)
+                                v.HumanoidRootPart.CanCollide = false
+                                v.Head.CanCollide = false
+                                v.HumanoidRootPart.CFrame = PosMonBone
+                                if v.Humanoid:FindFirstChild("Animator") then
+                                    v.Humanoid.Animator:Destroy()
+                                end
+                                sethiddenproperty(game:GetService("Players").LocalPlayer, "SimulationRadius", math.huge)
+                            end
+                        end
 function AutoHaki()
         if not game:GetService("Players").LocalPlayer.Character:FindFirstChild("HasBuso") then
             game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Buso")
