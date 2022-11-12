@@ -917,8 +917,8 @@ local win = UILib:Window("18+ HUB",Color3.fromRGB(6, 252, 206), Enum.KeyCode.Rig
 local AutoFarm = win:Tab("🐧Main")
 local main = win:Tab("🐓Auto Something")
 local Stat = win:Tab("⭐Stats")
-local RaidsTab = Main:Tab("💀 Raids")
-local TeleportTab = Main:Tab("🐶Teleport")
+local RaidsTab = win:Tab("💀 Raids")
+local TeleportTab = win:Tab("🐶Teleport")
 local miscTab = win:Tab("🌚 Misc")
 lol = {}
 for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do  
