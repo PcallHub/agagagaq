@@ -1679,16 +1679,7 @@ end
 end)
 
 
-spawn(function()
-	while game:GetService("RunService").RenderStepped:wait() do
-		if getgenv().Auto_Bone then
-			pcall(function()
-				
 
-			end)
-		end
-	end
-end)
 Main:Toggle("Auto Enma Sword",false,function(vu)
 	getgenv().Yama = vu
 	
