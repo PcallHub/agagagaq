@@ -1277,7 +1277,7 @@ spawn(function()
     end
 end) 
 
-                           Main:Toggle("Auto Evo Race","6022668898",getgenv().Autorace,function(vu)
+                           Main:Toggle("Auto Evo Race",false,function(vu)
 		getgenv().Autorace = vu
 	end)
 
@@ -1367,7 +1367,7 @@ end
 	end)
 end)
 
-Main:Toggle("Auto Bartilo Quest","6022668898",false,function(vu)
+Main:Toggle("Auto Bartilo Quest",false,function(vu)
 	getgenv().AutoBartilo = vu
 	if vu == false then
 		chichdiem(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame)
@@ -1627,7 +1627,7 @@ end
 	end
 end)
 
-Main:Toggle("Auto Holy Torch","6022668898",getgenv().HolyTorch,function(vu)
+Main:Toggle("Auto Holy Torch",false,function(vu)
 	getgenv().HolyTorch = vu
 end)
 spawn(function()
@@ -1646,7 +1646,7 @@ spawn(function()
 		end
 	end
 end)
-Main:Toggle("Auto Farm Bone","6022668898",false,function(vu)
+Main:Toggle("Auto Farm Bone",false,function(vu)
 	getgenv().Auto_Bone = vu
 	getgenv().Character = vu
 end)
