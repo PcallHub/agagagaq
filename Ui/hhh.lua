@@ -1659,7 +1659,7 @@ spawn(function()
 for i ,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
     if v.ToolTip == getgenv().type then
         game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
-    
+    end end
 			   game:GetService'VirtualUser':CaptureController()
 			   game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
             
@@ -1671,8 +1671,8 @@ for i ,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
 					
 					chichdiem(CFrame.new(-9501.64453, 582.052612, 6034.20117))
 				end
-end
-end
+
+
 			end
 		end)
 	end
