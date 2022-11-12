@@ -1702,7 +1702,6 @@ function AutoHaki()
             game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Buso")
         end
     end
-end
 Main:Toggle("Auto Enma Sword",false,function(vu)
 	getgenv().Yama = vu
 	
