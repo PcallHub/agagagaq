@@ -913,13 +913,13 @@ OPENCLOSE.TextWrapped=true
 OPENCLOSE.MouseButton1Click:Connect(function()
 game.CoreGui:FindFirstChild("Best Xem Chùa").Enabled = not game.CoreGui:FindFirstChild("Best Xem Chùa").Enabled
 end)
-local win = UILib:Window("😱Béo HUB😂",Color3.fromRGB(6, 252, 206), Enum.KeyCode.RightControl)
+local win = UILib:Window("😱Béo HUB😂",Color3.fromRGB(203, 244, 242), Enum.KeyCode.RightControl)
 local AutoFarm = win:Tab("🐧Main")
-local Main = win:Tab("🐓Auto Something")
-local Stat = win:Tab("⭐Stats")
-local RaidsTab = win:Tab("💀 Raids")
-local TeleportTab = win:Tab("🐶Teleport")
-local Misc = win:Tab("🌚 Misc")
+local main = win:Tab("🐓Auto Something")
+local Stat = win:Tab("✨⭐Stats")
+local RaidsTab = Main:Tab("💀 Raids")
+local TeleportTab = Main:Tab("🦸💝Teleport")
+local Misc = win:Tab("🌚🌝 Misc")
 lol = {}
 for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do  
     if v:IsA("Tool") then
@@ -1277,7 +1277,7 @@ spawn(function()
     end
 end) 
 
-                           Main:Toggle("Auto Evo Race",false,function(vu)
+                           Main:Toggle("Auto Evo Race","6022668898",getgenv().Autorace,function(vu)
 		getgenv().Autorace = vu
 	end)
 
@@ -1367,7 +1367,7 @@ end
 	end)
 end)
 
-Main:Toggle("Auto Bartilo Quest",false,function(vu)
+Main:Toggle("Auto Bartilo Quest","6022668898",false,function(vu)
 	getgenv().AutoBartilo = vu
 	if vu == false then
 		chichdiem(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame)
@@ -1558,9 +1558,7 @@ spawn(function()
 end)
 	
 
-Main:Toggle("Auto electric claw",false,function(a)
-getgenv().AutoElectricClawV2 = a
-end)
+
 
 spawn(function()
 	while wait() do wait()
@@ -1582,6 +1580,13 @@ spawn(function()
 				game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyElectro")
 			end
 		end
+	end
+end)
+spawn(function()
+	while true do
+		local TotalElite = tostring(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("EliteHunter","Progress"))
+		CheckElite:Set("Total EliteHunter Progress : "..TotalElite)
+		game:GetService("RunService").Heartbeat:wait()
 	end
 end)
 
@@ -1622,7 +1627,7 @@ end
 	end
 end)
 
-Main:Toggle("Auto Holy Torch",false,function(vu)
+Main:Toggle("Auto Holy Torch","6022668898",getgenv().HolyTorch,function(vu)
 	getgenv().HolyTorch = vu
 end)
 spawn(function()
@@ -1641,71 +1646,59 @@ spawn(function()
 		end
 	end
 end)
-Main:Toggle("Auto Farm Bone",false,function(vu)
+Main:Toggle("Auto Farm Bone","6022668898",false,function(vu)
 	getgenv().Auto_Bone = vu
-UILib:Notification("Notification", "Selectweapon in Main", "Okay")
+	getgenv().Character = vu
 end)
+
 spawn(function()
-        while wait() do 
-            if getgenv().Auto_Bone then
-                pcall(function()
-                    if game:GetService("Workspace").Enemies:FindFirstChild("Reborn Skeleton [Lv. 1975]") or game:GetService("Workspace").Enemies:FindFirstChild("Living Zombie [Lv. 2000]") or game:GetService("Workspace").Enemies:FindFirstChild("Demonic Soul [Lv. 2025]") or game:GetService("Workspace").Enemies:FindFirstChild("Posessed Mummy [Lv. 2050]") then
-                        for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-                            if v.Name == "Reborn Skeleton [Lv. 1975]" or v.Name == "Living Zombie [Lv. 2000]" or v.Name == "Demonic Soul [Lv. 2025]" or v.Name == "Posessed Mummy [Lv. 2050]" then
-                                if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
-                                    repeat task.wait()
-                                        AutoHaki()
-                                        EquipWeapon(getgenv().tool)
-                                        v.HumanoidRootPart.CanCollide = false
-                                        v.Humanoid.WalkSpeed = 0
-                                        v.Head.CanCollide = false 
-                                        StartMagnetBoneMon = true
-                                        PosMonBone = v.HumanoidRootPart.CFrame
-                                        chichdiem(v.HumanoidRootPart.CFrame * CFrame.new(2,20,2))
-                                        game:GetService("VirtualUser"):CaptureController()
-                                        game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
-                                    until not getgenv().Auto_Farm_Bone or not v.Parent or v.Humanoid.Health <= 0
-                                end
-                            end
-                        end
-                    else
-                        StartMagnetBoneMon = false
-                        for i,v in pairs(game:GetService("ReplicatedStorage"):GetChildren()) do 
-                            if v.Name == "Reborn Skeleton [Lv. 1975]" then
-                                chichdiem(v.HumanoidRootPart.CFrame * CFrame.new(2,20,2))
-                            elseif v.Name == "Living Zombie [Lv. 2000]" then
-                                chichdiem(v.HumanoidRootPart.CFrame * CFrame.new(2,20,2))
-                            elseif v.Name == "Demonic Soul [Lv. 2025]" then
-                                chichdiem(v.HumanoidRootPart.CFrame * CFrame.new(2,20,2))
-                            elseif v.Name == "Posessed Mummy [Lv. 2050]" then
-                                chichdiem(v.HumanoidRootPart.CFrame * CFrame.new(2,20,2))
-                            end
-                        end
-                    end
-                end)
-            end
-        end
+	while wait(.1) do
+		pcall(function()
+			if getgenv().Auto_Bone then
+				if game:GetService("Workspace").Enemies:FindFirstChild("Reborn Skeleton [Lv. 1975]") or game:GetService("Workspace").Enemies:FindFirstChild("Living Zombie [Lv. 2000]") or game:GetService("Workspace").Enemies:FindFirstChild("Domenic Soul [Lv. 2025]") or game:GetService("Workspace").Enemies:FindFirstChild("Posessed Mummy [Lv. 2050]") then
+					for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+						if v.Name == "Reborn Skeleton [Lv. 1975]" or v.Name == "Living Zombie [Lv. 2000]" or v.Name == "Demonic Soul [Lv. 2025]" or v.Name == "Posessed Mummy [Lv. 2050]" then
+							if v:WaitForChild("Humanoid").Health > 0 then
+								repeat game:GetService("RunService").Heartbeat:wait()
+									chichdiem(v.HumanoidRootPart.CFrame * CFrame.new(0,30,0))
+									v.HumanoidRootPart.CanCollide = false
+									v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
+									game:GetService("VirtualUser"):CaptureController()
+									game:GetService("VirtualUser"):Button1Down(Vector2.new(1280, 670),workspace.CurrentCamera.CFrame)
+									MainMonBone = v.HumanoidRootPart.CFrame
+									BoneMagnet = true
+								until getgenv().Auto_Bone == false or not v.Parent or v.Humanoid.Health <= 0
+							end
+						end
+					end
+				else
+					
+					chichdiem(CFrame.new(-9501.64453, 582.052612, 6034.20117))
+				end
+			end
+		end)
+	end
+end)
+
+
+spawn(function()
+	while game:GetService("RunService").RenderStepped:wait() do
+		if getgenv().Auto_Bone then
+			pcall(function()
+				getgenv().type = "Melee" -- "Blox Fruit" ,"Sword" ,"Gun" ,"Wear"
+for i ,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+    if v.ToolTip == getgenv().type then
+        game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
     end
-if getgenv().Auto_Bone then
-                            if (v.Name == "Reborn Skeleton [Lv. 1975]" or v.Name == "Living Zombie [Lv. 2000]" or v.Name == "Demonic Soul [Lv. 2025]" or v.Name == "Posessed Mummy [Lv. 2050]") and (v.HumanoidRootPart.Position - PosMonBone.Position).Magnitude <= 250 and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
-                                v.HumanoidRootPart.Size = Vector3.new(50,50,50)
-                                v.Humanoid:ChangeState(14)
-                                v.HumanoidRootPart.CanCollide = false
-                                v.Head.CanCollide = false
-                                v.HumanoidRootPart.CFrame = CFrame.new(2,20,2)
-                                if v.Humanoid:FindFirstChild("Animator") then
-                                    v.Humanoid.Animator:Destroy()
-                                end
-                                sethiddenproperty(game:GetService("Players").LocalPlayer, "SimulationRadius", math.huge)
-                            end
-                        end
-function AutoHaki()
-        if not game:GetService("Players").LocalPlayer.Character:FindFirstChild("HasBuso") then
-            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Buso")
-        end
-    end
+end
+
+			end)
+		end
+	end
+end)
 Main:Toggle("Auto Enma Sword",false,function(vu)
-	getgenv().Yama = vu	
+	getgenv().Yama = vu
+	
 end)
 
 spawn(function()
@@ -2157,7 +2150,7 @@ TeleportTab:Button("Teleport Sea 1",function()
 	end)
 		if game.PlaceId == 2753915549 then
 
-			TeleportTab :addButton("Teleport to New World",function()
+			TeleportTab :Button("Teleport to New World",function()
 				local args = {
 					[1] = "Dressrosa" -- OLD WORLD to NEW WORLD
 				}
@@ -2165,7 +2158,7 @@ TeleportTab:Button("Teleport Sea 1",function()
 				end)
 			end
 if OldWorld then
-TeleportTab:Dropdown("SelectIsland",{
+TeleportTab:Dropdown ("SelectIsland",{
             "WindMill",
             "Marine",
             "Middle Town",
@@ -2219,25 +2212,25 @@ TeleportTab:Button("Tween",function()
 if getgenv().TELEPORTISLAND == "WindMill" then
                 chichdiem(CFrame.new(979.79895019531, 16.516613006592, 1429.0466308594))
         elseif getgenv().TELEPORTISLAND == "Marine" then
-                chichdiemm(CFrame.new(-2566.4296875, 6.8556680679321, 2045.2561035156))
+                chichdiem(CFrame.new(-2566.4296875, 6.8556680679321, 2045.2561035156))
         elseif getgenv().TELEPORTISLAND == "Middle Town" then
-                chichdiemm(CFrame.new(-690.33081054688, 15.09425163269, 1582.2380371094))
+                chichdiem(CFrame.new(-690.33081054688, 15.09425163269, 1582.2380371094))
         elseif getgenv().TELEPORTISLAND == "Jungle" then
-                chichdiemm(CFrame.new(-1612.7957763672, 36.852081298828, 149.12843322754))
+                chichdiem(CFrame.new(-1612.7957763672, 36.852081298828, 149.12843322754))
         elseif getgenv().TELEPORTISLAND == "Pirate Village" then
-                chichdiemm(CFrame.new(-1181.3093261719, 4.7514905929565, 3803.5456542969))
+                chichdiem(CFrame.new(-1181.3093261719, 4.7514905929565, 3803.5456542969))
         elseif getgenv().TELEPORTISLAND == "Desert" then
-                chichdiemm(CFrame.new(944.15789794922, 20.919729232788, 4373.3002929688))
+                chichdiem(CFrame.new(944.15789794922, 20.919729232788, 4373.3002929688))
         elseif getgenv().TELEPORTISLAND == "Snow Island" then
-                chichdiemm(CFrame.new(1347.8067626953, 104.66806030273, -1319.7370605469))
+                chichdiem(CFrame.new(1347.8067626953, 104.66806030273, -1319.7370605469))
         elseif getgenv().TELEPORTISLAND == "MarineFord" then
-                chichdiemm(CFrame.new(-4914.8212890625, 50.963626861572, 4281.0278320313))
+                chichdiem(CFrame.new(-4914.8212890625, 50.963626861572, 4281.0278320313))
         elseif getgenv().TELEPORTISLAND == "Colosseum" then
-               chichdiemm( CFrame.new(-1427.6203613281, 7.2881078720093, -2792.7722167969))
+               chichdiem( CFrame.new(-1427.6203613281, 7.2881078720093, -2792.7722167969))
         elseif getgenv().TELEPORTISLAND == "Sky Island 1" then
-                chichdiemm(CFrame.new(-4869.1025390625, 733.46051025391, -2667.0180664063))
+                chichdiem(CFrame.new(-4869.1025390625, 733.46051025391, -2667.0180664063))
         elseif getgenv().TELEPORTISLAND == "Sky Island 2" then
-                function chichdiemm(P1,P2)
+                function TP(P1,P2)
     local Distance = (P1 - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
     if Distance < 1000 then
         Speed = 500
@@ -2252,80 +2245,80 @@ if getgenv().TELEPORTISLAND == "WindMill" then
     wait(Distance/Speed)
 end
 
-chichdiem(Vector3.new(-4644.587890625, 872.54241943359, -1742.3826904297), CFrame.new(-4644.58789, 872.542419, -1742.38269, -0.886984944, -2.65218905e-08, -0.46179834, -4.08027745e-09, 1, -4.95946892e-08, 0.46179834, -4.210548e-08, -0.886984944))
+TP(Vector3.new(-4644.587890625, 872.54241943359, -1742.3826904297), CFrame.new(-4644.58789, 872.542419, -1742.38269, -0.886984944, -2.65218905e-08, -0.46179834, -4.08027745e-09, 1, -4.95946892e-08, 0.46179834, -4.210548e-08, -0.886984944))
 game:GetService("ReplicatedStorage").Remotes["CommF_"]:InvokeServer("requestEntrance", Vector3.new(-7894.6176757812, 5547.1416015625, -380.29119873))
         elseif getgenv().TELEPORTISLAND == "Sky Island 3" then
-                chichdiemm(CFrame.new(-7994.10546875, 5756.033203125, -1942.4979248047))
+                chichdiem(CFrame.new(-7994.10546875, 5756.033203125, -1942.4979248047))
         elseif getgenv().TELEPORTISLAND == "Prison" then
-               chichdiemm( CFrame.new(4875.330078125, 5.6519818305969, 734.85021972656))
+               chichdiem( CFrame.new(4875.330078125, 5.6519818305969, 734.85021972656))
         elseif getgenv().TELEPORTISLAND == "Magma Village" then
-                chichdiemm(CFrame.new(-5247.7163085938, 12.883934020996, 8504.96875))
+                chichdiem(CFrame.new(-5247.7163085938, 12.883934020996, 8504.96875))
         elseif getgenv().TELEPORTISLAND == "Under Water Island" then
-                chichdiemm(CFrame.new(3876.6374511719, 5.3731470108032, -1896.9306640625))
+                chichdiem(CFrame.new(3876.6374511719, 5.3731470108032, -1896.9306640625))
         elseif getgenv().TELEPORTISLAND == "Fountain City" then
-                chichdiemm(CFrame.new(5127.1284179688, 59.501365661621, 4105.4458007813))
+                chichdiem(CFrame.new(5127.1284179688, 59.501365661621, 4105.4458007813))
         elseif getgenv().TELEPORTISLAND == "Shank Room" then
-                chichdiemm(CFrame.new(-1442.16553, 29.8788261, -28.3547478))
+                chichdiem(CFrame.new(-1442.16553, 29.8788261, -28.3547478))
         elseif getgenv().TELEPORTISLAND == "Mob Island" then
-                chichdiemm(CFrame.new(-2850.20068, 7.39224768, 5354.99268))
+                chichdiem(CFrame.new(-2850.20068, 7.39224768, 5354.99268))
         elseif getgenv().TELEPORTISLAND == "cafe" then
-                chichdiemm(CFrame.new(-380.47927856445, 77.220390319824, 255.82550048828))
+                chichdiem(CFrame.new(-380.47927856445, 77.220390319824, 255.82550048828))
         elseif getgenv().TELEPORTISLAND == "Frist Spot" then
-                chichdiemm(CFrame.new(-11.311455726624, 29.276733398438, 2771.5224609375))
+                chichdiem(CFrame.new(-11.311455726624, 29.276733398438, 2771.5224609375))
         elseif getgenv().TELEPORTISLAND == "Dark Area" then
-                chichdiemm(CFrame.new(3780.0302734375, 22.652164459229, -3498.5859375))
+                chichdiem(CFrame.new(3780.0302734375, 22.652164459229, -3498.5859375))
         elseif getgenv().TELEPORTISLAND == "Flamingo Mansion" then
-                chichdiemm(CFrame.new(-483.73370361328, 332.0383605957, 595.32708740234))
+                chichdiem(CFrame.new(-483.73370361328, 332.0383605957, 595.32708740234))
         elseif getgenv().TELEPORTISLAND == "Flamingo Room" then
-                chichdiemm(CFrame.new(2284.4140625, 15.152037620544, 875.72534179688))
+                chichdiem(CFrame.new(2284.4140625, 15.152037620544, 875.72534179688))
         elseif getgenv().TELEPORTISLAND == "Green Zone" then
-               chichdiemm(CFrame.new(-2448.5300292969, 73.016105651855, -3210.6306152344))
+               chichdiem( CFrame.new(-2448.5300292969, 73.016105651855, -3210.6306152344))
         elseif getgenv().TELEPORTISLAND == "Factory" then
-                chichdiemm(CFrame.new(424.12698364258, 211.16171264648, -427.54049682617))
+                chichdiem(CFrame.new(424.12698364258, 211.16171264648, -427.54049682617))
         elseif getgenv().TELEPORTISLAND == "Colossuim" then
-               chichdiemm( CFrame.new(-1503.6224365234, 219.7956237793, 1369.3101806641))
+               chichdiem( CFrame.new(-1503.6224365234, 219.7956237793, 1369.3101806641))
         elseif getgenv().TELEPORTISLAND == "Zombie Island" then
-                chichdiemm(CFrame.new(-5622.033203125, 492.19604492188, -781.78552246094))
+                chichdiem(CFrame.new(-5622.033203125, 492.19604492188, -781.78552246094))
         elseif getgenv().TELEPORTISLAND == "Two Snow Mountain" then
-                chichdiemm(CFrame.new(753.14288330078, 408.23559570313, -5274.6147460938))
+                chichdiem(CFrame.new(753.14288330078, 408.23559570313, -5274.6147460938))
         elseif getgenv().TELEPORTISLAND == "Punk Hazard" then
-                chichdiemm(CFrame.new(-6127.654296875, 15.951762199402, -5040.2861328125))
+                chichdiem(CFrame.new(-6127.654296875, 15.951762199402, -5040.2861328125))
         elseif getgenv().TELEPORTISLAND == "Cursed Ship" then
-                chichdiemm(CFrame.new(923.40197753906, 125.05712890625, 32885.875))
+                chichdiem(CFrame.new(923.40197753906, 125.05712890625, 32885.875))
         elseif getgenv().TELEPORTISLAND == "Ice Castle" then
-                chichdiemm(CFrame.new(6148.4116210938, 294.38687133789, -6741.1166992188))
+                chichdiem(CFrame.new(6148.4116210938, 294.38687133789, -6741.1166992188))
         elseif getgenv().TELEPORTISLAND == "Forgotten Island" then
-                chichdiemm(CFrame.new(-3032.7641601563, 317.89672851563, -10075.373046875))
+                chichdiem(CFrame.new(-3032.7641601563, 317.89672851563, -10075.373046875))
         elseif getgenv().TELEPORTISLAND == "Ussop Island" then
-                chichdiemm(CFrame.new(4816.8618164063, 8.4599885940552, 2863.8195800781))
+                chichdiem(CFrame.new(4816.8618164063, 8.4599885940552, 2863.8195800781))
         elseif getgenv().TELEPORTISLAND == "Mini Sky Island" then
-                chichdiemm(CFrame.new(-288.74060058594, 49326.31640625, -35248.59375))
+                chichdiem(CFrame.new(-288.74060058594, 49326.31640625, -35248.59375))
         elseif getgenv().TELEPORTISLAND == "Great Tree" then
-                chichdiemm(CFrame.new(2681.2736816406, 1682.8092041016, -7190.9853515625))
+                chichdiem(CFrame.new(2681.2736816406, 1682.8092041016, -7190.9853515625))
         elseif getgenv().TELEPORTISLAND == "Castle On The Sea" then
-                chichdiemm(CFrame.new(-5044.7612304688, 314.85876464844, -2995.3803710938))
+                chichdiem(CFrame.new(-5044.7612304688, 314.85876464844, -2995.3803710938))
         elseif getgenv().TELEPORTISLAND == "MiniSky" then
-                chichdiemm(CFrame.new(-260.65557861328, 49325.8046875, -35253.5703125))
+                chichdiem(CFrame.new(-260.65557861328, 49325.8046875, -35253.5703125))
         elseif getgenv().TELEPORTISLAND == "Port Town" then
-                chichdiemm(CFrame.new(-294.20208740234, 29.756063461304, 5395.4111328125))
+                chichdiem(CFrame.new(-294.20208740234, 29.756063461304, 5395.4111328125))
         elseif getgenv().TELEPORTISLAND == "Hydra Island" then
-                chichdiemm(CFrame.new(5228.8842773438, 604.23400878906, 345.0400390625))
+                chichdiem(CFrame.new(5228.8842773438, 604.23400878906, 345.0400390625))
         elseif getgenv().TELEPORTISLAND == "Floating Turtle" then
-                chichdiemm(CFrame.new(-13274.528320313, 531.82073974609, -7579.22265625))
+                chichdiem(CFrame.new(-13274.528320313, 531.82073974609, -7579.22265625))
         elseif getgenv().TELEPORTISLAND == "Mansion" then
                 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-12550.325195313, 337.51156616211, -7508.9936523438) 
          elseif getgenv().TELEPORTISLAND == "Room Enma/Yama & Secret Temple" then
-                chichdiemm(CFrame.new(5247, 7, 1097))
+                chichdiem(CFrame.new(5247, 7, 1097))
           elseif getgenv().TELEPORTISLAND == "House Hydar Island" then
-                 chichdiemm(CFrame.new(5245, 602, 251))
+                 chichdiem(CFrame.new(5245, 602, 251))
                  elseif getgenv().TELEPORTISLAND == "Haunted Castle" then
-                 chichdiemm(CFrame.new(-9509.34961, 142.130661, 5535.16309))
+                 chichdiem(CFrame.new(-9509.34961, 142.130661, 5535.16309))
                  elseif getgenv().TELEPORTISLAND == "Peanut Island" then
-                 chichdiemm(CFrame.new(-2131, 38, -10106))
+                 chichdiem(CFrame.new(-2131, 38, -10106))
                  elseif getgenv().TELEPORTISLAND == "Ice Cream Island"then
-                 chichdiemm(CFrame.new(-950, 59, -10907))
+                 chichdiem(CFrame.new(-950, 59, -10907))
                  elseif getgenv().TELEPORTISLAND == "CakeLoaf" then
-                 chichdiemm(CFrame.new(-1762, 38, -11878))
+                 chichdiem(CFrame.new(-1762, 38, -11878))
         end
 end)
 Misc:Toggle("Fly",false,function(b)
@@ -2358,14 +2351,118 @@ NoDodgeCool()
 end
 end
 end)
-Misc:Button("Checking Bone", function()
-    game.StarterGui:SetCore("SendNotification", {
-        Title = "Checking Bone", 
-        Text = ("Your Bone : "..(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Bones","Check")))
-    })
-    wait(1)
+Misc:Button("Hop To Lower Player",function()
+        getgenv().AutoTeleport = true
+        getgenv().DontTeleportTheSameNumber = true 
+        getgenv().CopytoClipboard = false
+        if not game:IsLoaded() then
+            print("Game is loading waiting...")
+        end
+        local maxplayers = math.huge
+        local serversmaxplayer;
+        local goodserver;
+        local gamelink = "https://games.roblox.com/v1/games/" .. game.PlaceId .. "/servers/Public?sortOrder=Asc&limit=100" 
+        function serversearch()
+            for _, v in pairs(game:GetService("HttpService"):JSONDecode(game:HttpGetAsync(gamelink)).data) do
+                if type(v) == "table" and v.playing ~= nil and maxplayers > v.playing then
+                    serversmaxplayer = v.maxPlayers
+                    maxplayers = v.playing
+                    goodserver = v.id
+                end
+            end       
+        end
+        function getservers()
+            serversearch()
+            for i,v in pairs(game:GetService("HttpService"):JSONDecode(game:HttpGetAsync(gamelink))) do
+                if i == "nextPageCursor" then
+                    if gamelink:find("&cursor=") then
+                        local a = gamelink:find("&cursor=")
+                        local b = gamelink:sub(a)
+                        gamelink = gamelink:gsub(b, "")
+                    end
+                    gamelink = gamelink .. "&cursor=" ..v
+                    getservers()
+                end
+            end
+        end 
+        getservers()
+        if AutoTeleport then
+            if DontTeleportTheSameNumber then 
+                if #game:GetService("Players"):GetPlayers() - 4  == maxplayers then
+                    return warn("It has same number of players (except you)")
+                elseif goodserver == game.JobId then
+                    return warn("Your current server is the most empty server atm") 
+                end
+            end
+            game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, goodserver)
+        end
+    end)
+    
+    Misc:Button("Open Devil Shop",function()
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("GetFruits")
+        game:GetService("Players").LocalPlayer.PlayerGui.Main.FruitShop.Visible = true
+    end)
+    
+    Misc:Button("Open Inventory",function()
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("getInventoryWeapons")
+        wait(1)
+        game:GetService("Players").LocalPlayer.PlayerGui.Main.Inventory.Visible = true
+    end)
+    
+    Misc:Button("Open Inventory Fruit",function()
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("getInventoryFruits")
+        game:GetService("Players").LocalPlayer.PlayerGui.Main.FruitInventory.Visible = true
+    end)
+    
+    Misc:Button("Title Name",function()
+    local args = {
+        [1] = "getTitles"
+    }
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+    game.Players.localPlayer.PlayerGui.Main.Titles.Visible = true
 end)
-Misc:Button("Unlock Portal",function()
+
+Misc:Button("Color Haki",function()
+    game.Players.localPlayer.PlayerGui.Main.Colors.Visible = true
+end)
+    
+    Misc:Toggle("Highlight Mode",false,function(value)
+        if value == true then
+            game:GetService("Players")["LocalPlayer"].PlayerGui.Main.Beli.Visible = false
+            game:GetService("Players")["LocalPlayer"].PlayerGui.Main.HP.Visible = false
+            game:GetService("Players")["LocalPlayer"].PlayerGui.Main.Energy.Visible = false
+            game:GetService("Players")["LocalPlayer"].PlayerGui.Main.StatsButton.Visible = false
+            game:GetService("Players")["LocalPlayer"].PlayerGui.Main.ShopButton.Visible = false
+            game:GetService("Players")["LocalPlayer"].PlayerGui.Main.Skills.Visible = false
+            game:GetService("Players")["LocalPlayer"].PlayerGui.Main.Level.Visible = false
+            game:GetService("Players")["LocalPlayer"].PlayerGui.Main.MenuButton.Visible = false
+            game:GetService("Players")["LocalPlayer"].PlayerGui.Main.Code.Visible = false
+            game:GetService("Players")["LocalPlayer"].PlayerGui.Main.Settings.Visible = false
+            game:GetService("Players")["LocalPlayer"].PlayerGui.Main.Mute.Visible = false
+            game:GetService("Players")["LocalPlayer"].PlayerGui.Main.CrewButton.Visible = false
+        else
+            game:GetService("Players")["LocalPlayer"].PlayerGui.Main.Beli.Visible = true
+            game:GetService("Players")["LocalPlayer"].PlayerGui.Main.HP.Visible = true
+            game:GetService("Players")["LocalPlayer"].PlayerGui.Main.Energy.Visible = true
+            game:GetService("Players")["LocalPlayer"].PlayerGui.Main.StatsButton.Visible = true
+            game:GetService("Players")["LocalPlayer"].PlayerGui.Main.ShopButton.Visible = true
+            game:GetService("Players")["LocalPlayer"].PlayerGui.Main.Skills.Visible = true
+            game:GetService("Players")["LocalPlayer"].PlayerGui.Main.Level.Visible = true
+            game:GetService("Players")["LocalPlayer"].PlayerGui.Main.MenuButton.Visible = true
+            game:GetService("Players")["LocalPlayer"].PlayerGui.Main.Code.Visible = true
+            game:GetService("Players")["LocalPlayer"].PlayerGui.Main.Settings.Visible = true
+            game:GetService("Players")["LocalPlayer"].PlayerGui.Main.Mute.Visible = true
+            game:GetService("Players")["LocalPlayer"].PlayerGui.Main.CrewButton.Visible = true
+        end
+    end)
+    Misc:Button("Join Pirates Team",function()
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetTeam","Pirates") 
+    end)
+    
+    Misc:Button("Join Marines Team",function()
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetTeam","Marines") 
+    end)
+    Misc:Button("Unlock Portal",function()
         getgenv().UnlockPortal = true
     end)
     
@@ -2430,10 +2527,10 @@ Misc:Button("Unlock Portal",function()
     end)
     
     Misc:Button("Stop All Tween",function()
-        chichdiem(game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame)
+        topos(game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame)
         getgenv().Clip = false
     end)
-    local x2Code = {
+local x2Code = {
         "3BVISITS",
         "UPD16",
         "FUDD10",
@@ -2619,113 +2716,25 @@ Misc:Button("Unlock Portal",function()
     game.Players.LocalPlayer.Character.Pants:Destroy()
     game.Players.LocalPlayer.Character.Animate.Disabled = true 
 end)
-    Misc:Toggle("Infinite Obversation Range",getgenv().InfiniteObRange,function(value)
-        getgenv().InfiniteObRange = value
-        local VS = game:GetService("Players").LocalPlayer.VisionRadius.Value
-        while getgenv().InfiniteObRange do
-            wait()
-            local player = game:GetService("Players").LocalPlayer
-            local char = player.Character
-            local VisionRadius = player.VisionRadius
-            if player then
-                if char.Humanoid.Health <= 0 then 
-                    wait(5) 
-                end
-                VisionRadius.Value = math.huge
-            elseif getgenv().InfiniteObRange == false and player then
-                VisionRadius.Value = VS
-            end
-        end
-    end)
-    
-    Misc:Toggle("Infinite Geppo",getgenv().InfGeppo,function(value)
-        getgenv().InfGeppo = value
-    end)
-    
-    spawn(function()
-        while wait() do
-            pcall(function()
-                if getgenv().InfGeppo then
-                    for i,v in next, getgc() do
-                        if game:GetService("Players").LocalPlayer.Character.Geppo then
-                            if typeof(v) == "function" and getfenv(v).script == game:GetService("Players").LocalPlayer.Character.Geppo then
-                                for i2,v2 in next, getupvalues(v) do
-                                    if tostring(i2) == "9" then
-                                        repeat wait(.1)
-                                            setupvalue(v,i2,0)
-                                        until not getgenv().InfGeppo or game:GetService("Players").LocalPlayer.Character.Humanoid.Health <= 0 
-                                    end
-                                end
-                            end
-                        end
-                    end
-                end
-            end)
-        end
-    end)
-    
-    Misc:Toggle("Infinite Soru",getgenv().InfSoru,function(value)
-        getgenv().InfSoru = value
-    end)
-    
-    spawn(function()
-        while wait() do
-            pcall(function()
-                if getgenv().InfSoru and game:GetService("Players").LocalPlayer.Character:FindFirstChild("HumanoidRootPart") ~= nil  then
-                    for i,v in next, getgc() do
-                        if game:GetService("Players").LocalPlayer.Character.Soru then
-                            if typeof(v) == "function" and getfenv(v).script == game:GetService("Players").LocalPlayer.Character.Soru then
-                                for i2,v2 in next, getupvalues(v) do
-                                    if typeof(v2) == "table" then
-                                        repeat wait(0.1)
-                                            v2.LastUse = 0
-                                        until not getgenv().InfSoru or game:GetService("Players").LocalPlayer.Character.Humanoid.Health <= 0
-                                    end
-                                end
-                            end
-                        end
-                    end
-                end
-            end)
-        end
-    end)
-    
-    Misc:Toggle("Walk on Water",getgenv().WalkWater,function(value)
-        getgenv().WalkWater = value
-    end)
-    
-    spawn(function()
-        pcall(function()
-            while wait() do
-                if getgenv().WalkWater then
-                    if game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame.Y <= 1 then
-                        if not game:GetService("Workspace"):FindFirstChild("Water") then
-                            local Water = Instance.new("Part", game:GetService("Workspace"))
-                            Water.Name = "Water"
-                            Water.Size = Vector3.new(20,0.5,20)
-                            Water.Anchored = true
-                            Water.Material = "Neon"
-                            Water.Color = getgenv().Color
-                            game:GetService("Workspace").Water.CFrame = CFrame.new(game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame.X,game:GetService("Workspace").Camera["Water;"].CFrame.Y,game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame.Z)
-                        else
-                            game:GetService("Workspace").Water.CFrame = CFrame.new(game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame.X,game:GetService("Workspace").Camera["Water;"].CFrame.Y,game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame.Z)
-                        end
-                    elseif game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame.Y >= 1 and game:GetService("Workspace"):FindFirstChild("Water") then
-                        game:GetService("Workspace"):FindFirstChild("Water"):Destroy()
-                    end
-                else
-                    if game:GetService("Workspace"):FindFirstChild("Water") then
-                        game:GetService("Workspace"):FindFirstChild("Water"):Destroy()
-                    end
-                end
-            end
-        end)
-    end)
-    
-    Misc:Toggle("NoClip",getgenv().NOCLIP,function(value)
-        getgenv().NOCLIP = value
-    end)
-	
-
-
-	
+Misc:Toggle("Auto Click",autoclick,function(value)
+		AuctoClick = value
+	end)
+	spawn(function()
+		while wait() do
+			if AuctoClick then
+				Click()
+			end
+		end
+	end)
+	Misc:Toggle("No Clip",false,function(value)
+		NoClip = value
+	end)
+	if game.workspace:FindFirstChild("WaterWalk") then
+		game.workspace:FindFirstChild("WaterWalk"):Destroy()
+	end
+	platform = Instance.new("Part")
+	platform.Name = "WaterWalk"
+	platform.Size = Vector3.new(math.huge, 1, math.huge)
+	platform.Transparency = 1
+	platform.Anchored = true
+	platform.Parent = game.workspace
