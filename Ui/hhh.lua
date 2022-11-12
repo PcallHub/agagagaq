@@ -1663,12 +1663,7 @@ spawn(function()
 									chichdiem(v.HumanoidRootPart.CFrame * CFrame.new(0,30,0))
 v.HumanoidRootPart.CFrame = y.HumanoidRootPart.CFrame
    v.HumanoidRootPart.Transparency = 1
-   v.HumanoidRootPart.CanCollide = false
-   y.HumanoidRootPart.CanCollide = false
-   v.Humanoid.WalkSpeed = 0
-   y.Humanoid.WalkSpeed = 0
-   v.Humanoid.JumpPower = 0
-   y.Humanoid.JumpPower = 0
+
 									v.HumanoidRootPart.CanCollide = false
 									v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
 									game:GetService("VirtualUser"):CaptureController()
@@ -1682,6 +1677,9 @@ v.HumanoidRootPart.CFrame = y.HumanoidRootPart.CFrame
 				else
 					
 					chichdiem(CFrame.new(-9501.64453, 582.052612, 6034.20117))
+if sethiddenproperty then
+     sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
+end
 				end
 			end
 		end)
@@ -1707,12 +1705,7 @@ if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.H
 v.HumanoidRootPart.CFrame = y.HumanoidRootPart.CFrame
                                         v.HumanoidRootPart.CanCollide = false
    v.HumanoidRootPart.Transparency = 1
-   v.HumanoidRootPart.CanCollide = false
-   y.HumanoidRootPart.CanCollide = false
-   v.Humanoid.WalkSpeed = 0
-   y.Humanoid.WalkSpeed = 0
-   v.Humanoid.JumpPower = 0
-   y.Humanoid.JumpPower = 0
+
                                         v.Humanoid.WalkSpeed = 0
                                         v.Head.CanCollide = false 
                                         StartMagnetBoneMon = true
@@ -1721,6 +1714,9 @@ v.HumanoidRootPart.CFrame = y.HumanoidRootPart.CFrame
                                         game:GetService("VirtualUser"):CaptureController()
                                         game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
                                     until not getgenv().Auto_Farm_Bone or not v.Parent or v.Humanoid.Health <= 0
+if sethiddenproperty then
+     sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
+end
                                 end
                             end
                         end
