@@ -915,7 +915,7 @@ game.CoreGui:FindFirstChild("Best Xem Chùa").Enabled = not game.CoreGui:FindFir
 end)
 local win = UILib:Window("😱Béo HUB😂",Color3.fromRGB(203, 244, 242), Enum.KeyCode.RightControl)
 local AutoFarm = win:Tab("🐧Main")
-local main = win:Tab("🐓Auto Something")
+local Main = win:Tab("🐓Auto Something")
 local Stat = win:Tab("✨⭐Stats")
 local RaidsTab = win:Tab("💀 Raids")
 local TeleportTab = win:Tab("🦸💝Teleport")
