@@ -2207,25 +2207,25 @@ TeleportTab:Button("Tween",function()
 if getgenv().TELEPORTISLAND == "WindMill" then
                 chichdiem(CFrame.new(979.79895019531, 16.516613006592, 1429.0466308594))
         elseif getgenv().TELEPORTISLAND == "Marine" then
-                chichdiem(CFrame.new(-2566.4296875, 6.8556680679321, 2045.2561035156))
+                chichdiemm(CFrame.new(-2566.4296875, 6.8556680679321, 2045.2561035156))
         elseif getgenv().TELEPORTISLAND == "Middle Town" then
-                chichdiem(CFrame.new(-690.33081054688, 15.09425163269, 1582.2380371094))
+                chichdiemm(CFrame.new(-690.33081054688, 15.09425163269, 1582.2380371094))
         elseif getgenv().TELEPORTISLAND == "Jungle" then
-                chichdiem(CFrame.new(-1612.7957763672, 36.852081298828, 149.12843322754))
+                chichdiemm(CFrame.new(-1612.7957763672, 36.852081298828, 149.12843322754))
         elseif getgenv().TELEPORTISLAND == "Pirate Village" then
-                chichdiem(CFrame.new(-1181.3093261719, 4.7514905929565, 3803.5456542969))
+                chichdiemm(CFrame.new(-1181.3093261719, 4.7514905929565, 3803.5456542969))
         elseif getgenv().TELEPORTISLAND == "Desert" then
-                chichdiem(CFrame.new(944.15789794922, 20.919729232788, 4373.3002929688))
+                chichdiemm(CFrame.new(944.15789794922, 20.919729232788, 4373.3002929688))
         elseif getgenv().TELEPORTISLAND == "Snow Island" then
-                chichdiem(CFrame.new(1347.8067626953, 104.66806030273, -1319.7370605469))
+                chichdiemm(CFrame.new(1347.8067626953, 104.66806030273, -1319.7370605469))
         elseif getgenv().TELEPORTISLAND == "MarineFord" then
-                chichdiem(CFrame.new(-4914.8212890625, 50.963626861572, 4281.0278320313))
+                chichdiemm(CFrame.new(-4914.8212890625, 50.963626861572, 4281.0278320313))
         elseif getgenv().TELEPORTISLAND == "Colosseum" then
-               chichdiem( CFrame.new(-1427.6203613281, 7.2881078720093, -2792.7722167969))
+               chichdiemm( CFrame.new(-1427.6203613281, 7.2881078720093, -2792.7722167969))
         elseif getgenv().TELEPORTISLAND == "Sky Island 1" then
-                chichdiem(CFrame.new(-4869.1025390625, 733.46051025391, -2667.0180664063))
+                chichdiemm(CFrame.new(-4869.1025390625, 733.46051025391, -2667.0180664063))
         elseif getgenv().TELEPORTISLAND == "Sky Island 2" then
-                function chichdiem(P1,P2)
+                function chichdiemm(P1,P2)
     local Distance = (P1 - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
     if Distance < 1000 then
         Speed = 500
@@ -2243,77 +2243,77 @@ end
 chichdiem(Vector3.new(-4644.587890625, 872.54241943359, -1742.3826904297), CFrame.new(-4644.58789, 872.542419, -1742.38269, -0.886984944, -2.65218905e-08, -0.46179834, -4.08027745e-09, 1, -4.95946892e-08, 0.46179834, -4.210548e-08, -0.886984944))
 game:GetService("ReplicatedStorage").Remotes["CommF_"]:InvokeServer("requestEntrance", Vector3.new(-7894.6176757812, 5547.1416015625, -380.29119873))
         elseif getgenv().TELEPORTISLAND == "Sky Island 3" then
-                chichdiem(CFrame.new(-7994.10546875, 5756.033203125, -1942.4979248047))
+                chichdiemm(CFrame.new(-7994.10546875, 5756.033203125, -1942.4979248047))
         elseif getgenv().TELEPORTISLAND == "Prison" then
-               chichdiem( CFrame.new(4875.330078125, 5.6519818305969, 734.85021972656))
+               chichdiemm( CFrame.new(4875.330078125, 5.6519818305969, 734.85021972656))
         elseif getgenv().TELEPORTISLAND == "Magma Village" then
-                chichdiem(CFrame.new(-5247.7163085938, 12.883934020996, 8504.96875))
+                chichdiemm(CFrame.new(-5247.7163085938, 12.883934020996, 8504.96875))
         elseif getgenv().TELEPORTISLAND == "Under Water Island" then
-                chichdiem(CFrame.new(3876.6374511719, 5.3731470108032, -1896.9306640625))
+                chichdiemm(CFrame.new(3876.6374511719, 5.3731470108032, -1896.9306640625))
         elseif getgenv().TELEPORTISLAND == "Fountain City" then
-                chichdiem(CFrame.new(5127.1284179688, 59.501365661621, 4105.4458007813))
+                chichdiemm(CFrame.new(5127.1284179688, 59.501365661621, 4105.4458007813))
         elseif getgenv().TELEPORTISLAND == "Shank Room" then
-                chichdiem(CFrame.new(-1442.16553, 29.8788261, -28.3547478))
+                chichdiemm(CFrame.new(-1442.16553, 29.8788261, -28.3547478))
         elseif getgenv().TELEPORTISLAND == "Mob Island" then
-                chichdiem(CFrame.new(-2850.20068, 7.39224768, 5354.99268))
+                chichdiemm(CFrame.new(-2850.20068, 7.39224768, 5354.99268))
         elseif getgenv().TELEPORTISLAND == "cafe" then
-                chichdiem(CFrame.new(-380.47927856445, 77.220390319824, 255.82550048828))
+                chichdiemm(CFrame.new(-380.47927856445, 77.220390319824, 255.82550048828))
         elseif getgenv().TELEPORTISLAND == "Frist Spot" then
-                chichdiem(CFrame.new(-11.311455726624, 29.276733398438, 2771.5224609375))
+                chichdiemm(CFrame.new(-11.311455726624, 29.276733398438, 2771.5224609375))
         elseif getgenv().TELEPORTISLAND == "Dark Area" then
-                chichdiem(CFrame.new(3780.0302734375, 22.652164459229, -3498.5859375))
+                chichdiemm(CFrame.new(3780.0302734375, 22.652164459229, -3498.5859375))
         elseif getgenv().TELEPORTISLAND == "Flamingo Mansion" then
-                chichdiem(CFrame.new(-483.73370361328, 332.0383605957, 595.32708740234))
+                chichdiemm(CFrame.new(-483.73370361328, 332.0383605957, 595.32708740234))
         elseif getgenv().TELEPORTISLAND == "Flamingo Room" then
-                chichdiem(CFrame.new(2284.4140625, 15.152037620544, 875.72534179688))
+                chichdiemm(CFrame.new(2284.4140625, 15.152037620544, 875.72534179688))
         elseif getgenv().TELEPORTISLAND == "Green Zone" then
-               chichdiem( CFrame.new(-2448.5300292969, 73.016105651855, -3210.6306152344))
+               chichdiemm(CFrame.new(-2448.5300292969, 73.016105651855, -3210.6306152344))
         elseif getgenv().TELEPORTISLAND == "Factory" then
-                chichdiem(CFrame.new(424.12698364258, 211.16171264648, -427.54049682617))
+                chichdiemm(CFrame.new(424.12698364258, 211.16171264648, -427.54049682617))
         elseif getgenv().TELEPORTISLAND == "Colossuim" then
-               chichdiem( CFrame.new(-1503.6224365234, 219.7956237793, 1369.3101806641))
+               chichdiemm( CFrame.new(-1503.6224365234, 219.7956237793, 1369.3101806641))
         elseif getgenv().TELEPORTISLAND == "Zombie Island" then
-                chichdiem(CFrame.new(-5622.033203125, 492.19604492188, -781.78552246094))
+                chichdiemm(CFrame.new(-5622.033203125, 492.19604492188, -781.78552246094))
         elseif getgenv().TELEPORTISLAND == "Two Snow Mountain" then
-                chichdiem(CFrame.new(753.14288330078, 408.23559570313, -5274.6147460938))
+                chichdiemm(CFrame.new(753.14288330078, 408.23559570313, -5274.6147460938))
         elseif getgenv().TELEPORTISLAND == "Punk Hazard" then
-                chichdiem(CFrame.new(-6127.654296875, 15.951762199402, -5040.2861328125))
+                chichdiemm(CFrame.new(-6127.654296875, 15.951762199402, -5040.2861328125))
         elseif getgenv().TELEPORTISLAND == "Cursed Ship" then
-                chichdiem(CFrame.new(923.40197753906, 125.05712890625, 32885.875))
+                chichdiemm(CFrame.new(923.40197753906, 125.05712890625, 32885.875))
         elseif getgenv().TELEPORTISLAND == "Ice Castle" then
-                chichdiem(CFrame.new(6148.4116210938, 294.38687133789, -6741.1166992188))
+                chichdiemm(CFrame.new(6148.4116210938, 294.38687133789, -6741.1166992188))
         elseif getgenv().TELEPORTISLAND == "Forgotten Island" then
-                chichdiem(CFrame.new(-3032.7641601563, 317.89672851563, -10075.373046875))
+                chichdiemm(CFrame.new(-3032.7641601563, 317.89672851563, -10075.373046875))
         elseif getgenv().TELEPORTISLAND == "Ussop Island" then
-                chichdiem(CFrame.new(4816.8618164063, 8.4599885940552, 2863.8195800781))
+                chichdiemm(CFrame.new(4816.8618164063, 8.4599885940552, 2863.8195800781))
         elseif getgenv().TELEPORTISLAND == "Mini Sky Island" then
-                chichdiem(CFrame.new(-288.74060058594, 49326.31640625, -35248.59375))
+                chichdiemm(CFrame.new(-288.74060058594, 49326.31640625, -35248.59375))
         elseif getgenv().TELEPORTISLAND == "Great Tree" then
-                chichdiem(CFrame.new(2681.2736816406, 1682.8092041016, -7190.9853515625))
+                chichdiemm(CFrame.new(2681.2736816406, 1682.8092041016, -7190.9853515625))
         elseif getgenv().TELEPORTISLAND == "Castle On The Sea" then
-                chichdiem(CFrame.new(-5044.7612304688, 314.85876464844, -2995.3803710938))
+                chichdiemm(CFrame.new(-5044.7612304688, 314.85876464844, -2995.3803710938))
         elseif getgenv().TELEPORTISLAND == "MiniSky" then
-                chichdiem(CFrame.new(-260.65557861328, 49325.8046875, -35253.5703125))
+                chichdiemm(CFrame.new(-260.65557861328, 49325.8046875, -35253.5703125))
         elseif getgenv().TELEPORTISLAND == "Port Town" then
-                chichdiem(CFrame.new(-294.20208740234, 29.756063461304, 5395.4111328125))
+                chichdiemm(CFrame.new(-294.20208740234, 29.756063461304, 5395.4111328125))
         elseif getgenv().TELEPORTISLAND == "Hydra Island" then
-                chichdiem(CFrame.new(5228.8842773438, 604.23400878906, 345.0400390625))
+                chichdiemm(CFrame.new(5228.8842773438, 604.23400878906, 345.0400390625))
         elseif getgenv().TELEPORTISLAND == "Floating Turtle" then
-                chichdiem(CFrame.new(-13274.528320313, 531.82073974609, -7579.22265625))
+                chichdiemm(CFrame.new(-13274.528320313, 531.82073974609, -7579.22265625))
         elseif getgenv().TELEPORTISLAND == "Mansion" then
                 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-12550.325195313, 337.51156616211, -7508.9936523438) 
          elseif getgenv().TELEPORTISLAND == "Room Enma/Yama & Secret Temple" then
-                chichdiem(CFrame.new(5247, 7, 1097))
+                chichdiemm(CFrame.new(5247, 7, 1097))
           elseif getgenv().TELEPORTISLAND == "House Hydar Island" then
-                 chichdiem(CFrame.new(5245, 602, 251))
+                 chichdiemm(CFrame.new(5245, 602, 251))
                  elseif getgenv().TELEPORTISLAND == "Haunted Castle" then
-                 chichdiem(CFrame.new(-9509.34961, 142.130661, 5535.16309))
+                 chichdiemm(CFrame.new(-9509.34961, 142.130661, 5535.16309))
                  elseif getgenv().TELEPORTISLAND == "Peanut Island" then
-                 chichdiem(CFrame.new(-2131, 38, -10106))
+                 chichdiemm(CFrame.new(-2131, 38, -10106))
                  elseif getgenv().TELEPORTISLAND == "Ice Cream Island"then
-                 chichdiem(CFrame.new(-950, 59, -10907))
+                 chichdiemm(CFrame.new(-950, 59, -10907))
                  elseif getgenv().TELEPORTISLAND == "CakeLoaf" then
-                 chichdiem(CFrame.new(-1762, 38, -11878))
+                 chichdiemm(CFrame.new(-1762, 38, -11878))
         end
 end)
 Misc:Toggle("Fly",false,function(b)
