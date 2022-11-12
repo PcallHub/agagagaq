@@ -893,7 +893,7 @@ CheckQuest()
 function EquipWeapon(ToolSe) if game.Players.LocalPlayer.Backpack:FindFirstChild(ToolSe) then local tool = game.Players.LocalPlayer.Backpack:FindFirstChild(ToolSe) wait(.4)
 	game.Players.LocalPlayer.Character.Humanoid:EquipTool(tool)end end
 
-local UILib = loadstring(game:HtchichdiemGet('htchichdiems://raw.githubusercontent.com/Bestxemchua/agagagaq/main/Ui/GG.txt'))()
+local UILib = loadstring(game:HttpHet('https://raw.githubusercontent.com/Bestxemchua/agagagaq/main/Ui/GG.txt'))()
 local DINOHUB = Instance.new("ScreenGui")
 local OPENCLOSE = Instance.new("TextButton") DINOHUB.Name="DINOHUB"
 DINOHUB.Parent=game.CoreGui
