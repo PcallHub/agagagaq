@@ -1690,11 +1690,11 @@ spawn(function()
                                 if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
                                     repeat task.wait()
                                         AutoHaki()
-                                        d()
+                                        
                                         v.HumanoidRootPart.CanCollide = false
                                         v.Humanoid.WalkSpeed = 0
                                         v.Head.CanCollide = false 
-                                        getgenv().StartMagnetBoneMon = true
+                                        StartMagnetBoneMon = true
                                         PosMonBone = v.HumanoidRootPart.CFrame
                                         chichdiem(v.HumanoidRootPart.CFrame * CFrame.new(2,20,2))
                                         game:GetService("VirtualUser"):CaptureController()
@@ -1723,7 +1723,7 @@ spawn(function()
     end)
    spawn(function()
 while wait() đó
-if getgenv().StartMagnetBoneMon then
+if getgenv().Auto_Bone then
 for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
 for x,y in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
 if v.Name == "Reborn Skeleton [Lv. 1975]"or "Living Zombie [Lv. 2000]"or "Demonic Soul [Lv. 2025]"or "Posessed Mummy [Lv. 2050]"   then
@@ -1748,7 +1748,7 @@ end
 end
 end
 end)
-function d()
+spawn(function() while wait() đó if getgenv().Auto_Bone then
 				getgenv().type = "Melee" -- "Blox Fruit" ,"Sword" ,"Gun" ,"Wear"
 for i ,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
     if v.ToolTip == getgenv().type then
@@ -1756,7 +1756,7 @@ for i ,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
     end
 end
 end
-	
+	end end)
 function AutoHaki()
      if not game:GetService("Players").LocalPlayer.Character:FindFirstChild("HasBuso") then
             game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Buso")
