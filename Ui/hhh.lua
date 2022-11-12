@@ -1660,11 +1660,11 @@ for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
        table.insert(K, v.Name)
     end
 end
-local dropdowntoolo = MainPage:addDropdown("Selectweapon Auto Bone",K, function(daubuoi)
+local dropdowntoolo =Main:Dropdown("Selectweapon Auto Bone",K, function(daubuoi)
     getgenv().toolo = daubuoi
 end)
 
-MainPage:addButton("Refresh",function()
+Main:Button("Refresh",function()
     dropdowntoolo:Clear()
 	for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do  
 		if v:IsA("Tool") then
