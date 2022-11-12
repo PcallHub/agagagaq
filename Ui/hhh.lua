@@ -949,7 +949,7 @@ spawn(function()
 		while wait() do
 			if getgenv().AutoFarm then
 				AutoQuest()
-				chichdiem()
+				TP()
 				autofarm()
 			end
 		end
@@ -972,7 +972,7 @@ spawn(function()
     while wait() do
         if getgenv().Autofarm then
             AutoQuest()
-            chichdiem()
+            TP()
             hitbox()
         end
     end
@@ -1010,7 +1010,7 @@ function AutoQuest()     if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visibl
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
     end
 end
-function chichdiem()
+function TP()
     CheckQuest()
     local mob = game:GetService("Workspace").Enemies:GetChildren()
     local MyLevel = game.Players.LocalPlayer.Data.Level.Value
