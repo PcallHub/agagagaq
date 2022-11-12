@@ -2115,26 +2115,26 @@ spawn(function()
             chichdiem(CFrame.new(-11571.440429688, 49.172668457031, -7574.7368164062))
         end)
     end
-TeleportTab:addButton("Teleport Sea 1",function()
+TeleportTab:Button("Teleport Sea 1",function()
 	local args = {
 			[1] = "TravelMain" -- OLD WORLD to NEW WORLD
 		}
 		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
 	end)
-	TeleportTab:addButton("Teleport To Sea 2" ,function()
+	TeleportTab:Button("Teleport To Sea 2" ,function()
 		local args = {
 			[1] = "TravelDressrosa" -- NEW WORLD to OLD WORLD
 		}
 		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
 	end)
 	
-	TeleportTab:addButton("Teleport To Sea 3" ,function()
+	TeleportTab:Button("Teleport To Sea 3" ,function()
 		local args = {
 			[1] = "TravelZou" -- OLD WORLD to NEW WORLD
 		}
 		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
 	end)
-	TeleportTab:addButton("Teleport Quest",function()
+	TeleportTab:Button("Teleport Quest",function()
 	CheckQuest()
 
 			wait(0.25)
@@ -2150,7 +2150,7 @@ TeleportTab:addButton("Teleport Sea 1",function()
 				end)
 			end
 if OldWorld then
-TeleportTab:addDropdown ("SelectIsland",{
+TeleportTab:Dropdown("SelectIsland",{
             "WindMill",
             "Marine",
             "Middle Town",
@@ -2174,7 +2174,7 @@ getgenv().TELEPORTISLAND = Value
 end)
 end
 if NewWorld then
-    TeleportTab:addDropdown("SelectIsland",{
+    TeleportTab:Dropdown("SelectIsland",{
             "cafe",
             "Frist Spot",
             "Dark Area",
@@ -2196,7 +2196,7 @@ getgenv().TELEPORTISLAND = Value
 end)
 end
 if ThreeWorld then
-        TeleportTab:addDropdown("SelectIsland",{"Mansion", "Port Town", "Great Tree", "Castle On The Sea", "MiniSky", "Hydra Island", "Floating Turtle","Room Enma/Yama & Secret Temple","House Hydar Island","Haunted Castle","Peanut Island","Ice Cream Island","CakeLoaf"},function(Value)
+        TeleportTab:Dropdown("SelectIsland",{"Mansion", "Port Town", "Great Tree", "Castle On The Sea", "MiniSky", "Hydra Island", "Floating Turtle","Room Enma/Yama & Secret Temple","House Hydar Island","Haunted Castle","Peanut Island","Ice Cream Island","CakeLoaf"},function(Value)
 getgenv().TELEPORTISLAND = Value
 end)
 end
