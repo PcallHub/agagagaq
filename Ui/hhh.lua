@@ -1652,14 +1652,17 @@ spawn(function()
 						if v.Name == "Reborn Skeleton [Lv. 1975]" or v.Name == "Living Zombie [Lv. 2000]" or v.Name == "Demonic Soul [Lv. 2025]" or v.Name == "Posessed Mummy [Lv. 2050]" then
 							if v:WaitForChild("Humanoid").Health > 0 then
 								repeat game:GetService("RunService").Heartbeat:wait()
-									chichdiem(v.HumanoidRootPart.CFrame * CFrame.new(0,30,0))
-									v.HumanoidRootPart.CanCollide = false
-									v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
-chichdiem(v.HumanoidRootPart.CFrame * CFrame.new(0,12,4))
-									game:GetService("VirtualUser"):CaptureController()
-									game:GetService("VirtualUser"):Button1Down(Vector2.new(1280, 670),workspace.CurrentCamera.CFrame)
-									MainMonBone = v.HumanoidRootPart.CFrame
-									BoneMagnet = true
+									game.Players.LocalPlayer.Character.HumanoidRootPart.Size = Vector3.new(2, 2.02, 1)
+			   v.HumanoidRootPart.Size = Vector3.new(60,60,60)
+			   chichdiem(v.HumanoidRootPart.CFrame * CFrame.new(0,12,4))
+			   getgenv().type = "Melee" -- "Blox Fruit" ,"Sword" ,"Gun" ,"Wear"
+for i ,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+    if v.ToolTip == getgenv().type then
+        game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+    
+			   game:GetService'VirtualUser':CaptureController()
+			   game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
+            
 								until getgenv().Auto_Bone == false or not v.Parent or v.Humanoid.Health <= 0
 							end
 						end
@@ -1668,6 +1671,8 @@ chichdiem(v.HumanoidRootPart.CFrame * CFrame.new(0,12,4))
 					
 					chichdiem(CFrame.new(-9501.64453, 582.052612, 6034.20117))
 				end
+end
+end
 			end
 		end)
 	end
@@ -1678,12 +1683,7 @@ spawn(function()
 	while game:GetService("RunService").RenderStepped:wait() do
 		if getgenv().Auto_Bone then
 			pcall(function()
-				getgenv().type = "Melee" -- "Blox Fruit" ,"Sword" ,"Gun" ,"Wear"
-for i ,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
-    if v.ToolTip == getgenv().type then
-        game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
-    end
-end
+				
 
 			end)
 		end
