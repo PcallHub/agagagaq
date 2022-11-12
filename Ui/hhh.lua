@@ -913,7 +913,7 @@ OPENCLOSE.TextWrapped=true
 OPENCLOSE.MouseButton1Click:Connect(function()
 game.CoreGui:FindFirstChild("Best Xem Chùa").Enabled = not game.CoreGui:FindFirstChild("Best Xem Chùa").Enabled
 end)
-local win = UILib:Window("18+ HUB",Color3.fromRGB(6, 252, 206), Enum.KeyCode.RightControl)
+local win = UILib:Window("😱Béo HUB😂",Color3.fromRGB(6, 252, 206), Enum.KeyCode.RightControl)
 local AutoFarm = win:Tab("🐧Main")
 local Main = win:Tab("🐓Auto Something")
 local Stat = win:Tab("⭐Stats")
