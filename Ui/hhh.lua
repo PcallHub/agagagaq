@@ -917,8 +917,8 @@ local win = UILib:Window("😱Béo HUB😂",Color3.fromRGB(203, 244, 242), Enum.
 local AutoFarm = win:Tab("🐧Main")
 local Main = win:Tab("🐓Auto Something")
 local Stat = win:Tab("✨⭐Stats")
-local RaidsTab = Main:Tab("💀 Raids")
-local TeleportTab = Main:Tab("🦸💝Teleport")
+local RaidsTab = win:Tab("💀 Raids")
+local TeleportTab = win:Tab("🦸💝Teleport")
 local Misc = win:Tab("🌚🌝 Misc")
 lol = {}
 for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do  
