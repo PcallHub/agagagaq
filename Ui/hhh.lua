@@ -1558,7 +1558,9 @@ spawn(function()
 end)
 	
 
-
+Main:Toggle("Auto electric claw",false,function(a)
+getgenv().AutoElectricClawV2 = a
+end)
 
 spawn(function()
 	while wait() do wait()
@@ -1684,13 +1686,13 @@ spawn(function()
             end
         end
     end
-if getgenv().Auto_Bone and StartMagnetBoneMon then
+if getgenv().Auto_Bone then
                             if (v.Name == "Reborn Skeleton [Lv. 1975]" or v.Name == "Living Zombie [Lv. 2000]" or v.Name == "Demonic Soul [Lv. 2025]" or v.Name == "Posessed Mummy [Lv. 2050]") and (v.HumanoidRootPart.Position - PosMonBone.Position).Magnitude <= 250 and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
                                 v.HumanoidRootPart.Size = Vector3.new(50,50,50)
                                 v.Humanoid:ChangeState(14)
                                 v.HumanoidRootPart.CanCollide = false
                                 v.Head.CanCollide = false
-                                v.HumanoidRootPart.CFrame = PosMonBone
+                                v.HumanoidRootPart.CFrame = CFrame.new(2,20,2)
                                 if v.Humanoid:FindFirstChild("Animator") then
                                     v.Humanoid.Animator:Destroy()
                                 end
