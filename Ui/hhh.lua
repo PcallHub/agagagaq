@@ -1582,13 +1582,6 @@ spawn(function()
 		end
 	end
 end)
-spawn(function()
-	while true do
-		local TotalElite = tostring(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("EliteHunter","Progress"))
-		CheckElite:Set("Total EliteHunter Progress : "..TotalElite)
-		game:GetService("RunService").Heartbeat:wait()
-	end
-end)
 
 Main:Toggle("Auto Farm Elite Hunter",false,function(vu)
 	getgenv().EliteHunt = vu
