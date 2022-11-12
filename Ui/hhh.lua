@@ -1655,6 +1655,7 @@ spawn(function()
 									chichdiem(v.HumanoidRootPart.CFrame * CFrame.new(0,30,0))
 									v.HumanoidRootPart.CanCollide = false
 									v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
+chichdiem(v.HumanoidRootPart.CFrame * CFrame.new(0,12,4))
 									game:GetService("VirtualUser"):CaptureController()
 									game:GetService("VirtualUser"):Button1Down(Vector2.new(1280, 670),workspace.CurrentCamera.CFrame)
 									MainMonBone = v.HumanoidRootPart.CFrame
