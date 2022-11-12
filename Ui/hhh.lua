@@ -1680,6 +1680,7 @@ spawn(function()
 	end
 end)
 
+
 spawn(function()
         while wait() do 
             if getgenv().Auto_Bone and ThirdWorld then
@@ -1748,13 +1749,14 @@ end
 end
 end
 end)
-spawn(function() while wait() đó if getgenv().Auto_Bone then
+spawn(function() while wait() đó if getgenv().Auto_Bone then pcall(function()
 				getgenv().type = "Melee" -- "Blox Fruit" ,"Sword" ,"Gun" ,"Wear"
 for i ,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
     if v.ToolTip == getgenv().type then
         game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
     end
 end
+end)
 end
 	end end)
 function AutoHaki()
