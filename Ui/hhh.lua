@@ -2207,7 +2207,7 @@ if ThreeWorld then
 getgenv().TELEPORTISLAND = Value
 end)
 end
-TeleportTab:addButton("Tween",function()
+TeleportTab:Button("Tween",function()
 if getgenv().TELEPORTISLAND == "WindMill" then
                 chichdiem(CFrame.new(979.79895019531, 16.516613006592, 1429.0466308594))
         elseif getgenv().TELEPORTISLAND == "Marine" then
