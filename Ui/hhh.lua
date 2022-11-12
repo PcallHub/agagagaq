@@ -1644,7 +1644,7 @@ Main:Toggle("Auto Farm Bone",false,function(vu)
 end)
 
 spawn(function()
-	while wait(.1) do
+	while wait() do
 		pcall(function()
 			if getgenv().Auto_Bone then
 				if game:GetService("Workspace").Enemies:FindFirstChild("Reborn Skeleton [Lv. 1975]") or game:GetService("Workspace").Enemies:FindFirstChild("Living Zombie [Lv. 2000]") or game:GetService("Workspace").Enemies:FindFirstChild("Domenic Soul [Lv. 2025]") or game:GetService("Workspace").Enemies:FindFirstChild("Posessed Mummy [Lv. 2050]") then
