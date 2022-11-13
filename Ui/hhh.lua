@@ -1248,6 +1248,34 @@ local StopCamera = require(game.ReplicatedStorage.Util.CameraShaker)StopCamera:S
         end
     end
 end)();
+pcall(function()
+    spawn(function()
+         while wait() do
+        if getgenv().fast then
+        pcall(function()
+        for i, v in pairs(game.Workspace["_WorldOrigin"]:GetChildren()) do
+            if v.Name == "CurvedRing" or v.Name == "SlashHit" or v.Name == "SwordSlash" or v.Name == "Sounds" then
+                v:Destroy() 
+                 end
+              end
+            end)
+        end
+    end
+end)
+end)
+spawn(function()
+         while wait() do
+        if getgenv().fast then
+        pcall(function()
+        for i,v in pairs(game:GetService("Workspace").Map.Dressrosa.Tavern:GetDescendants()) do
+        if v.ClassName == "Seat" then
+            v:Destroy()
+                     end
+                  end
+            end)
+        end
+    end
+end) 
 
 
                            Main:Toggle("Auto Evo Race",false,function(vu)
@@ -1700,7 +1728,6 @@ end)
     while wait() do
         if getgenv().Auto_Bone  then
             pcall(function()
-            CheckQuest()
        for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
 for x,y in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
 if v.Name =="Reborn Skeleton [Lv. 1975]" or v.Name == "Living Zombie [Lv. 2000]" or v.Name == "Demonic Soul [Lv. 2025]" or v.Name == "Posessed Mummy [Lv. 2050]" then
