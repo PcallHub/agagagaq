@@ -1680,7 +1680,7 @@ Main:Toggle("Auto Farm All Boss",false,function(value)
 end
 end
 end)
-
+local Boss = {}
 for i, v in pairs(game:GetService("ReplicatedStorage"):GetChildren()) do
         if string.find(v.Name, "Boss") then
             if v.Name == "Ice Admiral [Lv. 700] [Boss]" then
@@ -1689,16 +1689,9 @@ for i, v in pairs(game:GetService("ReplicatedStorage"):GetChildren()) do
             end
         end
     end
-local Boss = {}
+
     
-    for i, v in pairs(game:GetService("ReplicatedStorage"):GetChildren()) do
-        if string.find(v.Name, "Boss") then
-            if v.Name == "Ice Admiral [Lv. 700] [Boss]" then
-                else
-                table.insert(Boss, v.Name)
-            end
-        end
-    end
+    
     local BossName = Main:Dropdown("Select Boss",Boss,function(value)
         getgenv().SelectBoss = value
     end)
