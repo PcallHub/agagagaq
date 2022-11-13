@@ -1688,73 +1688,46 @@ spawn(function()
 			if getgenv().Auto_Bone then
 				if game:GetService("Workspace").Enemies:FindFirstChild("Reborn Skeleton [Lv. 1975]") or game:GetService("Workspace").Enemies:FindFirstChild("Living Zombie [Lv. 2000]") or game:GetService("Workspace").Enemies:FindFirstChild("Domenic Soul [Lv. 2025]") or game:GetService("Workspace").Enemies:FindFirstChild("Posessed Mummy [Lv. 2050]") then
 					for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+for x,y in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
 						if v.Name == "Reborn Skeleton [Lv. 1975]" or v.Name == "Living Zombie [Lv. 2000]" or v.Name == "Demonic Soul [Lv. 2025]" or v.Name == "Posessed Mummy [Lv. 2050]" then
 							if v:WaitForChild("Humanoid").Health > 0 then
 								repeat game:GetService("RunService").Heartbeat:wait()
 									chichdiem(v.HumanoidRootPart.CFrame * CFrame.new(0,30,0))
 AutoHaki()
-                                                                        v.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame
+v.HumanoidRootPart.Transparency = 1
+                                                                        v.HumanoidRootPart.CFrame = y.HumanoidRootPart.CFrame
 									v.HumanoidRootPart.CanCollide = false 
+y.HumanoidRootPart.CanCollide = false
                                                                         v.Humanoid.WalkSpeed = 0
+   y.Humanoid.WalkSpeed = 0
+   v.Humanoid.JumpPower = 0
+   y.Humanoid.JumpPower = 0
    						v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
+v.HumanoidRootPart.Size = Vector3.new(60,60,60)
 									game:GetService("VirtualUser"):CaptureController()
 									game:GetService("VirtualUser"):Button1Down(Vector2.new(1280, 670),workspace.CurrentCamera.CFrame)
 									MainMonBone = v.HumanoidRootPart.CFrame
 									BoneMagnet = true
 								until Auto_Bone == false or not v.Parent or v.Humanoid.Health <= 0
+if sethiddenproperty then
+     sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
+end
 							end
 						end
 					end
+end
 				else
 					BoneMagnet = false
 					chichdiem(CFrame.new(-9501.64453, 582.052612, 6034.20117))
 				end
 			end
+
 		end)
 	end
 end)
 
 
-spawn(function()
-	while game:GetService("RunService").RenderStepped:wait() do
-		if getgenv().Auto_Bone then
-			pcall(function()
-				EquipWeapon(getgenv().toolo)
-			end)
-		end
-	end
-end)
-  spawn(function()
-    while wait() do
-        if getgenv().Auto_Bone  then
-            pcall(function()
-       for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-for x,y in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-if v.Name =="Reborn Skeleton [Lv. 1975]" or v.Name == "Living Zombie [Lv. 2000]" or v.Name == "Demonic Soul [Lv. 2025]" or v.Name == "Posessed Mummy [Lv. 2050]" then
-                                then
-    if y.Name == "Reborn Skeleton [Lv. 1975]" or y.Name == "Living Zombie [Lv. 2000]" or y.Name == "Demonic Soul [Lv. 2025]" or y.Name == "Posessed Mummy [Lv. 2050]" then
-                                then
-   v.HumanoidRootPart.CFrame = y.HumanoidRootPart.CFrame
-   v.HumanoidRootPart.Size = Vector3.new(60,60,60)
-   y.HumanoidRootPart.Size = Vector3.new(60,60,60)
-   v.HumanoidRootPart.Transparency = 1
-   v.HumanoidRootPart.CanCollide = false
-   y.HumanoidRootPart.CanCollide = false
-   v.Humanoid.WalkSpeed = 0
-   y.Humanoid.WalkSpeed = 0
-   v.Humanoid.JumpPower = 0
-   y.Humanoid.JumpPower = 0
-   if sethiddenproperty then
-     sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
-end
-end
-end
-end
-end
-end)
-end
-end
-end)
+
     function AutoHaki()
         if not game:GetService("Players").LocalPlayer.Character:FindFirstChild("HasBuso") then
             game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Buso")
