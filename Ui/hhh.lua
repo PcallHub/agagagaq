@@ -940,7 +940,7 @@ spawn(function()  game:GetService("RunService").Heartbeat:Connect(function() if 
                 LOL.Size = Vector3.new(30,-0.5,30)
             elseif game:GetService("Workspace"):FindFirstChild("LOL") then  game.Workspace["LOL"].CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, -3.6, 0) end
 else  if game:GetService("Workspace"):FindFirstChild("LOL") then  game:GetService("Workspace"):FindFirstChild("LOL"):Destroy() end end end) end)
-spawn(function()  game:GetService("RunService").Stepped:Connect(function()  if getgenv().NoClip or getgenv().AutoFarm or getgenv().Observation or getgenv().AutoNew or getgenv().Factory or getgenv().GunMastery or getgenv().Mastery or FramBoss or FramAllBoss or getgenv().getgenv().AutoBartilo or getgenv().MobAura or getgenv().AutoRengoku or getgenv().AutoSharkman or getgenv().Ectoplasm or getgenv().PoleHop or getgenv().SwanHop or getgenv().BlackBeardHop or getgenv().Chest or getgenv().Electro or rainbowhaki or Hunter or observationv2 or getgenv().ElitehuntHop or getgenv().EliteHunt or getgenv().Pole or getgenv().Tushitahop or getgenv().YamaHop or getgenv().StoreFruit or getgenv().HolyTorch then  for _, v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do  if v:IsA("BasePart") then
+spawn(function()  game:GetService("RunService").Stepped:Connect(function()  if getgenv().NoClip or getgenv().AutoFarm or getgenv().Observation or getgenv().AutoNew or getgenv().Factory or getgenv().GunMastery or getgenv().Mastery or FramBoss or FramAllBoss or getgenv().getgenv().AutoBartilo or getgenv().MobAura or getgenv().AutoRengoku or getgenv().AutoSharkman or getgenv().Ectoplasm or getgenv().PoleHop or getgenv().SwanHop or getgenv().BlackBeardHop or getgenv().Chest or getgenv().Electro or rainbowhaki or Hunter or observationv2 or getgenv().ElitehuntHop or getgenv().EliteHunt or getgenv().Pole or getgenv().Tushitahop or getgenv().YamaHop or getgenv().StoreFruit or getgenv().HolyTorch or getgenv().Auto_Bone then  for _, v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do  if v:IsA("BasePart") then
    v.CanCollide = false end     end    end end) end)
 AutoFarm:Toggle("Auto Farm",false,function(vu)
     getgenv().AutoFarm= vu
@@ -1248,34 +1248,7 @@ local StopCamera = require(game.ReplicatedStorage.Util.CameraShaker)StopCamera:S
         end
     end
 end)();
-pcall(function()
-    spawn(function()
-         while wait() do
-        if getgenv().fast then
-        pcall(function()
-        for i, v in pairs(game.Workspace["_WorldOrigin"]:GetChildren()) do
-            if v.Name == "CurvedRing" or v.Name == "SlashHit" or v.Name == "SwordSlash" or v.Name == "Sounds" then
-                v:Destroy() 
-                 end
-              end
-            end)
-        end
-    end
-end)
-end)
-spawn(function()
-         while wait() do
-        if getgenv().fast then
-        pcall(function()
-        for i,v in pairs(game:GetService("Workspace").Map.Dressrosa.Tavern:GetDescendants()) do
-        if v.ClassName == "Seat" then
-            v:Destroy()
-                     end
-                  end
-            end)
-        end
-    end
-end) 
+
 
                            Main:Toggle("Auto Evo Race",false,function(vu)
 		getgenv().Autorace = vu
@@ -1682,7 +1655,7 @@ Main:Toggle("Auto Farm Bone",false,function(vu)
 	
 end)
 spawn(function()
-	while wait(.1) do
+	while wait() do
 		pcall(function()
 			if getgenv().Auto_Bone then
 				if game:GetService("Workspace").Enemies:FindFirstChild("Reborn Skeleton [Lv. 1975]") or game:GetService("Workspace").Enemies:FindFirstChild("Living Zombie [Lv. 2000]") or game:GetService("Workspace").Enemies:FindFirstChild("Domenic Soul [Lv. 2025]") or game:GetService("Workspace").Enemies:FindFirstChild("Posessed Mummy [Lv. 2050]") then
@@ -1691,6 +1664,7 @@ spawn(function()
 							if v:WaitForChild("Humanoid").Health > 0 then
 								repeat game:GetService("RunService").Heartbeat:wait()
 									chichdiem(v.HumanoidRootPart.CFrame * CFrame.new(0,30,0))
+AutoHaki()
                                                                         v.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame
 									v.HumanoidRootPart.CanCollide = false 
                                                                         v.Humanoid.WalkSpeed = 0
@@ -1722,7 +1696,38 @@ spawn(function()
 		end
 	end
 end)
-
+  spawn(function()
+    while wait() do
+        if getgenv().Auto_Bone  then
+            pcall(function()
+            CheckQuest()
+       for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+for x,y in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+if v.Name =="Reborn Skeleton [Lv. 1975]" or v.Name == "Living Zombie [Lv. 2000]" or v.Name == "Demonic Soul [Lv. 2025]" or v.Name == "Posessed Mummy [Lv. 2050]" then
+                                then
+    if y.Name == "Reborn Skeleton [Lv. 1975]" or y.Name == "Living Zombie [Lv. 2000]" or y.Name == "Demonic Soul [Lv. 2025]" or y.Name == "Posessed Mummy [Lv. 2050]" then
+                                then
+   v.HumanoidRootPart.CFrame = y.HumanoidRootPart.CFrame
+   v.HumanoidRootPart.Size = Vector3.new(60,60,60)
+   y.HumanoidRootPart.Size = Vector3.new(60,60,60)
+   v.HumanoidRootPart.Transparency = 1
+   v.HumanoidRootPart.CanCollide = false
+   y.HumanoidRootPart.CanCollide = false
+   v.Humanoid.WalkSpeed = 0
+   y.Humanoid.WalkSpeed = 0
+   v.Humanoid.JumpPower = 0
+   y.Humanoid.JumpPower = 0
+   if sethiddenproperty then
+     sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
+end
+end
+end
+end
+end
+end)
+end
+end
+end)
     function AutoHaki()
         if not game:GetService("Players").LocalPlayer.Character:FindFirstChild("HasBuso") then
             game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Buso")
