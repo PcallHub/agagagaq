@@ -913,7 +913,7 @@ OPENCLOSE.TextWrapped=true
 OPENCLOSE.MouseButton1Click:Connect(function()
 game.CoreGui:FindFirstChild("Best Xem Chùa").Enabled = not game.CoreGui:FindFirstChild("Best Xem Chùa").Enabled
 end)
-local win = UILib:Window("😱Béo HUB😂",Color3.fromRGB(203, 244, 242), Enum.KeyCode.RightControl)
+local win = UILib:Window("😱Béo HUB | Blox Fruits v17.3",Color3.fromRGB(203, 244, 242), Enum.KeyCode.RightControl)
 local AutoFarm = win:Tab("🐧Main")
 local Main = win:Tab("🐓Auto Something")
 local Stat = win:Tab("✨⭐Stats")
