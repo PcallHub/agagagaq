@@ -1253,41 +1253,12 @@ local StopCamera = require(game.ReplicatedStorage.Util.CameraShaker)StopCamera:S
         end
     end
 end)();
-pcall(function()
-    spawn(function()
-         while wait() do
-        if getgenv().fast then
-        pcall(function()
-        for i, v in pairs(game.Workspace["_WorldOrigin"]:GetChildren()) do
-            if v.Name == "CurvedRing" or v.Name == "SlashHit" or v.Name == "SwordSlash" or v.Name == "Sounds" then
-                v:Destroy() 
-                 end
-              end
-            end)
-        end
-    end
-end)
-end)
-spawn(function()
-         while wait() do
-        if getgenv().fast then
-        pcall(function()
-        for i,v in pairs(game:GetService("Workspace").Map.Dressrosa.Tavern:GetDescendants()) do
-        if v.ClassName == "Seat" then
-            v:Destroy()
-                     end
-                  end
-            end)
-        end
-    end
-end) 
-
-                           Main:Toggle("Auto Evo Race",false,function(vu)
+                   Main:Toggle("Auto Evo Race",false,function(vu)
 		getgenv().Autorace = vu
 	end)
 
 	spawn(function()
-		while wait(.1) do
+		while wait() do
 			if getgenv().Autorace then
 				if not game:GetService("Players").LocalPlayer.Data.Race:FindFirstChild("Evolved") then
 					if game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Alchemist","1") == 0 then
@@ -1379,7 +1350,7 @@ Main:Toggle("Auto Bartilo Quest",false,function(vu)
 	end
 end)
 spawn(function()
-	while wait(.1) do
+	while wait() do
 		if getgenv().AutoBartilo then
 			if game.Players.LocalPlayer.Data.Level.Value >= 850 and game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BartiloQueschichdiemrogress","Bartilo") == 0 then
 			    getgenv().AutoFarm = false
@@ -1468,14 +1439,14 @@ end)
 Main:Toggle("Auto Ectoplasm",false,function(vu)
 	getgenv().AutoEcto = vu
 	if vu == false then
-		wait(1)
+		wait()
 		chichdiem(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame)
 	end
 end)
 
 spawn(function()
 	pcall(function()
-		while wait(.1) do
+		while wait() do
 			if getgenv().AutoEcto then
 				if game:GetService("Workspace").Enemies:FindFirstChild("Ship Deckhand [Lv. 1250]") or game:GetService("Workspace").Enemies:FindFirstChild("Ship Engineer [Lv. 1275]") or game:GetService("Workspace").Enemies:FindFirstChild("Ship Steward [Lv. 1300]") or game:GetService("Workspace").Enemies:FindFirstChild("Ship Officer [Lv. 1325]") then
 					for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
@@ -1512,7 +1483,7 @@ Main:Toggle("Auto Buy Legendary Sword",false,function(vu)
 end)
 
 spawn(function()
-	while wait(.1) do
+	while wait() do
 		if getgenv().LegebdarySword then
 			local args = {
 				[1] = "LegendarySwordDealer",
@@ -1523,7 +1494,7 @@ spawn(function()
 	end
 end)
 spawn(function()
-	while wait(.1) do
+	while wait() do
 		if getgenv().LegebdarySword then
 			local args = {
 				[1] = "LegendarySwordDealer",
@@ -1534,7 +1505,7 @@ spawn(function()
 	end
 end)
 spawn(function()
-	while wait(.1) do
+	while wait() do
 		if getgenv().LegebdarySword then
 			local args = {
 				[1] = "LegendarySwordDealer",
@@ -1680,8 +1651,11 @@ Main:Toggle("Auto Farm All Boss",false,function(value)
 end
 end
 end)
+
+
 local Boss = {}
-for i, v in pairs(game:GetService("ReplicatedStorage"):GetChildren()) do
+    
+    for i, v in pairs(game:GetService("ReplicatedStorage"):GetChildren()) do
         if string.find(v.Name, "Boss") then
             if v.Name == "Ice Admiral [Lv. 700] [Boss]" then
                 else
@@ -1689,9 +1663,6 @@ for i, v in pairs(game:GetService("ReplicatedStorage"):GetChildren()) do
             end
         end
     end
-
-    
-    
     local BossName = Main:Dropdown("Select Boss",Boss,function(value)
         getgenv().SelectBoss = value
     end)
@@ -1850,7 +1821,7 @@ end)
 
 spawn(function()
 	pcall(function()
-		while wait(.1) do
+		while wait() do
 			if getgenv().AutoRainbow then
 				if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false then
 					game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("HornedMan","Bet")
@@ -1947,7 +1918,7 @@ end)
 
 spawn(function()
 	pcall(function()
-		while wait(.1) do
+		while wait() do
 			if getgenv().AutoAccessories or getgenv().AutoAccessory then
 				CheckAccessory = game:GetService("Players").LocalPlayer.Character
 				if CheckAccessory:FindFirstChild("BlackCape") or CheckAccessory:FindFirstChild("SwordsmanHat") or CheckAccessory:FindFirstChild("PinkCoat") or CheckAccessory:FindFirstChild("TomoeRing") or CheckAccessory:FindFirstChild("MarineCape") or CheckAccessory:FindFirstChild("PirateCape") or CheckAccessory:FindFirstChild("CoolShades") or CheckAccessory:FindFirstChild("UsoapHat") or CheckAccessory:FindFirstChild("MarineCap") or CheckAccessory:FindFirstChild("BlackSpikeyCoat") or CheckAccessory:FindFirstChild("Choppa") or CheckAccessory:FindFirstChild("SaboTopHat") or CheckAccessory:FindFirstChild("WarriorHelmet") or CheckAccessory:FindFirstChild("DarkCoat") or CheckAccessory:FindFirstChild("SwanGlasses") or CheckAccessory:FindFirstChild("ZebraCap") or CheckAccessory:FindFirstChild("GhoulMask") or CheckAccessory:FindFirstChild("BlueSpikeyCoat") or CheckAccessory:FindFirstChild("RedSpikeyCoat") or CheckAccessory:FindFirstChild("SantaHat") or CheckAccessory:FindFirstChild("ElfHat") or CheckAccessory:FindFirstChild("ValkyrieHelm") or CheckAccessory:FindFirstChild("Bandanna(Black)") or CheckAccessory:FindFirstChild("Bandanna(Green)") or CheckAccessory:FindFirstChild("Bandanna(Red)") or CheckAccessory:FindFirstChild("Huntercape(Black)") or CheckAccessory:FindFirstChild("Huntercape(Green)") or CheckAccessory:FindFirstChild("Huntercape(Red)") or CheckAccessory:FindFirstChild("PrettyHelmet") or CheckAccessory:FindFirstChild("JawShield") or CheckAccessory:FindFirstChild("MusketeerHat") or CheckAccessory:FindFirstChild("Pilothelmet") or CheckAccessory:FindFirstChild("Holy Crown") then
@@ -2843,17 +2814,17 @@ local x2Code = {
     game.Players.LocalPlayer.Character.Animate.Disabled = true 
 end)
 Misc:Toggle("Auto Click",autoclick,function(value)
-		AuctoClick = value
+		getgenv().AuctoClick = value
 	end)
 	spawn(function()
 		while wait() do
-			if AuctoClick then
+			if getgenv().AuctoClick then
 				Click()
 			end
 		end
 	end)
 	Misc:Toggle("No Clip",false,function(value)
-		NoClip = value
+		getgenv().NoClip = value
 	end)
 	if game.workspace:FindFirstChild("WaterWalk") then
 		game.workspace:FindFirstChild("WaterWalk"):Destroy()
