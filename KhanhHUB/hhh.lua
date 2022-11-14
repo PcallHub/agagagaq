@@ -1746,9 +1746,46 @@ Main:Toggle("Auto Farm Bone",false,function(vu)
 	
 end)
 spawn(function()
-	while wait() do
-		pcall(function()
-			if getgenv().Auto_Bone then
+while wait() đó
+if getgenv().Auto_Bone then
+ball()
+hitbox()
+end
+end
+end)
+game:GetService('RunService').Stepped:connect(function()
+    if getgenv().Auto_Bone then
+       game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
+	end
+end)
+
+spawn(function()
+    while wait() do
+        if getgenv().Auto_Bone then
+            ball()
+            hitbox()
+        end
+    end
+end)
+
+spawn(function()
+    while wait() do
+        if getgenv().bodyvelo then
+            if not game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChild("VelocityBody") then
+                local BV = Instance.new("BodyVelocity")
+                BV.Parent = game.Players.LocalPlayer.Character.HumanoidRootPart
+                BV.Name = "VelocityBody"
+                BV.MaxForce = Vector3.new(100000,100000,100000)
+                BV.Velocity = Vector3.new(0,0,0)
+            end
+        else
+            if game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChild("VelocityBody") then
+                game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChild("VelocityBody"):Destroy()
+            end
+        end
+    end
+end)
+function ball()
 				if game:GetService("Workspace").Enemies:FindFirstChild("Reborn Skeleton [Lv. 1975]") or game:GetService("Workspace").Enemies:FindFirstChild("Living Zombie [Lv. 2000]") or game:GetService("Workspace").Enemies:FindFirstChild("Domenic Soul [Lv. 2025]") or game:GetService("Workspace").Enemies:FindFirstChild("Posessed Mummy [Lv. 2050]") then
 					for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
 for x,y in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
@@ -1785,10 +1822,6 @@ end
 					chichdiem(CFrame.new(-9501.64453, 582.052612, 6034.20117))
 				end
 			end
-
-		end)
-	end
-end)
 
 
 
