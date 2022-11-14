@@ -1759,7 +1759,7 @@ for x,y in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
 AutoHaki()
 EquipWeapon(getgenv().toolo)
 v.HumanoidRootPart.Transparency = 1
-                                                                        v.HumanoidRootPart.CFrame = y.HumanoidRootPart.CFrame
+                                                                        v.HumanoidRootPart.Anchored = true
 									v.HumanoidRootPart.CanCollide = false 
 y.HumanoidRootPart.CanCollide = false
                                                                         v.Humanoid.WalkSpeed = 0
