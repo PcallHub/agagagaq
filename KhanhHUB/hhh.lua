@@ -978,7 +978,7 @@ spawn(function()
         if getgenv().AutoFarm then
             AutoQuest()
             TP()
-            hitbox()
+            
         end
     end
 end)
@@ -1747,23 +1747,7 @@ Main:Toggle("Auto Farm Bone",false,function(vu)
 end)
 
 
-spawn(function()
-    while wait() do
-        if getgenv().bodyvelo or getgenv().Auto_Bone then
-            if not game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChild("VelocityBody") then
-                local BV = Instance.new("BodyVelocity")
-                BV.Parent = game.Players.LocalPlayer.Character.HumanoidRootPart
-                BV.Name = "VelocityBody"
-                BV.MaxForce = Vector3.new(100000,100000,100000)
-                BV.Velocity = Vector3.new(0,0,0)
-            end
-        else
-            if game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChild("VelocityBody") then
-                game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChild("VelocityBody"):Destroy()
-            end
-        end
-    end
-end)
+
 spawn(function()
 	while true do
 		pcall(function()
