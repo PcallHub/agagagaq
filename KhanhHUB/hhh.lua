@@ -918,7 +918,7 @@ OPENCLOSE.TextWrapped=true
 OPENCLOSE.MouseButton1Click:Connect(function()
 game.CoreGui:FindFirstChild("Best Xem Chùa").Enabled = not game.CoreGui:FindFirstChild("Best Xem Chùa").Enabled
 end)
-local win = UILib:Window("😱Béo HUB😂",Color3.fromRGB(203, 244, 242), Enum.KeyCode.RightControl)
+local win = UILib:Window("😱Béo HUB | Blox fruits v17.3",Color3.fromRGB(203, 244, 242), Enum.KeyCode.RightControl)
 local AutoFarm = win:Tab("🐧Main")
 local Main = win:Tab("🐓Auto Something")
 local Stat = win:Tab("✨⭐Stats")
@@ -1558,12 +1558,22 @@ spawn(function()
 		end
 	end
 end)
+Main:Toggle("Check EliteHunter",function(j)
+getgenv().click = j
+end)
 spawn(function()
-	while true do
-		local TotalElite = tostring(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("EliteHunter","Progress"))
-		CheckElite:Set("Total EliteHunter Progress : "..TotalElite)
-		game:GetService("RunService").Heartbeat:wait()
+	while wait() do
+if getgenv().click then
+local TotalElite = tostring(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("EliteHunter","Progress"))
+game:GetService("StarterGui"):SetCore("SendNotification", {
+        Title="Total",
+        Text= "Total EliteHunter Progress : "..TotalElite,
+        Duration = 60
+        })
+		
+			game:GetService("RunService").Heartbeat:wait()
 	end
+end
 end)
 
 Main:Toggle("Auto Farm Elite Hunter",false,function(vu)
@@ -1965,13 +1975,7 @@ end)
                      
     
 
-spawn(function()
-    while wait() do
-        pcall(function()
-            Stat:Set("Stat Points : "..tostring(game:GetService("Players")["LocalPlayer"].Data.Points.Value))
-        end)
-    end
-end)
+
 Stat:Toggle("Melee",false,function(val)
 	getgenv().melee = val
 end)
