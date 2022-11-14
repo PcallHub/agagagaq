@@ -1745,28 +1745,7 @@ Main:Toggle("Auto Farm Bone",false,function(vu)
 	getgenv().Auto_Bone = vu
 	
 end)
-spawn(function()
-while wait() đó
-if getgenv().Auto_Bone then
-ball()
-hitbox()
-end
-end
-end)
-game:GetService('RunService').Stepped:connect(function()
-    if getgenv().Auto_Bone then
-       game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
-	end
-end)
 
-spawn(function()
-    while wait() do
-        if getgenv().Auto_Bone then
-            ball()
-            hitbox()
-        end
-    end
-end)
 
 spawn(function()
     while wait() do
@@ -1785,11 +1764,14 @@ spawn(function()
         end
     end
 end)
-function ball()
+spawn(function()
+	while true do
+		pcall(function()
+			if getgenv().Auto_Bone then
 				if game:GetService("Workspace").Enemies:FindFirstChild("Reborn Skeleton [Lv. 1975]") or game:GetService("Workspace").Enemies:FindFirstChild("Living Zombie [Lv. 2000]") or game:GetService("Workspace").Enemies:FindFirstChild("Domenic Soul [Lv. 2025]") or game:GetService("Workspace").Enemies:FindFirstChild("Posessed Mummy [Lv. 2050]") then
 					for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
 for x,y in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-						if v.Name == "Reborn Skeleton [Lv. 1975]" or v.Name == "Living Zombie [Lv. 2000]" or v.Name == "Demonic Soul [Lv. 2025]" or v.Name == "Posessed Mummy [Lv. 2050]" then
+						if v.Name == "Reborn Skeleton [Lv. 1975]" and v.Name == "Living Zombie [Lv. 2000]" and v.Name == "Demonic Soul [Lv. 2025]" and v.Name == "Posessed Mummy [Lv. 2050]" then
 							if v:WaitForChild("Humanoid").Health > 0 then
 								repeat game:GetService("RunService").Heartbeat:wait()
 									chichdiem(v.HumanoidRootPart.CFrame * CFrame.new(0,30,0))
@@ -1820,9 +1802,13 @@ end
 				else
 					BoneMagnet = false
 					chichdiem(CFrame.new(-9501.64453, 582.052612, 6034.20117))
+wait()
 				end
 			end
-
+end
+end)
+end
+end)
 
 
     
