@@ -978,7 +978,7 @@ spawn(function()
         if getgenv().AutoFarm then
             AutoQuest()
             TP()
-            
+            hitbox()
         end
     end
 end)
@@ -1742,16 +1742,13 @@ Main:Button("Refresh",function()
 	end
 end)
 Main:Toggle("Auto Farm Bone",false,function(vu)
-	getgenv().Auto_Bone = vu
+	getgenv().getgenv().Auto_Bone = vu
 	
 end)
-
-
-
 spawn(function()
-	while true do
+	while wait() do
 		pcall(function()
-			if getgenv().Auto_Bone then
+			if getgenv().getgenv().Auto_Bone then
 				if game:GetService("Workspace").Enemies:FindFirstChild("Reborn Skeleton [Lv. 1975]") or game:GetService("Workspace").Enemies:FindFirstChild("Living Zombie [Lv. 2000]") or game:GetService("Workspace").Enemies:FindFirstChild("Domenic Soul [Lv. 2025]") or game:GetService("Workspace").Enemies:FindFirstChild("Posessed Mummy [Lv. 2050]") then
 					for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
 for x,y in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
@@ -1762,10 +1759,10 @@ for x,y in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
 AutoHaki()
 EquipWeapon(getgenv().toolo)
 v.HumanoidRootPart.Transparency = 1
-                                                                        v.HumanoidRootPart.Anchored = true
+                                                                       
 									v.HumanoidRootPart.CanCollide = false 
 y.HumanoidRootPart.CanCollide = false
-                                                                        v.Humanoid.WalkSpeed = 0
+                                                         v.Humanoid.WalkSpeed = 0
    y.Humanoid.WalkSpeed = 0
    v.Humanoid.JumpPower = 0
    y.Humanoid.JumpPower = 0
@@ -1775,7 +1772,7 @@ v.HumanoidRootPart.Size = Vector3.new(60,60,60)
 									game:GetService("VirtualUser"):Button1Down(Vector2.new(1280, 670),workspace.CurrentCamera.CFrame)
 									MainMonBone = v.HumanoidRootPart.CFrame
 									BoneMagnet = true
-								until Auto_Bone == false or not v.Parent or v.Humanoid.Health <= 0
+								until getgenv().getgenv().Auto_Bone == false or not v.Parent or v.Humanoid.Health <= 0
 if sethiddenproperty then
      sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
 end
@@ -1786,16 +1783,27 @@ end
 				else
 					BoneMagnet = false
 					chichdiem(CFrame.new(-9501.64453, 582.052612, 6034.20117))
-wait()
 				end
 			end
-end
-end)
-end
+
+		end)
+	end
 end)
 
 
-    
+
+    spawn(function()
+		while wait() do
+			if BoneMagnet and getgenv().Auto_Bone then
+				for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
+					if BoneMagnet  and getgenv().Auto_Bone and (v.Name == "Reborn Skeleton [Lv. 1975]" or v.Name == "Living Zombie [Lv. 2000]" or v.Name == "Demonic Soul [Lv. 2025]" or v.Name == "Posessed Mummy [Lv. 2050]") and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 and (v.HumanoidRootPart.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 350 then
+						v.HumanoidRootPart.CFrame = MainMonBone
+						v.HumanoidRootPart.CanCollide = false
+					end
+				end
+			end
+		end
+	end)
 Main:Toggle("Auto Enma Sword",false,function(vu)
 	getgenv().Yama = vu
 	
