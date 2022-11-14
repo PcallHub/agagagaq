@@ -1770,7 +1770,7 @@ end)
 
 spawn(function()
     while wait() do
-        if getgenv().bodyvelo then
+        if getgenv().bodyvelo or getgenv().Auto_Bone then
             if not game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChild("VelocityBody") then
                 local BV = Instance.new("BodyVelocity")
                 BV.Parent = game.Players.LocalPlayer.Character.HumanoidRootPart
