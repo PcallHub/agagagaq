@@ -912,7 +912,7 @@ end
 
 				Toggle.Parent = ScrollingFrame_Pageframe
 
-				Toggle.BackgroundColor3 = Color3.fromRGB(25, 255,255)
+				Toggle.BackgroundColor3 = Color3.fromRGB(15, 255,255)
 
 				Toggle.BorderSizePixel = 0
 
@@ -930,7 +930,7 @@ end
 
 				TextButton_Toggle.BackgroundTransparency =1
 
-				TextButton_Toggle.BackgroundColor3 = Color3.fromRGB(253, 172, 171)
+				TextButton_Toggle.BackgroundColor3 = Color3.fromRGB(253, 172, 251)
 
 				TextButton_Toggle.BorderSizePixel = 0
 
@@ -3088,7 +3088,7 @@ end
 
 			end
 
-			function items:Drop(text,use,option,callback)
+			function items:Dropdown(text,use,option,callback)
 
 			if use == false then
 
@@ -3310,7 +3310,7 @@ end
 
 					ListFrame.Parent = ScolDown
 
-					ListFrame.BackgroundColor3 =  Color3.fromRGB(22553, 23, 23)-- Color3.fromRGB(250,0,0)
+					ListFrame.BackgroundColor3 =  Color3.fromRGB(155,255,255)-- Color3.fromRGB(250,0,0)
 
 					ListFrame.BorderSizePixel = 0
 
@@ -6096,7 +6096,7 @@ end
 
 	
 
-	local Select_noob_Hop = page1:Drop("Select Fruit",false,All_noob,function(Value)
+	local Select_noob_Hop = page1:Dropdown("Select Fruit",false,All_noob,function(Value)
 		getgenv().Selectnoob = Value
 	end)
 
