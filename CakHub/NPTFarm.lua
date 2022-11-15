@@ -133,7 +133,7 @@ end)
 
 						function()
 
-							if input.UserInputType == Enum.UserInputType.End then
+							if input.UserInputstate == Enum.UserInputstate.End then
 
 								Dragging = false
 
