@@ -6849,10 +6849,55 @@ end)
      	page1:Toggle("Auto Farm Level",false,function(vu)
      getgenv().Auto_Farm = vu
 	    end)
+	spawn(function()
+		while wait() do
+			if getgenv().Auto_Farm then
+				quest()
+				beo()
+			end
+		end
+	end)
+	game:GetService("RunService").Heartbeat:Connect(
+	function()
+		if getgenv().NoClip or getgenv().Auto_Farm or getgenv().Observation or getgenv().AutoNew or getgenv().Factory or getgenv().GunMastery or getgenv().Mastery or FramBoss or FramAllBoss or getgenv().getgenv().AutoBartilo or getgenv().MobAura or getgenv().AutoRengoku or getgenv().AutoSharkman or getgenv().Ectoplasm or getgenv().PoleHop or getgenv().SwanHop or getgenv().BlackBeardHop or getgenv().Chest or getgenv().Electro or rainbowhaki or Hunter or observationv2 or getgenv().ElitehuntHop or getgenv().EliteHunt or getgenv().Pole or getgenv().Tushitahop or getgenv().YamaHop or getgenv().StoreFruit or getgenv().HolyTorch then
+			if game:GetService("Players").LocalPlayer.Character:FindFirstChild("Humanoid") then
+				game:GetService("Players").LocalPlayer.Character.Humanoid:ChangeState(11)
+			end
+		end
+	end)
+	game:GetService('RunService').Stepped:connect(function()
+    if getgenv().Auto_Farm then
+       game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
+	end
+end)
+
 spawn(function()
-	while wait() do
-		pcall(function()
-			if getgenv().getgenv().Auto_Farm then
+    while wait() do
+        if getgenv().Auto_Farm then
+            quest()
+            beo()
+        end
+    end
+end)
+
+spawn(function()
+    while wait() do
+        if getgenv().bodyvelo then
+            if not game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChild("VelocityBody") then
+                local BV = Instance.new("BodyVelocity")
+                BV.Parent = game.Players.LocalPlayer.Character.HumanoidRootPart
+                BV.Name = "VelocityBody"
+                BV.MaxForce = Vector3.new(100000,100000,100000)
+                BV.Velocity = Vector3.new(0,0,0)
+            end
+        else
+            if game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChild("VelocityBody") then
+                game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChild("VelocityBody"):Destroy()
+            end
+        end
+    end
+end)
+function quest()
 				if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false then
         CheckQuest()
         repeat wait()
@@ -6867,7 +6912,8 @@ spawn(function()
             
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
     end
-wait(3)
+end
+function beo()
 local mob = game:GetService("Workspace").Enemies:GetChildren()
     local MyLevel = game.Players.LocalPlayer.Data.Level.Value
     if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then
@@ -6904,10 +6950,6 @@ end
 					chichdiem(CFrame.new(CFrameMon))
 			end
 end
-		end)
-	end
-end)
-
 
 
     lol = {}
