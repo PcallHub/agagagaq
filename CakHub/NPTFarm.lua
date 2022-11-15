@@ -11,26 +11,7 @@ end
 -----------------------------------------
 
 	do  local ui =  game:GetService("CoreGui"):FindFirstChild("redui")  if ui then ui:Destroy() end end
-local DINOHUB = Instance.new("ScreenGui")
-local OPENCLOSE = Instance.new("TextButton")
- DINOHUB.Name="DINOHUB"
-DINOHUB.Parent=game.CoreGui
-DINOHUB.ZIndexBehavior=Enum.ZIndexBehavior.Sibling
-OPENCLOSE.Name="OPENCLOSE"
-OPENCLOSE.Parent=DINOHUB
-OPENCLOSE.BackgroundColor3=Color3.fromRGB(255, 52, 0)
-OPENCLOSE.BorderSizePixel=0
-OPENCLOSE.Position=UDim2.new(0.9990833337, 0, 0.0952890813, 0)
-OPENCLOSE.Size=UDim2.new(0.05589916649, 0, 0.0845824406, 0)
-OPENCLOSE.Font=Enum.Font.DenkOne
-OPENCLOSE.Text=""
-OPENCLOSE.TextColor3=Color3.fromRGB(255, 40, 0)
-OPENCLOSE.TextScaled=true
-OPENCLOSE.TextSize=14.000
-OPENCLOSE.TextWrapped=true
-OPENCLOSE.MouseButton1Click:Connect(function()
-game.CoreGui:FindFirstChild("redui").Enabled = not game.CoreGui:FindFirstChild("redui").Enabled
-end)
+
 	local UserInputService = game:GetService("UserInputService")
 
 	local TweenService = game:GetService("TweenService")
@@ -6821,7 +6802,28 @@ function EquipWeapon(ToolSe) if game.Players.LocalPlayer.Backpack:FindFirstChild
 
 
 	local Window = create:Win("N P T H U B")
+local DINOHUB = Instance.new("ScreenGui")
+local OPENCLOSE = Instance.new("TextButton")
 
+
+local DINOHUB = Instance.new("ScreenGui")
+local OPENCLOSE = Instance.new("ImageButton")
+
+
+DINOHUB.Name = "DINOHUB"
+DINOHUB.Parent = game.CoreGui
+DINOHUB.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+OPENCLOSE.Name = "OPENCLOSE"
+OPENCLOSE.Parent = DINOHUB
+OPENCLOSE.BackgroundColor3 = Color3.fromRGB(239, 196, 251)
+OPENCLOSE.BorderSizePixel = 0
+OPENCLOSE.Position = UDim2.new(0.120833337, 0, 0.0952890813, 0)
+OPENCLOSE.Size = UDim2.new(0.0447916649, 0, 0.0845824406, 0)
+OPENCLOSE.Image = "rbxassetid://7769924685"
+OPENCLOSE.MouseButton1Click:Connect(function()
+game.CoreGui:FindFirstChild("redui").Enabled = not game.CoreGui:FindFirstChild("redui").Enabled
+end)
 	
 	local Tap2 = Window:Taps("Main")
 
