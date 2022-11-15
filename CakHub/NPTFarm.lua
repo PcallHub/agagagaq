@@ -10,7 +10,7 @@ end
 
 -----------------------------------------
 
-	do  local ui =  game:GetService("CoreGui"):FindFirstChild("kimchidoao")  if ui then ui:Destroy() end end
+	do  local ui =  game:GetService("CoreGui"):FindFirstChild("redui")  if ui then ui:Destroy() end end
 
 	local UserInputService = game:GetService("UserInputService")
 
@@ -60,7 +60,7 @@ end
 
 	Reduisceen.Parent = game:GetService("CoreGui")
 
-	Reduisceen.Name = "kimchidoao"
+	Reduisceen.Name = "redui"
 
 	Reduisceen.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
@@ -6817,7 +6817,7 @@ OPENCLOSE.TextScaled=true
 OPENCLOSE.TextSize=14.000
 OPENCLOSE.TextWrapped=true
 OPENCLOSE.MouseButton1Click:Connect(function()
-game.CoreGui:FindFirstChild("kimchidoao").Enabled = not game.CoreGui:FindFirstChild("kimchidoao").Enabled
+game.CoreGui:FindFirstChild("redui").Enabled = not game.CoreGui:FindFirstChild("redui").Enabled
 end)
 	local Window = create:Win("N P T H U B")
 
