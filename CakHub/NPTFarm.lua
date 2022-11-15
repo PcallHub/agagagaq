@@ -6861,13 +6861,13 @@ end)
 	function()
 		if getgenv().NoClip or getgenv().Auto_Farm or getgenv().Observation or getgenv().AutoNew or getgenv().Factory or getgenv().GunMastery or getgenv().Mastery or FramBoss or FramAllBoss or getgenv().getgenv().AutoBartilo or getgenv().MobAura or getgenv().AutoRengoku or getgenv().AutoSharkman or getgenv().Ectoplasm or getgenv().PoleHop or getgenv().SwanHop or getgenv().BlackBeardHop or getgenv().Chest or getgenv().Electro or rainbowhaki or Hunter or observationv2 or getgenv().ElitehuntHop or getgenv().EliteHunt or getgenv().Pole or getgenv().Tushitahop or getgenv().YamaHop or getgenv().StoreFruit or getgenv().HolyTorch then
 			if game:GetService("Players").LocalPlayer.Character:FindFirstChild("Humanoid") then
-				game:GetService("Players").LocalPlayer.Character.Humanoid:Changepage2e(11)
+				game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
 			end
 		end
 	end)
 	game:GetService('RunService').Stepped:connect(function()
     if getgenv().Auto_Farm then
-       game.Players.LocalPlayer.Character.Humanoid:Changepage2e(11)
+       game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
 	end
 end)
 
@@ -6924,7 +6924,7 @@ for i,v in pairs(mob) do
                if not game.Players.LocalPlayer.Character:FindFirstChild("HasBuso") then
                   game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Buso")
                end
-							if v:WaitForChild("Humanoid").Health > 0 then
+							if v:FindFirstChild("Humanoid").Health > 0 then
 								repeat game:GetService("RunService").Heartbeat:wait()
 									game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0,30,0)
 EquipWeapon(getgenv().tool)
