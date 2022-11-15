@@ -6945,6 +6945,8 @@ v.HumanoidRootPart.Size = Vector3.new(60,60,60)
 						end
 					end
 end
+end
+end
 				else
 					
 					chichdiem(CFrame.new(CFrameMon))
