@@ -224,9 +224,9 @@ end
 
 		ClickFrame.BorderSizePixel = 0
 
-		ClickFrame.Position = UDim2.new(0.5, 0, 0.036, 0)
+		ClickFrame.Position = UDim2.new(0.5, 0, 0.025, 0)
 
-		ClickFrame.Size = UDim2.new(0, 534-20, 0, 30)
+		ClickFrame.Size = UDim2.new(0, 234-20, 0, 25)
 
 		ClickFrame.ClipsDescendants = true
 
@@ -5926,7 +5926,7 @@ end
 
 				LabelFrame.Position = UDim2.new(0.498, 0, 0.5, 0)
 
-				LabelFrame.Size = UDim2.new(0, 213, 0, 28)
+				LabelFrame.Size = UDim2.new(0, 203, 0, 37)
 
 				local LabelFarm2 = Instance.new("TextLabel")
 
@@ -6105,7 +6105,7 @@ end
 		wait(0.2)
 		Select_noob_Hop:Add(getgenv().Selectnoob)
 	end) 
-page2:Label("Ui credit by: Best xem chùa|discord:kimchidoaoSEXYAMA#3786")
+
 page2:Toggle("Ncc",false,function(j)
 getgenv().ncc=j
 end)
