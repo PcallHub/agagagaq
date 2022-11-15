@@ -6917,43 +6917,39 @@ function beo()
 local mob = game:GetService("Workspace").Enemies:GetChildren()
     local MyLevel = game.Players.LocalPlayer.Data.Level.Value
     if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then
-					for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-for x,y in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-for i,v in pairs(mob) do
-            if v.Name == Ms then
-               if not game.Players.LocalPlayer.Character:FindFirstChild("HasBuso") then
-                  game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Buso")
-               end
-							if game:GetService("Workspace").Enemies:FindFirstChild(Ms) and v.Humanoid.Health > 0 and v:FindFirstChild("Humanoid") then
-								repeat game:GetService("RunService").Heartbeat:wait()
-									game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0,30,0)
-EquipWeapon(getgenv().tool)
-v.HumanoidRootPart.Transparency = 1
-                                                                       
-									v.HumanoidRootPart.CanCollide = false 
-y.HumanoidRootPart.CanCollide = false
-                                                         v.Humanoid.WalkSpeed = 0
-   y.Humanoid.WalkSpeed = 0
-   v.Humanoid.JumpPower = 0
-   y.Humanoid.JumpPower = 0
-   						v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
-v.HumanoidRootPart.Size = Vector3.new(60,60,60)
-									game:GetService("VirtualUser"):CaptureController()
-									game:GetService("VirtualUser"):Button1Down(Vector2.new(1280, 670),workspace.CurrentCamera.CFrame)
-								until getgenv().getgenv().Auto_Farm == false or not v.Parent or v.Humanoid.Health <= 0
-
-						
-				else
-					
-					chichdiem(CFrame.new(CFrameMon))
-					end
-					end
-end
-end
-end
-			end
+					if game:GetService("Workspace").Enemies:FindFirstChild(Ms) then
+						for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+							if v.Name == Ms and v:FindFirstChild("Humanoid") then
+								if v.Humanoid.Health > 0 then
+									repeat game:GetService("RunService").Heartbeat:wait()
+										if game:GetService("Workspace").Enemies:FindFirstChild(Ms) then
+											if string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMon) then
+                                                EquipWeapon(getgenv().tool)
+                                                AutoHaki()
+												v.HumanoidRootPart.CanCollide = false
+												v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
+                                                chichdiem(v.HumanoidRootPart.CFrame * CFrame.new(0,30,0))
+												game:GetService("VirtualUser"):CaptureController()
+												game:GetService("VirtualUser"):Button1Down(Vector2.new(1280, 670),workspace.CurrentCamera.CFrame)
+												MagnetActive = true
+												PosMon = v.HumanoidRootPart.CFrame
+											else
+												
+												game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
+											end
+										else
+											
+											
+											chichdiem(CFrameMon)
+										end
+									until not v.Parent or v.Humanoid.Health <= 0 or _G.FarmLevel == false or game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false or not game:GetService("Workspace").Enemies:FindFirstChild(v.Name)
+								end
+							end
+						end
 end
 
+end
+end
 
     lol = {}
 for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do  
