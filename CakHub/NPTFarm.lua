@@ -114,7 +114,7 @@ end
 
 						function()
 
-							if input.UserInputstate == Enum.UserInputstate.End then
+							if input.UserInputType == Enum.UserInputType.End then
 
 								Dragging = false
 
