@@ -6924,7 +6924,7 @@ for i,v in pairs(mob) do
                if not game.Players.LocalPlayer.Character:FindFirstChild("HasBuso") then
                   game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Buso")
                end
-							if v:FindFirstChild("Humanoid").Health > 0 then
+							if game:GetService("Workspace").Enemies:FindFirstChild(Ms) and v.Humanoid.Health > 0 and v:FindFirstChild("Humanoid") then
 								repeat game:GetService("RunService").Heartbeat:wait()
 									game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0,30,0)
 EquipWeapon(getgenv().tool)
