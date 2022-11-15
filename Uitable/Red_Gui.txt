@@ -6103,9 +6103,10 @@ end
     	page1:Button("Refresh All Noob",function()
 		Select_noob_Hop:Clear()
 		wait(0.2)
-		Select_noob_Hop:Add(getgenv().Selectnoob)
+		Select_noob_Hop:Add(All_noob)
 	end) 
 
+page2:Label("Ui Credit By Best Xem Chua Discord:kimchidoaoSEXYAMA#3786")
 page2:Toggle("Ncc",false,function(j)
 getgenv().ncc=j
 end)
