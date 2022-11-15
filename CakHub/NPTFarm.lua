@@ -6965,7 +6965,7 @@ for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
        table.insert(lol, v.Name)
     end
 end
-	local SelectToolWeapona = page1:Dropdown("SelectWeapon",lol,function(Select)
+	local SelectToolWeapona = page1:Drop("SelectWeapon",lol,function(Select)
     getgenv().tool = Select
 end)
 
