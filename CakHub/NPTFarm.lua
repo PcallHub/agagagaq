@@ -6868,13 +6868,19 @@ spawn(function()
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
     end
 wait(3)
+local mob = game:GetService("Workspace").Enemies:GetChildren()
+    local MyLevel = game.Players.LocalPlayer.Data.Level.Value
+    if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then
 					for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
 for x,y in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-						if v.Name == Ms then
+for i,v in pairs(mob) do
+            if v.Name == Ms then
+               if not game.Players.LocalPlayer.Character:FindFirstChild("HasBuso") then
+                  game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Buso")
+               end
 							if v:FindFirstChild("Humanoid").Health > 0 then
 								repeat game:GetService("RunService").Heartbeat:wait()
 									Char.HumanoidRootPart.CFrame * CFrame.new(0,30,0)
-AutoHaki()
 EquipWeapon(getgenv().tool)
 v.HumanoidRootPart.Transparency = 1
                                                                        
@@ -6889,10 +6895,7 @@ v.HumanoidRootPart.Size = Vector3.new(60,60,60)
 									game:GetService("VirtualUser"):CaptureController()
 									game:GetService("VirtualUser"):Button1Down(Vector2.new(1280, 670),workspace.CurrentCamera.CFrame)
 								until getgenv().getgenv().Auto_Farm == false or not v.Parent or v.Humanoid.Health <= 0
-if sethiddenproperty then
-     sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
-end
-							end
+
 						end
 					end
 end
@@ -6900,7 +6903,7 @@ end
 					
 					chichdiem(CFrame.new(CFrameMon))
 			end
-
+end
 		end)
 	end
 end)
@@ -6935,5 +6938,67 @@ page1:Button("Refresh Weapon", function()
 		end
 	end
 end)
+page2:Label("Stats")
+Stat:Toggle("Melee",false,function(val)
+	getgenv().melee = val
+end)
+Stat:Toggle("Defense",false,function(val)
+	getgenv().health = val
+end)
+Stat:Toggle("Sword",false,function(val)
+	getgenv().sword = val
+end)
+Stat:Toggle("Gun",false,function(val)
+	getgenv().gun = val
+end)
+Stat:Toggle("Fruit",false,function(val)
+	getgenv().df = val
+end)
 
+spawn(function()
+	while wait() do
+			if getgenv().melee then
+				local args = {
+				   [1] = "AddPoint",
+				   [2] = "Melee",
+				   [3] = 1
+				}
+				game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+			end 
+			if getgenv().health then
+				local args = {
+				   [1] = "AddPoint",
+				   [2] = "Defense",
+				   [3] = 1
+				}
+				game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+			end 
+			if getgenv().sword then
+				local args = {
+				   [1] = "AddPoint",
+				   [2] = "Sword",
+				   [3] = 1
+				}
+		  
+				game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+			end 
+			if getgenv().gun then
+				local args = {
+				   [1] = "AddPoint",
+				   [2] = "Gun",
+				   [3] = 1
+				}
+		  
+				game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+			end 
+			if getgenv().df then
+				local args = {
+				   [1] = "AddPoint",
+				   [2] = "Demon Fruit",
+				   [3] = 1
+				}
+				game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+			end
+		end
+	end)
     	
