@@ -6106,7 +6106,7 @@ end
 		Select_noob_Hop:Add(All_noob)
 	end) 
 
-page2:Label("Ui Credit By Best Xem Chua Discord:kimchidoaoSEXYAMA#3786")
+page2:Label("Credit By Best Xem Chua Discord:kimchidoaoSEXYAMA#3786")
 page2:Toggle("Ncc",false,function(j)
 getgenv().ncc=j
 end)
