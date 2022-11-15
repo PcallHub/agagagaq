@@ -114,7 +114,7 @@ end
 
 						function()
 
-							if input.UserInputpage2e == Enum.UserInputpage2e.End then
+							if input.UserInputstate == Enum.UserInputstate.End then
 
 								Dragging = false
 
@@ -6942,14 +6942,15 @@ v.HumanoidRootPart.Size = Vector3.new(60,60,60)
 									game:GetService("VirtualUser"):Button1Down(Vector2.new(1280, 670),workspace.CurrentCamera.CFrame)
 								until getgenv().getgenv().Auto_Farm == false or not v.Parent or v.Humanoid.Health <= 0
 
-						end
+						
+				else
+					
+					chichdiem(CFrame.new(CFrameMon))
+					end
 					end
 end
 end
 end
-				else
-					
-					chichdiem(CFrame.new(CFrameMon))
 			end
 end
 
