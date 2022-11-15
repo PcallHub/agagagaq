@@ -6926,7 +6926,7 @@ for i,v in pairs(mob) do
                end
 							if v:FindFirstChild("Humanoid").Health > 0 then
 								repeat game:GetService("RunService").Heartbeat:wait()
-									Char.HumanoidRootPart.CFrame * CFrame.new(0,30,0)
+									game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0,30,0)
 EquipWeapon(getgenv().tool)
 v.HumanoidRootPart.Transparency = 1
                                                                        
