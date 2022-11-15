@@ -6928,7 +6928,7 @@ local mob = game:GetService("Workspace").Enemies:GetChildren()
                                                 AutoHaki()
 												v.HumanoidRootPart.CanCollide = false
 												v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
-                                                chichdiem(v.HumanoidRootPart.CFrame * CFrame.new(0,30,0))
+                                                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0,30,0)
 												game:GetService("VirtualUser"):CaptureController()
 												game:GetService("VirtualUser"):Button1Down(Vector2.new(1280, 670),workspace.CurrentCamera.CFrame)
 												MagnetActive = true
