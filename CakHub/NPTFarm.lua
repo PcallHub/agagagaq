@@ -6983,19 +6983,18 @@ page1:Button("Refresh Weapon", function()
 	end
 end)
 page1:Toggle("Bring mob",false,function(br)
-getgenv().bringmob = br
+getgenv().bringmobs = br
 end)
 spawn(function()
     while wait() do
-        if getgenv().bringmob  then
+        if getgenv().bringmobs  then
             pcall(function()
             CheckQuest()
        for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
 for x,y in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
 if v.Name == Ms then
     if y.Name == Ms then
-   Bringlon = true
-MainMon = v.HumanoidRootPart.CFrame
+   v.HumanoidRootPart.CFrame = y.HumanoidRootPart.CFrame
    v.HumanoidRootPart.Size = Vector3.new(60,60,60)
    y.HumanoidRootPart.Size = Vector3.new(60,60,60)
    v.HumanoidRootPart.Transparency = 1
@@ -7016,18 +7015,38 @@ end)
 end
 end
 end)
-spawn(function()
-		while wait() do
-			if Bringlon and getgenv().bringmob then
-				for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
-					if Bringlon  then
-						v.HumanoidRootPart.CFrame = MainMon
-						v.HumanoidRootPart.CanCollide = false
-					end
-				end
-			end
-		end
-	end)
+page1:Toggle("Fast Attack",false,function(j)
+getgenv().fast = j
+end)
+coroutine.wrap(function()
+local StopCamera = require(game.ReplicatedStorage.Util.CameraShaker)StopCamera:Stop()
+    for v,v in pairs(getreg()) do
+        if typeof(v) == "function" and getfenv(v).script == game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework then
+             for v,v in pairs(debug.getupvalues(v)) do
+                if typeof(v) == "table" then
+                    spawn(function()
+                        game:GetService("RunService").RenderStepped:Connect(function()
+                            if getgenv().fast then
+                                 pcall(function()
+                                     v.activeController.timeToNextAttack = -(math.huge^math.huge^math.huge)
+                                     v.activeController.attacking = false
+                                     v.activeController.increment = 3
+                                     v.activeController.blocking = false   
+                                     v.activeController.hitboxMagnitude = 50
+    		                         v.activeController.humanoid.AutoRotate = true
+    	                      	     v.activeController.focusStart = 0
+    	                      	     v.activeController.currentAttackTrack = 0
+                                     sethiddenproperty(game:GetService("Players").LocalPlayer, "SimulationRaxNerous", math.huge)
+ 
+                                 end)
+                             end
+                         end)
+                    end)
+                end
+            end
+        end
+    end
+end)();
 page2:Label("Stats")
 page2:Toggle("Melee",false,function(val)
 	getgenv().melee = val
