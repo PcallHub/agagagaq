@@ -6982,7 +6982,7 @@ page1:Button("Refresh Weapon", function()
 		end
 	end
 end)
-page1("Bring mob",false,function(br)
+page1:Toggle("Bring mob",false,function(br)
 getgenv().bringmob = br
 end)
 spawn(function()
