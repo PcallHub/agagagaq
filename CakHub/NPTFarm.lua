@@ -6982,6 +6982,52 @@ page1:Button("Refresh Weapon", function()
 		end
 	end
 end)
+page1("Bring mob",false,function(br)
+getgenv().bringmob = br
+end)
+spawn(function()
+    while wait() do
+        if getgenv().bringmob  then
+            pcall(function()
+            CheckQuest()
+       for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+for x,y in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+if v.Name == Ms then
+    if y.Name == Ms then
+   Bringlon = true
+MainMon = v.HumanoidRootPart.CFrame
+   v.HumanoidRootPart.Size = Vector3.new(60,60,60)
+   y.HumanoidRootPart.Size = Vector3.new(60,60,60)
+   v.HumanoidRootPart.Transparency = 1
+   v.HumanoidRootPart.CanCollide = false
+   y.HumanoidRootPart.CanCollide = false
+   v.Humanoid.WalkSpeed = 0
+   y.Humanoid.WalkSpeed = 0
+   v.Humanoid.JumpPower = 0
+   y.Humanoid.JumpPower = 0
+   if sethiddenproperty then
+     sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
+end
+end
+end
+end
+end
+end)
+end
+end
+end)
+spawn(function()
+		while wait() do
+			if Bringlon and getgenv().bringmob then
+				for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
+					if Bringlon  then
+						v.HumanoidRootPart.CFrame = MainMon
+						v.HumanoidRootPart.CanCollide = false
+					end
+				end
+			end
+		end
+	end)
 page2:Label("Stats")
 page2:Toggle("Melee",false,function(val)
 	getgenv().melee = val
