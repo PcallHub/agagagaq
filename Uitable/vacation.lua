@@ -150,7 +150,7 @@ function Library:CreateWindow(Config, Parent)
 
 	RunService.RenderStepped:Connect(function()
 		if Library.Toggle then
-			Screen.ToolTip.Position = UDim2.new(0,UserInputService:GetMouseLocation().X + 5,0,UserInputService:GetMouseLocation().Y - 3)
+			Screen.ToolTip.Position = UDim2.new(0.5, 0, 0.025, 0)
 		end
 	end)
 
