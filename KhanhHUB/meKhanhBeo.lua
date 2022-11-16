@@ -1408,7 +1408,6 @@ OPENCLOSE.Size=UDim2.new(0.0447916649, 0, 0.0845824406, 0)
 OPENCLOSE.Font=Enum.Font.DenkOne
 OPENCLOSE.Text="Open"
 OPENCLOSE.TextColor3=Color3.fromRGB(255, 0, 0)
-OPENCLOSE.Image = "rbxassetid://7769924685"
 OPENCLOSE.TextScaled=true
 OPENCLOSE.TextSize=14.000
 OPENCLOSE.TextWrapped=true
