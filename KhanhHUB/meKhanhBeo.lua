@@ -1,4 +1,5 @@
-
+print("loading")
+   wait(2)
    local LocalPlayer = game:GetService("Players").LocalPlayer
 local VirtualUser = game:GetService('VirtualUser')
 function totarget(CFgo) local Distance = (CFgo.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude local tween_s = game:service"TweenService"
@@ -345,6 +346,7 @@ function Hop()
                     infinitestam()
                 end
             end
+end)
         end)
 function UpdateChestEsp() 
         for i,v in pairs(game:GetService("Workspace"):GetChildren()) do
@@ -1314,7 +1316,7 @@ function Click() game:GetService'VirtualUser':CaptureController() game:GetServic
             PosQuest = CFrame.new(-1928.324462890625, 37.798133850097656, -12843.0517578125)
             CFrameMon = CFrame.new(-2000.436767578125, 385.1067810058594, -13096.3330078125)
             PosMon = CFrame.new(-2000.436767578125, 385.1067810058594, -13096.3330078125)
-        elseif MyLevel == 2275 and MyLevel <= 2300 then
+        elseif MyLevel == 2275 or MyLevel <= 2300 then
 
             Ms = "Head Baker [Lv. 2275]"
 
@@ -1323,21 +1325,21 @@ function Click() game:GetService'VirtualUser':CaptureController() game:GetServic
             NameMon = "Head Baker"
             CFrameQuest = CFrame.new(-1927.9107666015625, 37.79813003540039, -12843.78515625)
             CFrameMon = CFrame.new(-2203.302490234375, 109.90937042236328, -12788.7333984375)
-         elseif MyLevel == 2300 and MyLevel <= 2324 then
+         elseif MyLevel == 2300 or Level <= 2324 then
                Ms = "Cocoa Warrior [Lv. 2300]"
                LevelQuest = 1
                NaemQuest = "ChocQuest1"
                NameMon = "Cocoa Warrior"
                CFrameQuest = CFrame.new(231.742981, 25.3354111, -12199.0537, 0.998278677, -5.16006757e-08, 0.0586484075, 4.79685092e-08, 1, 6.33390442e-08, -0.0586484075, -6.04167383e-08, 0.998278677)
                CFrameMon = CFrame.new(231.742981, 25.3354111, -12199.0537, 0.998278677, -5.16006757e-08, 0.0586484075, 4.79685092e-08, 1, 6.33390442e-08, -0.0586484075, -6.04167383e-08, 0.998278677)
-            elseif MyLevel == 2325 and MyLevel <= 2349 then
+            elseif MyLevel == 2325 or Level <= 2349 then
                Ms = "Chocolate Bar Battler [Lv. 2325]"
                LevelQuest = 2
                NaemQuest = "ChocQuest1"
                NameMon = "Chocolate Bar Battler"
               CFrameQuest = CFrame.new(231.742981, 25.3354111, -12199.0537, 0.998278677, -5.16006757e-08, 0.0586484075, 4.79685092e-08, 1, 6.33390442e-08, -0.0586484075, -6.04167383e-08, 0.998278677)
               CFrameMon = CFrame.new(231.742981, 25.3354111, -12199.0537, 0.998278677, -5.16006757e-08, 0.0586484075, 4.79685092e-08, 1, 6.33390442e-08, -0.0586484075, -6.04167383e-08, 0.998278677)
-              elseif MyLevel == 2350 and MyLevel <= 2374 then
+              elseif MyLevel == 2350 or Level <= 2374 then
                Ms = "Sweet Thief [Lv. 2350]"
                LevelQuest = 1
                NaemQuest = "ChocQuest2"
@@ -1406,13 +1408,14 @@ OPENCLOSE.Size=UDim2.new(0.0447916649, 0, 0.0845824406, 0)
 OPENCLOSE.Font=Enum.Font.DenkOne
 OPENCLOSE.Text="Open"
 OPENCLOSE.TextColor3=Color3.fromRGB(255, 0, 0)
+OPENCLOSE.Image = "rbxassetid://7769924685"
 OPENCLOSE.TextScaled=true
 OPENCLOSE.TextSize=14.000
 OPENCLOSE.TextWrapped=true
 OPENCLOSE.MouseButton1Click:Connect(function()
 game.CoreGui:FindFirstChild("NOOB HUB").Enabled = not game.CoreGui:FindFirstChild("NOOB HUB").Enabled
 end)
-local win = UILib:Window("Khanh_Beo HUB",Color3.fromRGB(44, 120, 224), Enum.KeyCode.RightControl)
+local win = UILib:Window("😱Khanh_Beo HUB","9614132122",Color3.fromRGB(44, 120, 224), Enum.KeyCode.RightControl)
 lol = {}
 for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do  
     if v:IsA("Tool") then
@@ -1424,11 +1427,11 @@ for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
        table.insert(lol, v.Name)
     end
 end
-local AutoFarm = win:Tab("Auto Farm")
-local Stat = win:Tab("Stats")
-local raid = win:Tab("Raid")
-local Pvp = win:Tab("Combat")
-local Misc = win:Tab("Misc")
+local AutoFarm = win:Tab("8192163394","Auto Farm")
+local Stat = win:Tab("6026568198","Stats")
+local raid = win:Tab("6035190846","Raid")
+local Pvp = win:Tab("7251993295","Combat")
+local Misc = win:Tab("6034509993","Misc")
 AutoFarm:Toggle("AutoFarm",false, function(beo)
 getgenv().AutoFarm=beo
 UILib:Notification("Notification", "Farm", "Okay")
