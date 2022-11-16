@@ -918,7 +918,7 @@ OPENCLOSE.TextWrapped=true
 OPENCLOSE.MouseButton1Click:Connect(function()
 game.CoreGui:FindFirstChild("Best Xem Chùa").Enabled = not game.CoreGui:FindFirstChild("Best Xem Chùa").Enabled
 end)
-local win = UILib:Window("😱Béo HUB | Blox fruits v17.3",Color3.fromRGB(203, 244, 242), Enum.KeyCode.RightControl)
+local win = UILib:Window("😱Béo HUB😂",Color3.fromRGB(203, 244, 242), Enum.KeyCode.RightControl)
 local AutoFarm = win:Tab("🐧Main")
 local Main = win:Tab("🐓Auto Something")
 local Stat = win:Tab("✨⭐Stats")
@@ -1189,11 +1189,11 @@ end
 end)
 
 AutoFarm:Toggle("Bring Mobs",false,function(bm)
-        getgenv().bringmob=bm
+        getgenv().bringmobs=bm
  end)
 spawn(function()
     while wait() do
-        if getgenv().bringmob  then
+        if getgenv().bringmobs  then
             pcall(function()
             CheckQuest()
        for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
@@ -1221,6 +1221,52 @@ end)
 end
 end
 end)
+AutoFarm:Toggle("Bring mob[Lag]",false,function(br)
+getgenv().bringmob = br
+end)
+spawn(function()
+    while wait() do
+        if getgenv().bringmob  then
+            pcall(function()
+            CheckQuest()
+       for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+for x,y in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+if v.Name == Ms then
+    if y.Name == Ms then
+   Bringlon = true
+MainMon = v.HumanoidRootPart.CFrame
+   v.HumanoidRootPart.Size = Vector3.new(60,60,60)
+   y.HumanoidRootPart.Size = Vector3.new(60,60,60)
+   v.HumanoidRootPart.Transparency = 1
+   v.HumanoidRootPart.CanCollide = false
+   y.HumanoidRootPart.CanCollide = false
+   v.Humanoid.WalkSpeed = 0
+   y.Humanoid.WalkSpeed = 0
+   v.Humanoid.JumpPower = 0
+   y.Humanoid.JumpPower = 0
+   if sethiddenproperty then
+     sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
+end
+end
+end
+end
+end
+end)
+end
+end
+end)
+spawn(function()
+		while wait() do
+			if Bringlon and getgenv().bringmob then
+				for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
+					if Bringlon  then
+						v.HumanoidRootPart.CFrame = MainMon
+						v.HumanoidRootPart.CanCollide = false
+					end
+				end
+			end
+		end
+	end)
                       AutoFarm:Toggle("Fast Attack",false,function(chim)
   getgenv().fast = chim
 end)
@@ -1558,22 +1604,12 @@ spawn(function()
 		end
 	end
 end)
-Main:Toggle("Check EliteHunter",function(j)
-getgenv().click = j
-end)
 spawn(function()
-	while wait() do
-if getgenv().click then
-local TotalElite = tostring(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("EliteHunter","Progress"))
-game:GetService("StarterGui"):SetCore("SendNotification", {
-        Title="Total",
-        Text= "Total EliteHunter Progress : "..TotalElite,
-        Duration = 60
-        })
-		
-			game:GetService("RunService").Heartbeat:wait()
+	while true do
+		local TotalElite = tostring(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("EliteHunter","Progress"))
+		CheckElite:Set("Total EliteHunter Progress : "..TotalElite)
+		game:GetService("RunService").Heartbeat:wait()
 	end
-end
 end)
 
 Main:Toggle("Auto Farm Elite Hunter",false,function(vu)
@@ -1975,7 +2011,13 @@ end)
                      
     
 
-
+spawn(function()
+    while wait() do
+        pcall(function()
+            Stat:Set("Stat Points : "..tostring(game:GetService("Players")["LocalPlayer"].Data.Points.Value))
+        end)
+    end
+end)
 Stat:Toggle("Melee",false,function(val)
 	getgenv().melee = val
 end)
