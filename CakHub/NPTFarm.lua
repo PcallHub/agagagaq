@@ -6826,7 +6826,7 @@ game.CoreGui:FindFirstChild("redui").Enabled = not game.CoreGui:FindFirstChild("
 end)
 	
 	local Tap2 = Window:Taps("Main")
-
+   local Tap1 = Window:Taps("Stats")
 	
 
     
@@ -6834,7 +6834,8 @@ end)
     
 	
 	local page1 = Tap2:newpage()
-    local page2 = Tap2:newpage()
+	local page3 = Tap2:newpage()
+    local page2 = Tap1:newpage()
 
 
 	
@@ -6982,7 +6983,9 @@ page1:Button("Refresh Weapon", function()
 		end
 	end
 end)
-page1:Toggle("Bring mob",false,function(br)
+
+page3:Label("Setting Farm")
+page3:Toggle("Bring mob",false,function(br)
 getgenv().bringmobs = br
 end)
 spawn(function()
@@ -7015,7 +7018,7 @@ end)
 end
 end
 end)
-page1:Toggle("Fast Attack",false,function(j)
+page3:Toggle("Fast Attack",false,function(j)
 getgenv().fast = j
 end)
 coroutine.wrap(function()
