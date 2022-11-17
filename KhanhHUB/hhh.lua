@@ -1,4 +1,6 @@
-  
+  if game:GetService("CoreGui"):FindFirstChild("Best Xem Chùa") then 
+game:GetService("CoreGui"):FindFirstChild("Best Xem Chùa"):Destroy()
+end
 
 
 local LocalPlayer = game:GetService("Players").LocalPlayer
@@ -896,9 +898,7 @@ CheckQuest()
 function EquipWeapon(ToolSe) if game.Players.LocalPlayer.Backpack:FindFirstChild(ToolSe) then local tool = game.Players.LocalPlayer.Backpack:FindFirstChild(ToolSe) wait(.4)
 	game.Players.LocalPlayer.Character.Humanoid:EquipTool(tool)end end
 
-local VLib = loadstring(game:HttpGet('https://raw.githubusercontent.com/Bestxemchua/agagagaq/main/Uitable/kkk.lua'))()
-
-MAINTTL = "😱Béo HUB | Blox Fruits" 
+local UiLib = loadstring(game:HttpGet('https://raw.githubusercontent.com/Bestxemchua/agagagaq/main/Ui/GG.txt'))()
 local DINOHUB = Instance.new("ScreenGui")
 local OPENCLOSE = Instance.new("TextButton") DINOHUB.Name="DINOHUB"
 DINOHUB.Parent=game.CoreGui
@@ -916,9 +916,10 @@ OPENCLOSE.TextScaled=true
 OPENCLOSE.TextSize=14.000
 OPENCLOSE.TextWrapped=true
 OPENCLOSE.MouseButton1Click:Connect(function()
-game.CoreGui:FindFirstChild("Library").Enabled = not game.CoreGui:FindFirstChild("Library").Enabled
+game.CoreGui:FindFirstChild("Best Xem Chùa").Enabled = not game.CoreGui:FindFirstChild("Best Xem Chùa").Enabled
 end)
-local win = VLib:Window("", Color3.fromRGB(246, 241, 28))
+
+local win = UiLib:Window("", Color3.fromRGB(246, 241, 28))
 local AutoFarm = win:Tab("🎊Main")
 local Main = win:Tab("💪Auto Something")
 local Stat = win:Tab("✨⭐Stats")
@@ -1605,7 +1606,12 @@ spawn(function()
 	end
 end)
 
-
+local CheckEliteHunter = Main:Label("Kill " .. game.ReplicatedStorage.Remotes.CommF_:InvokeServer("EliteHunter", "Progress") .. " Elite Enemies",true)
+	spawn(function()
+		while wait() do
+			CheckEliteHunter:Refresh("Kill " .. game.ReplicatedStorage.Remotes.CommF_:InvokeServer("EliteHunter", "Progress") .. " Elite Enemies")
+		end
+	end)
 Main:Toggle("Auto Farm Elite Hunter",false,function(vu)
 	getgenv().EliteHunt = vu
 end)
@@ -2005,7 +2011,35 @@ end)
                      
     
 
-
+PlayerServer = Stat:Label("Players in Server : "..game.Players.NumPlayers .. "/"..game.Players.MaxPlayers)
+	Fruit = Stat:Label("Fruit : 0")
+	Chest = Stat:Label("Chest : 0")
+	spawn(function()
+		while wait() do
+			local count10 = 0
+			local count = 0
+			for i,v in pairs(game.workspace:GetChildren()) do
+				if string.find(v.Name,"Chest") and v:IsA("Part") then
+					count10 = count10 + 1
+				end
+			end
+			for i,v in pairs(game.Workspace:GetChildren()) do
+				if v.Name == "Blox Fruit Dealer" then
+				else
+					if string.find(v.Name, "Fruit") and v:IsA("Tool") then
+						count = count + 1
+					end
+					if string.find(v.Name, "Fruit") and v:IsA("Model") then
+						count = count + 1
+					end
+				end
+			end
+			Fruit:Refresh("Fruit : "..count)
+			Chest:Refresh("Chest : "..count10)
+			PlayerServer:Refresh("Players in Server : "..game.Players.NumPlayers .. "/"..game.Players.MaxPlayers)
+			wait(5)
+		end
+	end)
 Stat:Toggle("Melee",false,function(val)
 	getgenv().melee = val
 end)
