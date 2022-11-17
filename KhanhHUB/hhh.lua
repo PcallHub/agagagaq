@@ -1,6 +1,4 @@
-  if game:GetService("CoreGui"):FindFirstChild("Best Xem Chùa") then 
-game:GetService("CoreGui"):FindFirstChild("Best Xem Chùa"):Destroy()
-end
+  
 
 
 local LocalPlayer = game:GetService("Players").LocalPlayer
@@ -899,6 +897,8 @@ function EquipWeapon(ToolSe) if game.Players.LocalPlayer.Backpack:FindFirstChild
 	game.Players.LocalPlayer.Character.Humanoid:EquipTool(tool)end end
 
 local VLib = loadstring(game:HttpGet('https://raw.githubusercontent.com/Bestxemchua/agagagaq/main/Uitable/kkk.lua'))()
+
+MAINTTL = "😱Béo HUB | Blox Fruits v17.3" 
 local DINOHUB = Instance.new("ScreenGui")
 local OPENCLOSE = Instance.new("TextButton") DINOHUB.Name="DINOHUB"
 DINOHUB.Parent=game.CoreGui
@@ -916,9 +916,8 @@ OPENCLOSE.TextScaled=true
 OPENCLOSE.TextSize=14.000
 OPENCLOSE.TextWrapped=true
 OPENCLOSE.MouseButton1Click:Connect(function()
-game.CoreGui:FindFirstChild("Best Xem Chùa").Enabled = not game.CoreGui:FindFirstChild("Best Xem Chùa").Enabled
+game.CoreGui:FindFirstChild("Library").Enabled = not game.CoreGui:FindFirstChild("Library").Enabled
 end)
-MAINTTL = "😱Béo HUB | Blox Fruits v17.3" 
 local win = VLib:Window("", Color3.fromRGB(246, 241, 28))
 local AutoFarm = win:Tab("🎊Main")
 local Main = win:Tab("💪Auto Something")
