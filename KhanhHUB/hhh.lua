@@ -898,7 +898,7 @@ function EquipWeapon(ToolSe) if game.Players.LocalPlayer.Backpack:FindFirstChild
 
 local VLib = loadstring(game:HttpGet('https://raw.githubusercontent.com/Bestxemchua/agagagaq/main/Uitable/kkk.lua'))()
 
-MAINTTL = "😱Béo HUB | Blox Fruits v17.3" 
+MAINTTL = "😱Béo HUB | Blox Fruits" 
 local DINOHUB = Instance.new("ScreenGui")
 local OPENCLOSE = Instance.new("TextButton") DINOHUB.Name="DINOHUB"
 DINOHUB.Parent=game.CoreGui
@@ -1605,12 +1605,7 @@ spawn(function()
 	end
 end)
 
-local CheckEliteHunter = Main:Label("Kill " .. game.ReplicatedStorage.Remotes.CommF_:InvokeServer("EliteHunter", "Progress") .. " Elite Enemies",true)
-	spawn(function()
-		while wait() do
-			CheckEliteHunter:Refresh("Kill " .. game.ReplicatedStorage.Remotes.CommF_:InvokeServer("EliteHunter", "Progress") .. " Elite Enemies")
-		end
-	end)
+
 Main:Toggle("Auto Farm Elite Hunter",false,function(vu)
 	getgenv().EliteHunt = vu
 end)
@@ -2010,35 +2005,7 @@ end)
                      
     
 
-PlayerServer = Stat:Label("Players in Server : "..game.Players.NumPlayers .. "/"..game.Players.MaxPlayers)
-	Fruit = Stat:Label("Fruit : 0")
-	Chest = Stat:Label("Chest : 0")
-	spawn(function()
-		while wait() do
-			local count10 = 0
-			local count = 0
-			for i,v in pairs(game.workspace:GetChildren()) do
-				if string.find(v.Name,"Chest") and v:IsA("Part") then
-					count10 = count10 + 1
-				end
-			end
-			for i,v in pairs(game.Workspace:GetChildren()) do
-				if v.Name == "Blox Fruit Dealer" then
-				else
-					if string.find(v.Name, "Fruit") and v:IsA("Tool") then
-						count = count + 1
-					end
-					if string.find(v.Name, "Fruit") and v:IsA("Model") then
-						count = count + 1
-					end
-				end
-			end
-			Fruit:Refresh("Fruit : "..count)
-			Chest:Refresh("Chest : "..count10)
-			PlayerServer:Refresh("Players in Server : "..game.Players.NumPlayers .. "/"..game.Players.MaxPlayers)
-			wait(5)
-		end
-	end)
+
 Stat:Toggle("Melee",false,function(val)
 	getgenv().melee = val
 end)
