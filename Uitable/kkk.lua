@@ -405,7 +405,7 @@ function VLib:Window(textgame)
 
 			Title.Name = "Title"
 			Title.Parent = Toggle
-			Title.BackgroundColor3 = Color3.fromRGB(254, 138, 255)
+			Title.BackgroundColor3 = Color3.fromRGB(227, 247, 239)
 			Title.BackgroundTransparency = 1.000
 			Title.Position = UDim2.new(0.0198511165, 0, 0, 0)
 			Title.Size = UDim2.new(0, 192, 0, 28)
@@ -460,7 +460,7 @@ function VLib:Window(textgame)
 					TweenService:Create(
 						Toggle,
 						TweenInfo.new(.2, Enum.EasingStyle.Quad),
-						{BackgroundColor3 = Color3.fromRGB(32, 33, 202)}
+						{BackgroundColor3 = Color3.fromRGB(240, 255, 202)}
 					):Play()
 				end
 			)
