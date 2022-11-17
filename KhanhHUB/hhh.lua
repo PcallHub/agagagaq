@@ -1,5 +1,5 @@
-  if game:GetService("CoreGui"):FindFirstChild("YEU YAMA") then 
-game:GetService("CoreGui"):FindFirstChild("YEU YAMA"):Destroy()
+  if game:GetService("CoreGui"):FindFirstChild("Best Xem Chùa") then 
+game:GetService("CoreGui"):FindFirstChild("Best Xem Chùa"):Destroy()
 end
 
 
@@ -898,7 +898,7 @@ CheckQuest()
 function EquipWeapon(ToolSe) if game.Players.LocalPlayer.Backpack:FindFirstChild(ToolSe) then local tool = game.Players.LocalPlayer.Backpack:FindFirstChild(ToolSe) wait(.4)
 	game.Players.LocalPlayer.Character.Humanoid:EquipTool(tool)end end
 
-local UILib = loadstring(game:HttpGet('https://raw.githubusercontent.com/Bestxemchua/agagagaq/main/Ui/GG.txt'))()
+local UILib = loadstring(game:HttpGet('https://raw.githubusercontent.com/Bestxemchua/agagagaq/main/Uitable/kkk.lua'))()
 local DINOHUB = Instance.new("ScreenGui")
 local OPENCLOSE = Instance.new("TextButton") DINOHUB.Name="DINOHUB"
 DINOHUB.Parent=game.CoreGui
@@ -918,9 +918,10 @@ OPENCLOSE.TextWrapped=true
 OPENCLOSE.MouseButton1Click:Connect(function()
 game.CoreGui:FindFirstChild("Best Xem Chùa").Enabled = not game.CoreGui:FindFirstChild("Best Xem Chùa").Enabled
 end)
-local win = UILib:Window("😱Béo HUB😂",Color3.fromRGB(203, 244, 242), Enum.KeyCode.RightControl)
-local AutoFarm = win:Tab("🐧Main")
-local Main = win:Tab("🐓Auto Something")
+MAINTTL = "😱Béo HUB | Blox Fruits v17.3" 
+local win = VLib:Window("", Color3.fromRGB(246, 241, 28))
+local AutoFarm = win:Tab("🎊Main")
+local Main = win:Tab("💪Auto Something")
 local Stat = win:Tab("✨⭐Stats")
 local RaidsTab =  win:Tab("💀 Raids")
 local TeleportTab = win:Tab("🦸💝Teleport")
