@@ -26,6 +26,22 @@ function AutoHaki()
             game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Buso")
         end
     end
+function NoSoruCool()
+		for i, v in pairs(getgc()) do
+			if type(v) == "function" and getfenv(v).script == game.Players.LocalPlayer.Character:WaitForChild("Soru") then
+				for i2,v2 in pairs(debug.getupvalues(v)) do
+					if type(v2) == 'table' then
+						if v2.LastUse then
+							repeat wait()
+								setupvalue(v, i2, {LastAfter = 0,LastUse = 0})
+							until not getgenv().soru
+						end
+					end
+				end
+			end
+		end
+	end
+	
 function fly()
 local mouse=game.Players.LocalPlayer:GetMouse''
 		localplayer=game.Players.LocalPlayer
@@ -919,7 +935,8 @@ OPENCLOSE.MouseButton1Click:Connect(function()
 game.CoreGui:FindFirstChild("Best Xem Chùa").Enabled = not game.CoreGui:FindFirstChild("Best Xem Chùa").Enabled
 end)
 
-local win = UiLib:Window("", Color3.fromRGB(246, 241, 28))
+local win = UiLib:Window("😱Béo HUB | Blox Fruits v17.3", Color3.fromRGB(246, 241, 28))
+local Up = win:Tab("💫Update")
 local AutoFarm = win:Tab("🎊Main")
 local Main = win:Tab("💪Auto Something")
 local Stat = win:Tab("✨⭐Stats")
@@ -948,6 +965,14 @@ spawn(function()  game:GetService("RunService").Heartbeat:Connect(function() if 
 else  if game:GetService("Workspace"):FindFirstChild("LOL") then  game:GetService("Workspace"):FindFirstChild("LOL"):Destroy() end end end) end)
 spawn(function()  game:GetService("RunService").Stepped:Connect(function()  if getgenv().NoClip or getgenv().AutoFarm or getgenv().Observation or getgenv().AutoNew or getgenv().Factory or getgenv().GunMastery or getgenv().Mastery or FramBoss or FramAllBoss or getgenv().getgenv().AutoBartilo or getgenv().MobAura or getgenv().AutoRengoku or getgenv().AutoSharkman or getgenv().Ectoplasm or getgenv().PoleHop or getgenv().SwanHop or getgenv().BlackBeardHop or getgenv().Chest or getgenv().Electro or rainbowhaki or Hunter or observationv2 or getgenv().ElitehuntHop or getgenv().EliteHunt or getgenv().Pole or getgenv().Tushitahop or getgenv().YamaHop or getgenv().StoreFruit or getgenv().HolyTorch then  for _, v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do  if v:IsA("BasePart") then
    v.CanCollide = false end     end    end end) end)
+   Up:Label("Update Change Ui")
+   Up:Label("Fix AutoFarm Bone")
+   Up:Label("Add Auto Select Farm Bone/Boss")
+   Up:Label("Add Auto Farm Boss")
+   Up:Label("delete hitbox photo")
+   Up:Label("Add Bring Mob near")
+   Up:Label("Check Elti/Point")
+   Up:Label("Add Soru No Cooldown")
 AutoFarm:Toggle("Auto Farm",false,function(vu)
     getgenv().AutoFarm= vu
 end)
@@ -979,7 +1004,6 @@ spawn(function()
         if getgenv().AutoFarm then
             AutoQuest()
             TP()
-            hitbox()
         end
     end
 end)
@@ -1028,7 +1052,7 @@ function TP()
                end
                game.Players.LocalPlayer.Character.HumanoidRootPart.Size = Vector3.new(2, 2.02, 1)
 			   v.HumanoidRootPart.Size = Vector3.new(60,60,60)
-			   chichdiem(v.HumanoidRootPart.CFrame * CFrame.new(0,12,4))
+			   chichdiem(v.HumanoidRootPart.CFrame * CFrame.new(0,30,0))
 			   EquipWeapon(getgenv().tool)
 			   game:GetService'VirtualUser':CaptureController()
 			   game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
@@ -1061,7 +1085,7 @@ function autofarm()
 										spawn(function()
 											if game:GetService("Workspace").Enemies:FindFirstChild(Ms) and v.Humanoid.Health > 0 and v:FindFirstChild("Humanoid") then
 												if LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text:find(NameMon) then
-													chichdiem(v.HumanoidRootPart.CFrame * CFrame.new(1,20,1))
+													chichdiem(v.HumanoidRootPart.CFrame * CFrame.new(0,30,0))
 													PosHee = v.HumanoidRootPart.CFrame
 													EquipWeapon(getgenv().tool)
                Click()
@@ -1105,7 +1129,7 @@ function autofarm()
 							if v.Name == Ms then
 								repeat wait()
 									if game:GetService("Workspace").Enemies:FindFirstChild(Ms) and v.Humanoid.Health > 0 and v:FindFirstChild("Humanoid") then
-										chichdiem(v.HumanoidRootPart.CFrame * CFrame.new(1,20,1))
+										chichdiem(v.HumanoidRootPart.CFrame * CFrame.new(0,30,0))
 										EquipWeapon(getgenv().tool)
 Click()
 										PosHee = v.HumanoidRootPart.CFrame
@@ -1133,12 +1157,7 @@ Click()
 	    end
 	end)
 end
-function hitbox()
-for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-    v.HumanoidRootPart.Size = Vector3.new(35, 35, 35)
-    v.HumanoidRootPart.Transparency = 0.5
-end
-end
+
 
 local SelectToolWeapona = AutoFarm:Dropdown("SelectWeapon",lol,function(Select)
     getgenv().tool = Select
@@ -2506,6 +2525,10 @@ if getgenv().fly then
 fly()
 end
 end
+end)
+Misc:Toggle("Soru No Cooldown",false,function(l)
+getgenv().soru = l
+NoSoruCool()
 end)
 Misc:Toggle("Race v4",false,function(v)
 getgenv().racev4 = v
