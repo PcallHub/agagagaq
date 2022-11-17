@@ -1311,7 +1311,6 @@ end)
 local CombatFrameworkROld = require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework) 
 
 	local CameraShakerR = require(game.ReplicatedStorage.Util.CameraShaker)
-	CameraShakerR:Stop()
 	spawn(function()
 		game:GetService("RunService").Stepped:Connect(function()
 			pcall(function()
@@ -1344,7 +1343,57 @@ local CombatFrameworkROld = require(game:GetService("Players").LocalPlayer.Playe
 			end)
 		end)
 	end)
-	
+	local Module = require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework)
+local CombatFramework = debug.getupvalues(Module)[2]
+local CameraShakerR = require(game.ReplicatedStorage.Util.CameraShaker)
+
+spawn(function()
+    while true do
+        if getgenv().fast then
+            pcall(function()
+                CameraShakerR:Stop()
+                CombatFramework.activeController.attacking = false
+                CombatFramework.activeController.timeToNextAttack = 0
+                CombatFramework.activeController.increment = 3
+                CombatFramework.activeController.hitboxMagnitude = 100
+                CombatFramework.activeController.blocking = false
+                CombatFramework.activeController.timeToNextBlock = 0
+                CombatFramework.activeController.focusStart = 0
+                CombatFramework.activeController.humanoid.AutoRotate = true
+            end)
+        end
+        task.wait()
+    end
+end)
+coroutine.wrap(function()
+local StopCamera = require(game.ReplicatedStorage.Util.CameraShaker)StopCamera:Stop()
+    for v,v in pairs(getreg()) do
+        if typeof(v) == "function" and getfenv(v).script == game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework then
+             for v,v in pairs(debug.getupvalues(v)) do
+                if typeof(v) == "table" then
+                    spawn(function()
+                        game:GetService("RunService").RenderStepped:Connect(function()
+                            if getgenv().fast then
+                                 pcall(function()
+                                     v.activeController.timeToNextAttack = -(math.huge^math.huge^math.huge)
+                                     v.activeController.attacking = false
+                                     v.activeController.increment = 3
+                                     v.activeController.blocking = false   
+                                     v.activeController.hitboxMagnitude = 50
+    		                         v.activeController.humanoid.AutoRotate = true
+    	                      	     v.activeController.focusStart = 0
+    	                      	     v.activeController.currentAttackTrack = 0
+                                     sethiddenproperty(game:GetService("Players").LocalPlayer, "SimulationRaxNerous", math.huge)
+ 
+                                 end)
+                             end
+                         end)
+                    end)
+                end
+            end
+        end
+    end
+end)();
  
                    Main:Toggle("Auto Evo Race",false,function(vu)
 		getgenv().Autorace = vu
