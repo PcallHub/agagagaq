@@ -1041,25 +1041,43 @@ function AutoQuest()     if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visibl
     end
 end
 function TP()
-    CheckQuest()
     local mob = game:GetService("Workspace").Enemies:GetChildren()
     local MyLevel = game.Players.LocalPlayer.Data.Level.Value
     if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then
-        for i,v in pairs(mob) do
-            if v.Name == Ms then
-               if not game.Players.LocalPlayer.Character:FindFirstChild("HasBuso") then
-                  game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Buso")
-               end
-               game.Players.LocalPlayer.Character.HumanoidRootPart.Size = Vector3.new(2, 2.02, 1)
-			   v.HumanoidRootPart.Size = Vector3.new(60,60,60)
-			   chichdiem(v.HumanoidRootPart.CFrame * CFrame.new(0,30,0))
-			   EquipWeapon(getgenv().tool)
-			   game:GetService'VirtualUser':CaptureController()
-			   game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
-            end
-        end
-    end
+					if game:GetService("Workspace").Enemies:FindFirstChild(Ms) then
+						for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+							if v.Name == Ms and v:FindFirstChild("Humanoid") then
+								if v.Humanoid.Health > 0 then
+									repeat game:GetService("RunService").Heartbeat:wait()
+										if game:GetService("Workspace").Enemies:FindFirstChild(Ms) then
+											if string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMon) then
+                                                EquipWeapon(getgenv().tool)
+                                                AutoHaki()
+												v.HumanoidRootPart.CanCollide = false
+												v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
+                                                chichdiem(v.HumanoidRootPart.CFrame * CFrame.new(0,30,0))
+												game:GetService("VirtualUser"):CaptureController()
+												game:GetService("VirtualUser"):Button1Down(Vector2.new(1280, 670),workspace.CurrentCamera.CFrame)
+												MagnetActive = true
+												PosMon = v.HumanoidRootPart.CFrame
+											else
+												
+												game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
+											end
+										else
+											
+											
+											chichdiem(CFrameMon)
+										end
+									until not v.Parent or v.Humanoid.Health <= 0 or _G.FarmLevel == false or game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false or not game:GetService("Workspace").Enemies:FindFirstChild(v.Name)
+								end
+							end
+						end
 end
+
+end
+end
+
 function autofarm()
     pcall(function()
 	if getgenv().AutoFarm then
@@ -1290,34 +1308,43 @@ spawn(function()
                       AutoFarm:Toggle("Fast Attack",false,function(chim)
   getgenv().fast = chim
 end)
-local concac
-if getupvalues then concac=getupvalues end
-if debug then 
-  if debug.getupvalues then concac=debug.getupvalues end
-end
-require(game.Players.LocalPlayer.PlayerScripts.CombatFramework.CameraShaker).Shake = function() end
-local v = concac(require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework))[2]
-                    
-spawn(function()
-while wait() do
-game:GetService("RunService").RenderStepped:Connect(function()
-  pcall(function()
-  if getgenv().fast then
-                                     v.activeController.timeToNextAttack = -(math.huge^math.huge^math.huge)
-                                     v.activeController.attacking = false
-                                     v.activeController.increment = 3
-                                     v.activeController.blocking = false   
-                                     v.activeController.hitboxMagnitude = 50
-    		                         v.activeController.humanoid.AutoRotate = true
-    	                      	     v.activeController.focusStart = 0
-    	                      	     v.activeController.currentAttackTrack = 0
-                                     sethiddenproperty(game:GetService("Players").LocalPlayer, "SimulationRaxNerous", math.huge)
- 
-                                 end
-                                 end)
-    end)
-  end
-end)
+local CombatFrameworkROld = require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework) 
+
+	local CameraShakerR = require(game.ReplicatedStorage.Util.CameraShaker)
+	CameraShakerR:Stop()
+	spawn(function()
+		game:GetService("RunService").Stepped:Connect(function()
+			pcall(function()
+				CombatFrameworkR.activeController.hitboxMagnitude = 55
+				
+					if getgenv().fast then
+						if game.Players.LocalPlayer.Character:FindFirstChild("Black Leg") then
+							CombatFrameworkR.activeController.timeToNextAttack = 3
+						elseif game.Players.LocalPlayer.Character:FindFirstChild("Electro") then
+							CombatFrameworkR.activeController.timeToNextAttack = 2
+						else
+							CombatFrameworkR.activeController.timeToNextAttack = 0
+						end
+						CombatFrameworkR.activeController.attacking = false
+						CombatFrameworkR.activeController.increment = 3
+						CombatFrameworkR.activeController.blocking = false
+						CombatFrameworkR.activeController.timeToNextBlock = 0
+						game.Players.LocalPlayer.Character.Humanoid.Sit = false	
+					end
+			end)
+		end)
+	end)
+	
+	spawn(function()
+		game:GetService("RunService").Stepped:Connect(function()
+			pcall(function()
+					if getgenv().fast then
+						Click()
+					end
+			end)
+		end)
+	end)
+	
  
                    Main:Toggle("Auto Evo Race",false,function(vu)
 		getgenv().Autorace = vu
