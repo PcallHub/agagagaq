@@ -970,7 +970,7 @@ spawn(function()  game:GetService("RunService").Stepped:Connect(function()  if g
    Up:Label("Add Auto Select Farm Bone/Boss")
    Up:Label("Add Auto Farm Boss")
    Up:Label("delete hitbox photo")
-   Up:Label("Add Bring Mob near")
+   Up:Label("Add Super Bring Mob")
    Up:Label("Check Elti/Point")
    Up:Label("Add Soru No Cooldown")
 AutoFarm:Toggle("Auto Farm",false,function(vu)
@@ -1290,16 +1290,19 @@ spawn(function()
                       AutoFarm:Toggle("Fast Attack",false,function(chim)
   getgenv().fast = chim
 end)
-coroutine.wrap(function()
-local StopCamera = require(game.ReplicatedStorage.Util.CameraShaker)StopCamera:Stop()
-    for v,v in pairs(getreg()) do
-        if typeof(v) == "function" and getfenv(v).script == game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework then
-             for v,v in pairs(debug.getupvalues(v)) do
-                if typeof(v) == "table" then
-                    spawn(function()
-                        game:GetService("RunService").RenderStepped:Connect(function()
-                            if getgenv().fast then
-                                 pcall(function()
+local concac
+if getupvalues then concac=getupvalues end
+if debug then 
+  if debug.getupvalues then concac=debug.getupvalues end
+end
+require(game.Players.LocalPlayer.PlayerScripts.CombatFramework.CameraShaker).Shake = function() end
+local v = concac(require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework))[2]
+                    
+spawn(function()
+while wait() do
+game:GetService("RunService").RenderStepped:Connect(function()
+  pcall(function()
+  if getgenv().fast then
                                      v.activeController.timeToNextAttack = -(math.huge^math.huge^math.huge)
                                      v.activeController.attacking = false
                                      v.activeController.increment = 3
@@ -1310,15 +1313,12 @@ local StopCamera = require(game.ReplicatedStorage.Util.CameraShaker)StopCamera:S
     	                      	     v.activeController.currentAttackTrack = 0
                                      sethiddenproperty(game:GetService("Players").LocalPlayer, "SimulationRaxNerous", math.huge)
  
+                                 end
                                  end)
-                             end
-                         end)
-                    end)
-                end
-            end
-        end
-    end
-end)();
+    end)
+  end
+end)
+ 
                    Main:Toggle("Auto Evo Race",false,function(vu)
 		getgenv().Autorace = vu
 	end)
