@@ -1376,6 +1376,7 @@ local v = require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFra
 end
 end)
 end)
+end)();
                                  
                    Main:Toggle("Auto Evo Race",false,function(vu)
 		getgenv().Autorace = vu
