@@ -1329,15 +1329,17 @@ local CombatFrameworkR = require(game:GetService("Players").LocalPlayer.PlayerSc
 			end)
 		end)
 	end)
-	local Module = require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework)
-
-local CameraShakerR = require(game.ReplicatedStorage.Util.CameraShaker)
+	require(game.Players.LocalPlayer.PlayerScripts.CombatFramework.CameraShaker).Shake = function() end
+local a = require(game:GetService("ReplicatedStorage").Wrapper)
+local old
+old = hookfunction(a,function(a) return a() end)
+local CombatFramework = require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework)()
 
 spawn(function()
     while true do
         if getgenv().fast then
             pcall(function()
-                CameraShakerR:Stop()
+                
                 CombatFramework.activeController.attacking = false
                 CombatFramework.activeController.timeToNextAttack = 0
                 CombatFramework.activeController.increment = 3
