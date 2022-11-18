@@ -1359,11 +1359,6 @@ local a = require(game:GetService("ReplicatedStorage").Wrapper)
 local old
 old = hookfunction(a,function(a) return a() end)
 local v = require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework)()
-local StopCamera = require(game.ReplicatedStorage.Util.CameraShaker)StopCamera:Stop()
-    for v,v in pairs(getreg()) do
-        if typeof(v) == "function" and getfenv(v).script == game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework then
-             for v,v in pairs(debug.getupvalues(v)) do
-                if typeof(v) == "table" then
                     spawn(function()
                         game:GetService("RunService").RenderStepped:Connect(function()
                             if getgenv().fast then
