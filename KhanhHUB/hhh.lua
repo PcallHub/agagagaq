@@ -1352,13 +1352,11 @@ spawn(function()
     end
 end)
 coroutine.wrap(function()
-local concac
-if getupvalues then concac=getupvalues end
-if debug then 
-  if debug.getupvalues then concac=debug.getupvalues end
-end
 require(game.Players.LocalPlayer.PlayerScripts.CombatFramework.CameraShaker).Shake = function() end
-local v = concac(require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework))[2]
+local a = require(game:GetService("ReplicatedStorage").Wrapper)
+local old
+old = hookfunction(a,function(a) return a() end)
+local v = require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework)()
 local StopCamera = require(game.ReplicatedStorage.Util.CameraShaker)StopCamera:Stop()
     for v,v in pairs(getreg()) do
         if typeof(v) == "function" and getfenv(v).script == game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework then
