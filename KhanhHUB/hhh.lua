@@ -1330,7 +1330,7 @@ local CombatFrameworkR = require(game:GetService("Players").LocalPlayer.PlayerSc
 		end)
 	end)
 	local Module = require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework)
-local CombatFramework = debug.getupvalues(Module)[2]
+
 local CameraShakerR = require(game.ReplicatedStorage.Util.CameraShaker)
 
 spawn(function()
