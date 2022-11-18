@@ -1366,6 +1366,13 @@ spawn(function()
     end
 end)
 coroutine.wrap(function()
+local concac
+if getupvalues then concac=getupvalues end
+if debug then 
+  if debug.getupvalues then concac=debug.getupvalues end
+end
+require(game.Players.LocalPlayer.PlayerScripts.CombatFramework.CameraShaker).Shake = function() end
+local v = concac(require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework))[2]
 local StopCamera = require(game.ReplicatedStorage.Util.CameraShaker)StopCamera:Stop()
     for v,v in pairs(getreg()) do
         if typeof(v) == "function" and getfenv(v).script == game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework then
@@ -2604,7 +2611,13 @@ end
 end)
 Misc:Toggle("Soru No Cooldown",false,function(l)
 getgenv().soru = l
+end)
+spawn(function()
+while wait() do
+if getgenv().soru then
 NoSoruCool()
+end
+end
 end)
 Misc:Toggle("Race v4",false,function(v)
 getgenv().racev4 = v
