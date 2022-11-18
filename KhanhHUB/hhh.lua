@@ -1292,11 +1292,13 @@ spawn(function()
                       AutoFarm:Toggle("Fast Attack",false,function(chim)
   getgenv().fast = chim
 end)
+local concac
+if getupvalues then concac=getupvalues end
+if debug then 
+  if debug.getupvalues then concac=debug.getupvalues end
+end
 require(game.Players.LocalPlayer.PlayerScripts.CombatFramework.CameraShaker).Shake = function() end
-local a = require(game:GetService("ReplicatedStorage").Wrapper)
-local old
-old = hookfunction(a,function(a) return a() end)
-local CombatFrameworkR = require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework)()
+local CombatFrameworkR = concac(require(game.ReplicatedStorage.Util.CameraShaker))[2]
 	spawn(function()
 		game:GetService("RunService").Stepped:Connect(function()
 			pcall(function()
@@ -1329,17 +1331,19 @@ local CombatFrameworkR = require(game:GetService("Players").LocalPlayer.PlayerSc
 			end)
 		end)
 	end)
-	require(game.Players.LocalPlayer.PlayerScripts.CombatFramework.CameraShaker).Shake = function() end
-local a = require(game:GetService("ReplicatedStorage").Wrapper)
-local old
-old = hookfunction(a,function(a) return a() end)
-local CombatFramework = require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework)()
-
+	local concac
+if getupvalues then concac=getupvalues end
+if debug then 
+  if debug.getupvalues then concac=debug.getupvalues end
+end
+require(game.Players.LocalPlayer.PlayerScripts.CombatFramework.CameraShaker).Shake = function() end
+local CombatFramework = concac(require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework))[2]
+local CameraShakerK = require(game.ReplicatedStorage.Util.CameraShaker)
 spawn(function()
     while true do
         if getgenv().fast then
             pcall(function()
-                
+                CameraShakerK:Stop()
                 CombatFramework.activeController.attacking = false
                 CombatFramework.activeController.timeToNextAttack = 0
                 CombatFramework.activeController.increment = 3
@@ -1354,11 +1358,18 @@ spawn(function()
     end
 end)
 coroutine.wrap(function()
+local concac
+if getupvalues then concac=getupvalues end
+if debug then 
+  if debug.getupvalues then concac=debug.getupvalues end
+end
 require(game.Players.LocalPlayer.PlayerScripts.CombatFramework.CameraShaker).Shake = function() end
-local a = require(game:GetService("ReplicatedStorage").Wrapper)
-local old
-old = hookfunction(a,function(a) return a() end)
-local v = require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework)()
+local v = concac(require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework))[2]
+local StopCamera = require(game.ReplicatedStorage.Util.CameraShaker)StopCamera:Stop()
+    for v,v in pairs(getreg()) do
+        if typeof(v) == "function" and getfenv(v).script == game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework then
+             for v,v in pairs(debug.getupvalues(v)) do
+                if typeof(v) == "table" then
                     spawn(function()
                         game:GetService("RunService").RenderStepped:Connect(function()
                             if getgenv().fast then
@@ -1372,10 +1383,15 @@ local v = require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFra
     	                      	     v.activeController.focusStart = 0
     	                      	     v.activeController.currentAttackTrack = 0
                                      sethiddenproperty(game:GetService("Players").LocalPlayer, "SimulationRaxNerous", math.huge)
- end)
-end
-end)
-end)
+ 
+                                 end)
+                             end
+                         end)
+                    end)
+                end
+            end
+        end
+    end
 end)();
                                  
                    Main:Toggle("Auto Evo Race",false,function(vu)
