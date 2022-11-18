@@ -1299,7 +1299,7 @@ if debug then
   if debug.getupvalues then concac=debug.getupvalues end
 end
 require(game.Players.LocalPlayer.PlayerScripts.CombatFramework.CameraShaker).Shake = function() end
-local CameraShakerR = concac(require(game.ReplicatedStorage.Util.CameraShaker))[2]
+local CameraShakerR = concac(require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework))[2]
 	--local CameraShakerR = require(game.ReplicatedStorage.Util.CameraShaker)
 	spawn(function()
 		game:GetService("RunService").Stepped:Connect(function()
