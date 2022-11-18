@@ -1372,17 +1372,11 @@ local v = require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFra
     	                      	     v.activeController.focusStart = 0
     	                      	     v.activeController.currentAttackTrack = 0
                                      sethiddenproperty(game:GetService("Players").LocalPlayer, "SimulationRaxNerous", math.huge)
- 
-                                 end)
-                             end
-                         end)
-                    end)
-                end
-            end
-        end
-    end
-end)();
- 
+ end)
+end
+end)
+end)
+                                 
                    Main:Toggle("Auto Evo Race",false,function(vu)
 		getgenv().Autorace = vu
 	end)
