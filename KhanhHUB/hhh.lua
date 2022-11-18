@@ -1292,7 +1292,6 @@ spawn(function()
                       AutoFarm:Toggle("Fast Attack",false,function(chim)
   getgenv().fast = chim
 end)
-local CombatFrameworkROld = require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework) 
 local concac
 if getupvalues then concac=getupvalues end
 if debug then 
