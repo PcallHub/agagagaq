@@ -26,22 +26,6 @@ function AutoHaki()
             game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Buso")
         end
     end
-function NoSoruCool()
-		for i, v in pairs(getgc()) do
-			if type(v) == "function" and getfenv(v).script == game.Players.LocalPlayer.Character:WaitForChild("Soru") then
-				for i2,v2 in pairs(debug.getupvalues(v)) do
-					if type(v2) == 'table' then
-						if v2.LastUse then
-							repeat wait()
-								setupvalue(v, i2, {LastAfter = 0,LastUse = 0})
-							until not getgenv().soru
-						end
-					end
-				end
-			end
-		end
-	end
-	
 function fly()
 local mouse=game.Players.LocalPlayer:GetMouse''
 		localplayer=game.Players.LocalPlayer
@@ -1309,8 +1293,14 @@ spawn(function()
   getgenv().fast = chim
 end)
 local CombatFrameworkROld = require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework) 
-
-	local CameraShakerR = require(game.ReplicatedStorage.Util.CameraShaker)
+local concac
+if getupvalues then concac=getupvalues end
+if debug then 
+  if debug.getupvalues then concac=debug.getupvalues end
+end
+require(game.Players.LocalPlayer.PlayerScripts.CombatFramework.CameraShaker).Shake = function() end
+local CameraShakerR = concac(require(game.ReplicatedStorage.Util.CameraShaker))[2]
+	--local CameraShakerR = require(game.ReplicatedStorage.Util.CameraShaker)
 	spawn(function()
 		game:GetService("RunService").Stepped:Connect(function()
 			pcall(function()
@@ -2615,7 +2605,19 @@ end)
 spawn(function()
 while wait() do
 if getgenv().soru then
-NoSoruCool()
+for i, v in pairs(getgc()) do
+			if type(v) == "function" and getfenv(v).script == game.Players.LocalPlayer.Character:WaitForChild("Soru") then
+				for i2,v2 in pairs(debug.getupvalues(v)) do
+					if type(v2) == 'table' then
+						if v2.LastUse then
+							repeat wait()
+								setupvalue(v, i2, {LastAfter = 0,LastUse = 0})
+							until not getgenv().soru
+						end
+					end
+				end
+			end
+		end
 end
 end
 end)
