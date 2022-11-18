@@ -1292,13 +1292,11 @@ spawn(function()
                       AutoFarm:Toggle("Fast Attack",false,function(chim)
   getgenv().fast = chim
 end)
-local concac
-if getupvalues then concac=getupvalues end
-if debug then 
-  if debug.getupvalues then concac=debug.getupvalues end
-end
 require(game.Players.LocalPlayer.PlayerScripts.CombatFramework.CameraShaker).Shake = function() end
-local CombatFrameworkR= concac(require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework))[2]
+local a = require(game:GetService("ReplicatedStorage").Wrapper)
+local old
+old = hookfunction(a,function(a) return a() end)
+local CombatFrameworkR = require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework)()
 	spawn(function()
 		game:GetService("RunService").Stepped:Connect(function()
 			pcall(function()
