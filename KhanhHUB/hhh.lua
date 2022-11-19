@@ -2305,7 +2305,7 @@ spawn(function()
 		local Target = game:GetService("ReplicatedStorage").Remotes["CommF_"];
 		Target:InvokeServer(string_1);
 	end)
-	ShopTab:Line()
+	
 	ShopTab:Label("Sword",true)
 	ShopTab:Button("Katana [ $1,000 Beli ]",function()
 		local args = {
@@ -2434,7 +2434,7 @@ ShopTab:Label("Accessories",true)
 		}
 		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
 	end)
-	ShopTab:Line()
+	
 	ShopTab:Label("Race & etc.",true)
 	ShopTab:Button("Race Ghoul",function()
 		local args = {
