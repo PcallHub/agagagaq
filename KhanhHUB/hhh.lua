@@ -924,6 +924,7 @@ local Up = win:Tab("💫Update")
 local AutoFarm = win:Tab("🎊Main")
 local Main = win:Tab("💪Auto Something")
 local Stat = win:Tab("✨⭐Stats")
+local ShopTab = win:Tab("👛Shop")
 local RaidsTab =  win:Tab("💀 Raids")
 local TeleportTab = win:Tab("🦸💝Teleport")
 local Misc = win:Tab("🌚🌝 Misc")
@@ -953,10 +954,11 @@ spawn(function()  game:GetService("RunService").Stepped:Connect(function()  if g
    Up:Label("Fix AutoFarm Bone")
    Up:Label("Add Auto Select Farm Bone/Boss")
    Up:Label("Add Auto Farm Boss")
-   Up:Label("delete hitbox photo")
+   Up:Label("delete Hitbox Photo")
    Up:Label("Add Super Bring Mob")
    Up:Label("Check Elti/Point")
    Up:Label("Add Soru No Cooldown")
+   Up:Label("Add Buy Items")
 AutoFarm:Toggle("Auto Farm",false,function(vu)
     getgenv().AutoFarm= vu
 end)
@@ -2195,6 +2197,281 @@ spawn(function()
 				game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
 			end
 		end
+	end)
+	ShopTab:Label("Abilities",true)
+	ShopTab:Button("Skyjump [ $10,000 Beli ]",function()
+		local args = {
+			[1] = "BuyHaki",
+			[2] = "Geppo"
+		}
+		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+	end)
+	ShopTab:Button("Buso Haki [ $25,000 Beli ]",function()
+		local args = {
+			[1] = "BuyHaki",
+			[2] = "Buso"
+		}
+		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+	end)
+	ShopTab:Button("Observation haki [ $750,000 Beli ]",function()
+		local args = {
+			[1] = "KenTalk",
+			[2] = "Buy"
+		}
+		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+	end)
+	ShopTab:Button("Soru [ $100,000 Beli ]",function()
+		local args = {
+			[1] = "BuyHaki",
+			[2] = "Soru"
+		}
+		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+	end)
+	ShopTab:Button("Buy Random Devil Fruit",function()
+		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Cousin","Buy")
+	end)
+	ShopTab:Toggle("Auto Random Devil Fruit",false,function(v)
+		getgenv().DevilAutoBuy = v
+	end)
+	spawn(function()
+		while wait() do 
+			if getgenv().DevilAutoBuy then
+				game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Cousin","Buy")
+			end
+		end
+	end)
+	ShopTab:Label("Fighting Style",true)
+	ShopTab:Button("Black Leg",function()
+		local args = {
+			[1] = "BuyBlackLeg"
+		}
+		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+	end)
+	ShopTab:Button("Electro",function()
+		local args = {
+			[1] = "BuyElectro"
+		}
+		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+	end)
+	ShopTab:Button("Fishman Karate",function()
+		local args = {
+			[1] = "BuyFishmanKarate"
+		}
+		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+	end)
+	ShopTab:Button("Dragon Claw",function()
+		local args = {
+			[1] = "BlackbeardReward",
+			[2] = "DragonClaw",
+			[3] = "2"
+		}
+		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+	end)
+	ShopTab:Button("Superhuman",function()
+		local args = {
+			[1] = "BuySuperhuman"
+		}
+		
+		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+	end)
+	ShopTab:Button("Death Step",function()
+		local args = {
+			[1] = "BuyDeathStep"
+		}
+		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+	end)
+	ShopTab:Button("Sharkman Karate",function()
+		local args = {
+			[1] = "BuySharkmanKarate",
+			[2] = true
+		}
+		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+		local args = {
+			[1] = "BuySharkmanKarate"
+		}
+		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+	end)
+	ShopTab:Button("Electric Claw",function()
+		local string_1 = "BuyElectricClaw";
+		local Target = game:GetService("ReplicatedStorage").Remotes["CommF_"];
+		Target:InvokeServer(string_1);
+	end)
+	ShopTab:Button("Dragon Talon",function()
+		local string_1 = "BuyDragonTalon";
+		local bool_1 = true;
+		local Target = game:GetService("ReplicatedStorage").Remotes["CommF_"];
+		Target:InvokeServer(string_1, bool_1);
+		local string_1 = "BuyDragonTalon";
+		local Target = game:GetService("ReplicatedStorage").Remotes["CommF_"];
+		Target:InvokeServer(string_1);
+	end)
+	ShopTab:Line()
+	ShopTab:Label("Sword",true)
+	ShopTab:Button("Katana [ $1,000 Beli ]",function()
+		local args = {
+			[1] = "BuyItem",
+			[2] = "Katana"
+		}
+		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+	end)
+	ShopTab:Button("Cutlass [ $1,000 Beli ]",function()
+		local args = {
+			[1] = "BuyItem",
+			[2] = "Cutlass"
+		}
+		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+	end)  
+	ShopTab:Button("Dual Katana [ $12,000 Beli ]",function()
+		local args = {
+			[1] = "BuyItem",
+			[2] = "Dual Katana"
+		}
+		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+	end)
+	ShopTab:Button("Iron Mace [ $25,000 Beli ]",function()
+		local args = {
+			[1] = "BuyItem",
+			[2] = "Iron Mace"
+		}
+		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+	end)
+	ShopTab:Button("Triple Katana [ $60,000 Beli ]",function()
+		local args = {
+			[1] = "BuyItem",
+			[2] = "Triple Katana"
+		}
+		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+	end)
+	ShopTab:Button("Pipe [ $100,000 Beli ]",function()
+		local args = {
+			[1] = "BuyItem",
+			[2] = "Pipe"
+		}
+		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+	end)
+	ShopTab:Button("Soul Cane [ $750,000 Beli ]",function()
+		local args = {
+			[1] = "BuyItem",
+			[2] = "Soul Cane"
+		}
+		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+	end)
+	ShopTab:Button("Dual-Headed Blade [ $400,000 Beli ]",function()
+		local args = {
+			[1] = "BuyItem",
+			[2] = "Dual-Headed Blade"
+		}
+		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+	end)
+	ShopTab:Button("Bisento [ $1,200,000 Beli ]",function()
+		local args = {
+			[1] = "BuyItem",
+			[2] = "Bisento"
+		}
+		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+	end)
+	ShopTab:Button("Pole v.2 [ 5,000 Fragments )",function()
+		game.ReplicatedStorage.Remotes.CommF_:InvokeServer("ThunderGodTalk")
+	end)
+	ShopTab:Label("Gun",true)
+	ShopTab:Button("Slingshot [ $5,000 Beli ]",function()
+		local args = {
+			[1] = "BuyItem",
+			[2] = "Slingshot"
+		}
+		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+	end)
+	ShopTab:Button("Musket [ $8,000 Beli ]",function()
+		local args = {
+			[1] = "BuyItem",
+			[2] = "Musket"
+		}
+		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+	end)
+	ShopTab:Button("Flintlock [ $10,500 Beli ]",function()
+		local args = {
+			[1] = "BuyItem",
+			[2] = "Flintlock"
+		}
+		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+	end)
+	ShopTab:Button("Refined Slingshot [ $30,000 Beli ]",function()
+		local args = {
+			[1] = "BuyItem",
+			[2] = "Refined Slingshot"
+		}
+		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+	end)
+	ShopTab:Button("Refined Flintlock [ $65,000 Beli ]",function()
+		local args = {
+			[1] = "BuyItem",
+			[2] = "Refined Flintlock"
+		}
+		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+	end)
+	ShopTab:Button("Kabucha [ 1,500 Fragments)",function()
+		game.ReplicatedStorage.Remotes.CommF_:InvokeServer("BlackbeardReward", "Slingshot", "2")
+	end)
+ShopTab:Label("Accessories",true)
+	ShopTab:Button("Black Cape [ $50,000 Beli ]",function()
+		local args = {
+			[1] = "BuyItem",
+			[2] = "Black Cape"
+		}
+		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+	end)
+	ShopTab:Button("Swordsman Hat [ 150k Beli ]",function()
+		local args = {
+			[1] = "BuyItem",
+			[2] = "Swordsman Hat"
+		}
+		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+	end)
+	ShopTab:Button("Tomoe Ring [ $500k Beli ]",function()
+		local args = {
+			[1] = "BuyItem",
+			[2] = "Tomoe Ring"
+		}
+		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+	end)
+	ShopTab:Line()
+	ShopTab:Label("Race & etc.",true)
+	ShopTab:Button("Race Ghoul",function()
+		local args = {
+			[1] = "Ectoplasm",
+			[2] = "BuyCheck",
+			[3] = 4
+		}
+		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+		local args = {
+			[1] = "Ectoplasm",
+			[2] = "Change",
+			[3] = 4
+		}
+		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+	end)
+	ShopTab:Button("Race Cyborg",function()
+		local args = {
+			[1] = "CyborgTrainer",
+			[2] = "Buy"
+		}
+		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+	end)
+	ShopTab:Button("Random Race (Use 3K Fragments)",function()
+		local args = {
+			[1] = "BlackbeardReward",
+			[2] = "Reroll",
+			[3] = "2"
+		}
+		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+	end)
+	ShopTab:Button("Reset Stats (Use 2.5K Fragments)",function()
+		local args = {
+			[1] = "BlackbeardReward",
+			[2] = "Refund",
+			[3] = "2"
+		}
+		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
 	end)
 	RaidsTab:Toggle("Kill aura",false,function(em)
 	getgenv().killaura = em
