@@ -924,6 +924,7 @@ local Up = win:Tab("💫Update")
 local AutoFarm = win:Tab("🎊Main")
 local Main = win:Tab("💪Auto Something")
 local Stat = win:Tab("✨⭐Stats")
+local Pvp = win:Tab("🙇Players")
 local ShopTab = win:Tab("👛Shop")
 local RaidsTab =  win:Tab("💀 Raids")
 local TeleportTab = win:Tab("🦸💝Teleport")
@@ -2198,6 +2199,96 @@ spawn(function()
 			end
 		end
 	end)
+	players = {}
+
+for i,v in pairs(game:GetService("Players"):GetChildren()) do
+    table.insert(players,v.Name)
+end
+Pvp:Dropdown("Select Players",players,function(plr)
+getgenv().pla = plr end)
+Pvp:Button("Refresh Players",function()
+table.clear(players)
+for i,v in pairs(game:GetService("Players"):GetChildren()) do
+   table.insert(players,v.Name)
+end
+end)    
+Pvp:Toggle("Auto Kill Players",nil,function(kplr)
+getgenv().killplr = kplr end)
+spawn(function()
+pcall(function()
+while wait() do
+if getgenv().killplr then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players[Select].Character.HumanoidRootPart.CFrame * CFrame.new(0,0,2)
+end
+end
+end)
+end)
+spawn(function()
+   pcall(function()
+   while wait() do
+if getgenv().killplr then
+getgenv().HeadSize = 60
+
+game:GetService('RunService').RenderStepped:connect(function()
+if getgenv().killplr then
+for i,v in next, game:GetService('Players'):GetPlayers() do
+if v.Name ~= game:GetService('Players').LocalPlayer.Name then
+pcall(function()
+v.Character.HumanoidRootPart.Size = Vector3.new(getgenv().HeadSize,getgenv().HeadSize,getgenv().HeadSize)
+v.Character.HumanoidRootPart.Transparency = 0.7
+v.Character.HumanoidRootPart.BrickColor = BrickColor.new("Really blue")
+v.Character.HumanoidRootPart.Material = "Neon"
+v.Character.HumanoidRootPart.CanCollide = false
+end)
+end
+end
+end
+end)
+
+
+
+end
+end
+end)
+end)
+
+
+Pvp:Toggle("Spectate Player", false, function(se)
+    getgenv().Sp = se
+    local plr1 = game.Players.LocalPlayer.Character.Humanoid
+    local plr2 = game.Players:FindFirstChild(getgenv().pla)
+    repeat wait(.1)
+        game.Workspace.Camera.CameraSubject = plr2.Character.Humanoid
+    until getgenv().Sp == false 
+    game.Workspace.Camera.CameraSubject = game.Players.LocalPlayer.Character.Humanoid
+end)
+
+Pvp:Button("Teleport", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = chichdiem(game.Players[getgenv().pla].Character.HumanoidRootPart.CFrame)
+end)
+Pvp:Toggle("Safe Mode", nil, function(xc)
+    getgenv().SafeMode = xc
+end)
+
+spawn(function()
+    while wait() do
+        if getgenv().SafeMode then
+            if game.Players.LocalPlayer.Character.Humanoid.Health <= 100 then
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(0,50000000000000000,0)
+            end
+        end
+    end
+end)
+
+
+
+
+
+
+
+
+
+
 	ShopTab:Label("Abilities",true)
 	ShopTab:Button("Skyjump [ $10,000 Beli ]",function()
 		local args = {
