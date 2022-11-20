@@ -2454,11 +2454,41 @@ while wait() do
 if getgenv().killplr then
 chichdiem(game.Players[getgenv().pla].Character.HumanoidRootPart.CFrame * CFrame.new(0,0,2))
 wait(10)
-game.Players[getgenv().pla].Character.HumanoidRootPart.CFrame * CFrame.new(0,0,2)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players[getgenv().pla].Character.HumanoidRootPart.CFrame * CFrame.new(0,0,2)
 end
 end
 end)
 end)
+spawn(function()
+		while wait() do
+			if getgenv().killplr then
+				if game.Players:FindFirstChild(getgenv().pla) and (game.Players:FindFirstChild(getgenv().pla).Character.HumanoidRootPart.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).magnitude >= 300 then
+					KillTween = chichdiem(game.Players:FindFirstChild(getgenv().pla).Character.HumanoidRootPart.Position,game.Players:FindFirstChild(getgenv().pla).Character.HumanoidRootPart.CFrame)
+				elseif game.Players:FindFirstChild(getgenv().pla) and (game.Players:FindFirstChild(getgenv().pla).Character.HumanoidRootPart.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).magnitude >= 300 then
+					game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players:FindFirstChild(getgenv().pla).Character.HumanoidRootPart.CFrame * CFrame.new(0,25,0)
+					game.Players:FindFirstChild(getgenv().pla).Character.HumanoidRootPart.CanCollide = false
+					game.Players:FindFirstChild(getgenv().pla).Character.HumanoidRootPart.Size = Vector3.new(50,50,50)
+					EquipWeapon(SelectToolWeaponGun)
+					if game.Players.LocalPlayer.Character:FindFirstChild(SelectToolWeaponGun) then
+						spawn(function()
+							pcall(function()
+								local args = {
+									[1] = v.HumanoidRootPart.Position,
+									[2] = v.HumanoidRootPart
+								}
+								game:GetService("Players").LocalPlayer.Character[SelectToolWeaponGun].RemoteFunctionShoot:InvokeServer(unpack(args))
+							end)
+						end)
+					end 
+				end
+			end 
+			if Skillaimbot then
+				if game.Players:FindFirstChild(getgenv().pla) and game.Players:FindFirstChild(getgenv().pla).Character:FindFirstChild("HumanoidRootPart") and game.Players:FindFirstChild(getgenv().pla).Character:FindFirstChild("Humanoid") and game.Players:FindFirstChild(getgenv().pla).Character.Humanoid.Health > 0 then
+					AimBotSkillPosition = game.Players:FindFirstChild(getgenv().pla).Character:FindFirstChild("HumanoidRootPart").Position
+				end
+			end
+		end
+	end)
 spawn(function()
         pcall(function()
             while task.wait() do
