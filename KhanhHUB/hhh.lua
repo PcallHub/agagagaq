@@ -2218,11 +2218,24 @@ spawn(function()
 pcall(function()
 while wait() do
 if getgenv().killplr then
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players[getgenv().pla].Character.HumanoidRootPart.CFrame * CFrame.new(0,0,2)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = chichdiem(game.Players[getgenv().pla].Character.HumanoidRootPart.CFrame * CFrame.new(0,0,2))
 end
 end
 end)
 end)
+spawn(function()
+        pcall(function()
+            while task.wait() do
+                if getgenv().killplr and getgenv().pla ~= nil and game.Players.LocalPlayer.Character:FindFirstChildOfClass("Tool") and game.Players.LocalPlayer.Character[game.Players.LocalPlayer.Character:FindFirstChildOfClass("Tool").Name]:FindFirstChild("MousePos") then
+                    local args = {
+                        [1] = game:GetService("Players"):FindFirstChild(getgenv().pla).Character.HumanoidRootPart.Position
+                    }
+                    
+                    game:GetService("Players").LocalPlayer.Character:FindFirstChild(game.Players.LocalPlayer.Character:FindFirstChildOfClass("Tool").Name).RemoteEvent:FireServer(unpack(args))
+                end
+            end
+        end)
+    end)
 spawn(function()
    pcall(function()
    while wait() do
