@@ -2453,6 +2453,8 @@ pcall(function()
 while wait() do
 if getgenv().killplr then
 chichdiem(game.Players[getgenv().pla].Character.HumanoidRootPart.CFrame * CFrame.new(0,0,2))
+wait(10)
+game.Players[getgenv().pla].Character.HumanoidRootPart.CFrame * CFrame.new(0,0,2)
 end
 end
 end)
