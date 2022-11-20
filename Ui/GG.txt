@@ -86,6 +86,30 @@ end
 end
 
 function lib:Window(text, preset, closebind)
+if getgenv().Theme ~= nil then
+ColorII = getgenv().Theme.Tab.Color
+	
+			ColorIII = getgenv().Theme.Line.LeftColor
+			ColorIIII = getgenv().Theme.Line.RightColor
+	
+			ColorIIIII = getgenv().Theme.Toggle.LeftColor
+			ColorIIIIII = getgenv().Theme.Toggle.RightColor
+	
+			ColorIIIIIII = getgenv().Theme.Slider.LeftColor
+			ColorIIIIIIII = getgenv().Theme.Slider.RightColor
+		else
+			ColorII = Color3.fromRGB(255, 0, 0)
+	
+			ColorIII = Color3.fromRGB(255, 0, 0)
+			ColorIIII = Color3.fromRGB(0, 0, 255)
+	
+			ColorIIIII = Color3.fromRGB(255, 0, 0)
+			ColorIIIIII = Color3.fromRGB(0, 0, 255)
+	
+			ColorIIIIIII = Color3.fromRGB(255, 0, 0)
+			ColorIIIIIIII = Color3.fromRGB(0, 0, 255)
+		end
+	
 CloseBind = closebind or Enum.KeyCode.RightControl
 PresetColor = preset or Color3.fromRGB(44, 120, 224)
 fs = false
@@ -108,7 +132,7 @@ Main.Visible = false
 
 TabHold.Name = "TabHold"
 TabHold.Parent = Main
-TabHold.BackgroundColor3 = Color3.fromRGB(255,255,255)
+TabHold.BackgroundColor3 = Color3.fromRGB(0,0,0)
 TabHold.BackgroundTransparency = 1.000
 TabHold.Position = UDim2.new(0.0339285731, 0, 0.147335425, 0)
 TabHold.Size = UDim2.new(0, 107, 0, 254)
@@ -120,7 +144,7 @@ TabHoldLayout.Padding = UDim.new(0, 11)
 
 Title.Name = "Title"
 Title.Parent = Main
-Title.BackgroundColor3 = Color3.fromRGB(255,255,255)
+Title.BackgroundColor3 = Color3.fromRGB(50,50,50)
 Title.BackgroundTransparency = 1.000
 Title.Position = UDim2.new(0.0339285731, 0, 0.0564263314, 0)
 Title.Size = UDim2.new(0, 200, 0, 23)
@@ -132,7 +156,7 @@ Title.TextXAlignment = Enum.TextXAlignment.Left
 
 DragFrame.Name = "DragFrame"
 DragFrame.Parent = Main
-DragFrame.BackgroundColor3 = Color3.fromRGB(255,255,255)
+DragFrame.BackgroundColor3 = Color3.fromRGB(50,50,50)
 DragFrame.BackgroundTransparency = 1.000
 DragFrame.Size = UDim2.new(0, 560, 0, 41)
 
@@ -163,7 +187,7 @@ BarloadCorner.Parent = Barload
 
 LoadText.Name = "LoadText"
 LoadText.Parent = LoadFrame
-LoadText.BackgroundColor3 = Color3.fromRGB(255,255,255)
+LoadText.BackgroundColor3 = Color3.fromRGB(50,50,50)
 LoadText.BackgroundTransparency = 1.000
 LoadText.Position = UDim2.new(0.186915889, 0, 0.261682242, 0)
 LoadText.Size = UDim2.new(0, 200, 0, 50)
@@ -344,7 +368,7 @@ OkayBtnCorner.Parent = OkayBtn
 
 OkayBtnTitle.Name = "OkayBtnTitle"
 OkayBtnTitle.Parent = OkayBtn
-OkayBtnTitle.BackgroundColor3 = Color3.fromRGB(255,255,255)
+OkayBtnTitle.BackgroundColor3 = Color3.fromRGB(50,50,50)
 OkayBtnTitle.BackgroundTransparency = 1.000
 OkayBtnTitle.Position = UDim2.new(0.0763888881, 0, 0, 0)
 OkayBtnTitle.Size = UDim2.new(0, 181, 0, 42)
@@ -356,7 +380,7 @@ OkayBtnTitle.TextXAlignment = Enum.TextXAlignment.Left
 
 NotificationTitle.Name = "NotificationTitle"
 NotificationTitle.Parent = NotificationFrame
-NotificationTitle.BackgroundColor3 = Color3.fromRGB(255,255,255)
+NotificationTitle.BackgroundColor3 = Color3.fromRGB(50,50,50)
 NotificationTitle.BackgroundTransparency = 1.000
 NotificationTitle.Position = UDim2.new(0.0670731738, 0, 0.0829015523, 0)
 NotificationTitle.Size = UDim2.new(0, 143, 0, 26)
@@ -368,7 +392,7 @@ NotificationTitle.TextXAlignment = Enum.TextXAlignment.Left
 
 NotificationDesc.Name = "NotificationDesc"
 NotificationDesc.Parent = NotificationFrame
-NotificationDesc.BackgroundColor3 = Color3.fromRGB(255,255,255)
+NotificationDesc.BackgroundColor3 = Color3.fromRGB(50,50,50)
 NotificationDesc.BackgroundTransparency = 1.000
 NotificationDesc.Position = UDim2.new(0.0670000017, 0, 0.218999997, 0)
 NotificationDesc.Size = UDim2.new(0, 143, 0, 91)
@@ -421,7 +445,7 @@ local TabBtnIndicatorCorner = Instance.new("UICorner")
 
 TabBtn.Name = "TabBtn"
 TabBtn.Parent = TabHold
-TabBtn.BackgroundColor3 = Color3.fromRGB(255,255,255)
+TabBtn.BackgroundColor3 = Color3.fromRGB(50,50,50)
 TabBtn.BackgroundTransparency = 1.000
 TabBtn.Size = UDim2.new(0, 107, 0, 21)
 TabBtn.Font = Enum.Font.SourceSans
@@ -431,7 +455,7 @@ TabBtn.TextSize = 14.000
 
 TabTitle.Name = "TabTitle"
 TabTitle.Parent = TabBtn
-TabTitle.BackgroundColor3 = Color3.fromRGB(255,255,255)
+TabTitle.BackgroundColor3 = Color3.fromRGB(50,50,50)
 TabTitle.BackgroundTransparency = 1.000
 TabTitle.Size = UDim2.new(0, 107, 0, 21)
 TabTitle.Font = Enum.Font.Gotham
@@ -465,7 +489,7 @@ local TabLayout = Instance.new("UIListLayout")
 Tab.Name = "Tab"
 Tab.Parent = TabFolder
 Tab.Active = true
-Tab.BackgroundColor3 = Color3.fromRGB(255,255,255)
+Tab.BackgroundColor3 = Color3.fromRGB(50,50,50)
 Tab.BackgroundTransparency = 1.000
 Tab.BorderSizePixel = 0
 Tab.Position = UDim2.new(0.31400001, 0, 0.147, 0)
@@ -679,7 +703,7 @@ TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
 TweenService:Create(
 FrameToggleCircle,
 TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-{BackgroundColor3 = Color3.fromRGB(255,255,255)}
+{BackgroundColor3 = Color3.fromRGB(50,50,50)}
 ):Play()
 FrameToggleCircle:TweenPosition(UDim2.new(0.587, 0, 0.222000003, 0), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .2, true)
 else
@@ -738,7 +762,7 @@ TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
 TweenService:Create(
 FrameToggleCircle,
 TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-{BackgroundColor3 = Color3.fromRGB(255,255,255)}
+{BackgroundColor3 = Color3.fromRGB(50,50,50)}
 ):Play()
 FrameToggleCircle:TweenPosition(UDim2.new(0.587, 0, 0.222000003, 0), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .2, true)
 toggled = not toggled
@@ -773,7 +797,7 @@ SliderCorner.Parent = Slider
 
 SliderTitle.Name = "SliderTitle"
 SliderTitle.Parent = Slider
-SliderTitle.BackgroundColor3 = Color3.fromRGB(255,255,255)
+SliderTitle.BackgroundColor3 = Color3.fromRGB(50,50,50)
 SliderTitle.BackgroundTransparency = 1.000
 SliderTitle.Position = UDim2.new(0.0358126722, 0, 0, 0)
 SliderTitle.Size = UDim2.new(0, 187, 0, 42)
@@ -785,7 +809,7 @@ SliderTitle.TextXAlignment = Enum.TextXAlignment.Left
 
 SliderValue.Name = "SliderValue"
 SliderValue.Parent = Slider
-SliderValue.BackgroundColor3 = Color3.fromRGB(255,255,255)
+SliderValue.BackgroundColor3 = Color3.fromRGB(50,50,50)
 SliderValue.BackgroundTransparency = 1.000
 SliderValue.Position = UDim2.new(0.0358126722, 0, 0, 0)
 SliderValue.Size = UDim2.new(0, 335, 0, 42)
@@ -896,7 +920,7 @@ DropdownCorner.Parent = Dropdown
 
 DropdownBtn.Name = "DropdownBtn"
 DropdownBtn.Parent = Dropdown
-DropdownBtn.BackgroundColor3 = Color3.fromRGB(255,255,255)
+DropdownBtn.BackgroundColor3 = Color3.fromRGB(50,50,50)
 DropdownBtn.BackgroundTransparency = 1.000
 DropdownBtn.Size = UDim2.new(0, 363, 0, 42)
 DropdownBtn.Font = Enum.Font.SourceSans
@@ -906,7 +930,7 @@ DropdownBtn.TextSize = 14.000
 
 DropdownTitle.Name = "DropdownTitle"
 DropdownTitle.Parent = Dropdown
-DropdownTitle.BackgroundColor3 = Color3.fromRGB(255,255,255)
+DropdownTitle.BackgroundColor3 = Color3.fromRGB(50,50,50)
 DropdownTitle.BackgroundTransparency = 1.000
 DropdownTitle.Position = UDim2.new(0.0358126722, 0, 0, 0)
 DropdownTitle.Size = UDim2.new(0, 187, 0, 42)
@@ -918,7 +942,7 @@ DropdownTitle.TextXAlignment = Enum.TextXAlignment.Left
 
 ArrowImg.Name = "ArrowImg"
 ArrowImg.Parent = DropdownTitle
-ArrowImg.BackgroundColor3 = Color3.fromRGB(255,255,255)
+ArrowImg.BackgroundColor3 = Color3.fromRGB(50,50,50)
 ArrowImg.BackgroundTransparency = 1.000
 ArrowImg.Position = UDim2.new(1.65240645, 0, 0.190476194, 0)
 ArrowImg.Size = UDim2.new(0, 26, 0, 26)
@@ -927,7 +951,7 @@ ArrowImg.Image = "http://www.roblox.com/asset/?id=6034818375"
 DropItemHolder.Name = "DropItemHolder"
 DropItemHolder.Parent = DropdownTitle
 DropItemHolder.Active = true
-DropItemHolder.BackgroundColor3 = Color3.fromRGB(255,255,255)
+DropItemHolder.BackgroundColor3 = Color3.fromRGB(50,50,50)
 DropItemHolder.BackgroundTransparency = 1.000
 DropItemHolder.BorderSizePixel = 0
 DropItemHolder.Position = UDim2.new(-0.00400000019, 0, 1.04999995, 0)
@@ -1074,7 +1098,7 @@ ColorpickerCorner.Parent = Colorpicker
 
 ColorpickerTitle.Name = "ColorpickerTitle"
 ColorpickerTitle.Parent = Colorpicker
-ColorpickerTitle.BackgroundColor3 = Color3.fromRGB(255,255,255)
+ColorpickerTitle.BackgroundColor3 = Color3.fromRGB(50,50,50)
 ColorpickerTitle.BackgroundTransparency = 1.000
 ColorpickerTitle.Position = UDim2.new(0.0358126722, 0, 0, 0)
 ColorpickerTitle.Size = UDim2.new(0, 187, 0, 42)
@@ -1111,7 +1135,7 @@ ConfirmBtnCorner.Parent = ConfirmBtn
 
 ConfirmBtnTitle.Name = "ConfirmBtnTitle"
 ConfirmBtnTitle.Parent = ConfirmBtn
-ConfirmBtnTitle.BackgroundColor3 = Color3.fromRGB(255,255,255)
+ConfirmBtnTitle.BackgroundColor3 = Color3.fromRGB(50,50,50)
 ConfirmBtnTitle.BackgroundTransparency = 1.000
 ConfirmBtnTitle.Size = UDim2.new(0, 33, 0, 32)
 ConfirmBtnTitle.Font = Enum.Font.Gotham
@@ -1122,7 +1146,7 @@ ConfirmBtnTitle.TextXAlignment = Enum.TextXAlignment.Left
 
 ColorpickerBtn.Name = "ColorpickerBtn"
 ColorpickerBtn.Parent = ColorpickerTitle
-ColorpickerBtn.BackgroundColor3 = Color3.fromRGB(255,255,255)
+ColorpickerBtn.BackgroundColor3 = Color3.fromRGB(50,50,50)
 ColorpickerBtn.BackgroundTransparency = 1.000
 ColorpickerBtn.Size = UDim2.new(0, 363, 0, 42)
 ColorpickerBtn.Font = Enum.Font.SourceSans
@@ -1147,7 +1171,7 @@ RainbowToggleCorner.Parent = RainbowToggle
 
 RainbowToggleTitle.Name = "RainbowToggleTitle"
 RainbowToggleTitle.Parent = RainbowToggle
-RainbowToggleTitle.BackgroundColor3 = Color3.fromRGB(255,255,255)
+RainbowToggleTitle.BackgroundColor3 = Color3.fromRGB(50,50,50)
 RainbowToggleTitle.BackgroundTransparency = 1.000
 RainbowToggleTitle.Size = UDim2.new(0, 33, 0, 32)
 RainbowToggleTitle.Font = Enum.Font.Gotham
@@ -1207,7 +1231,7 @@ ColorCorner.Parent = Color
 ColorSelection.Name = "ColorSelection"
 ColorSelection.Parent = Color
 ColorSelection.AnchorPoint = Vector2.new(0.5, 0.5)
-ColorSelection.BackgroundColor3 = Color3.fromRGB(255,255,255)
+ColorSelection.BackgroundColor3 = Color3.fromRGB(50,50,50)
 ColorSelection.BackgroundTransparency = 1.000
 ColorSelection.Position = UDim2.new(preset and select(3, Color3.toHSV(preset)))
 ColorSelection.Size = UDim2.new(0, 18, 0, 18)
@@ -1217,7 +1241,7 @@ ColorSelection.Visible = false
 
 Hue.Name = "Hue"
 Hue.Parent = ColorpickerTitle
-Hue.BackgroundColor3 = Color3.fromRGB(255,255,255)
+Hue.BackgroundColor3 = Color3.fromRGB(50,50,50)
 Hue.Position = UDim2.new(0, 202, 0, 42)
 Hue.Size = UDim2.new(0, 25, 0, 80)
 
@@ -1240,7 +1264,7 @@ HueGradient.Parent = Hue
 HueSelection.Name = "HueSelection"
 HueSelection.Parent = Hue
 HueSelection.AnchorPoint = Vector2.new(0.5, 0.5)
-HueSelection.BackgroundColor3 = Color3.fromRGB(255,255,255)
+HueSelection.BackgroundColor3 = Color3.fromRGB(50,50,50)
 HueSelection.BackgroundTransparency = 1.000
 HueSelection.Position = UDim2.new(0.48, 0, 1 - select(1, Color3.toHSV(preset)))
 HueSelection.Size = UDim2.new(0, 18, 0, 18)
@@ -1408,7 +1432,7 @@ TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
 TweenService:Create(
 FrameRainbowToggleCircle,
 TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-{BackgroundColor3 = Color3.fromRGB(255,255,255)}
+{BackgroundColor3 = Color3.fromRGB(50,50,50)}
 ):Play()
 FrameRainbowToggleCircle:TweenPosition(UDim2.new(0.587, 0, 0.222000003, 0), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .2, true)
 
@@ -1479,7 +1503,7 @@ local LabelTitle = Instance.new("TextLabel")
 
 Label.Name = "Button"
 Label.Parent = Tab
-Label.BackgroundColor3 = Color3.fromRGB(255,255,255)
+Label.BackgroundColor3 = Color3.fromRGB(50,50,50)
 Label.Size = UDim2.new(0, 363, 0, 42)
 Label.AutoButtonColor = false
 Label.Font = Enum.Font.SourceSans
@@ -1515,7 +1539,7 @@ local TextBox = Instance.new("TextBox")
 
 Textbox.Name = "Textbox"
 Textbox.Parent = Tab
-Textbox.BackgroundColor3 = Color3.fromRGB(255,255,255)
+Textbox.BackgroundColor3 = Color3.fromRGB(50,50,50)
 Textbox.ClipsDescendants = true
 Textbox.Position = UDim2.new(-0.541071415, 0, -0.532915354, 0)
 Textbox.Size = UDim2.new(0, 363, 0, 42)
@@ -1646,7 +1670,7 @@ BindCorner.Parent = Bind
 
 BindTitle.Name = "BindTitle"
 BindTitle.Parent = Bind
-BindTitle.BackgroundColor3 = Color3.fromRGB(255,255,255)
+BindTitle.BackgroundColor3 = Color3.fromRGB(50,50,50)
 BindTitle.BackgroundTransparency = 1.000
 BindTitle.Position = UDim2.new(0.0358126722, 0, 0, 0)
 BindTitle.Size = UDim2.new(0, 187, 0, 42)
@@ -1658,7 +1682,7 @@ BindTitle.TextXAlignment = Enum.TextXAlignment.Left
 
 BindText.Name = "BindText"
 BindText.Parent = Bind
-BindText.BackgroundColor3 = Color3.fromRGB(255,255,255)
+BindText.BackgroundColor3 = Color3.fromRGB(50,50,50)
 BindText.BackgroundTransparency = 1.000
 BindText.Position = UDim2.new(0.0358126722, 0, 0, 0)
 BindText.Size = UDim2.new(0, 337, 0, 42)
