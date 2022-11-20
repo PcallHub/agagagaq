@@ -2570,9 +2570,8 @@ end)
 
 
 
-
+    ShopTab:Line()
 	ShopTab:Label("Abilities",true)
-	ShopTab:Line()
 	ShopTab:Button("Skyjump [ $10,000 Beli ]",function()
 		local args = {
 			[1] = "BuyHaki",
