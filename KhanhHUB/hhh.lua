@@ -1185,6 +1185,7 @@ spawn(function()  game:GetService("RunService").Heartbeat:Connect(function() if 
 else  if game:GetService("Workspace"):FindFirstChild("LOL") then  game:GetService("Workspace"):FindFirstChild("LOL"):Destroy() end end end) end)
 spawn(function()  game:GetService("RunService").Stepped:Connect(function()  if getgenv().NoClip or getgenv().AutoFarm or getgenv().Observation or getgenv().AutoNew or getgenv().Factory or getgenv().GunMastery or getgenv().Mastery or FramBoss or FramAllBoss or getgenv().getgenv().AutoBartilo or getgenv().MobAura or getgenv().AutoRengoku or getgenv().AutoSharkman or getgenv().Ectoplasm or getgenv().PoleHop or getgenv().SwanHop or getgenv().BlackBeardHop or getgenv().Chest or getgenv().Electro or rainbowhaki or Hunter or observationv2 or getgenv().ElitehuntHop or getgenv().EliteHunt or getgenv().Pole or getgenv().Tushitahop or getgenv().YamaHop or getgenv().StoreFruit or getgenv().HolyTorch then  for _, v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do  if v:IsA("BasePart") then
    v.CanCollide = false end     end    end end) end)
+   Up:Line()
    Up:Label("Update Change Ui")
    Up:Label("Fix AutoFarm Bone")
    Up:Label("Add Auto Select Farm Bone/Boss")
@@ -1194,6 +1195,7 @@ spawn(function()  game:GetService("RunService").Stepped:Connect(function()  if g
    Up:Label("Check Elti/Point")
    Up:Label("Add Soru No Cooldown")
    Up:Label("Add Buy Items")
+   
 AutoFarm:Toggle("Auto Farm",false,function(vu)
     getgenv().AutoFarm= vu
 end)
@@ -1415,6 +1417,7 @@ AutoFarm:Button("Refresh Weapon", function()
 		end
 	end
 end)
+AutoFarm:Line()
     AutoFarm:Toggle("Lock Mob",false,function(lm)
   getgenv().lockmob=lm 
 end)
@@ -1936,7 +1939,7 @@ spawn(function()
 		end
 	end
 end)
-
+Main:Line()
 local CheckEliteHunter = Main:Label("Kill " .. game.ReplicatedStorage.Remotes.CommF_:InvokeServer("EliteHunter", "Progress") .. " Elite Enemies",true)
 	spawn(function()
 		while wait() do
@@ -1999,6 +2002,7 @@ spawn(function()
 		end
 	end
 end)
+Main:Line()
 Main:Toggle("Auto Farm All Boss",false,function(value)
         getgenv().AutoAllBoss = value
     end)
@@ -2181,6 +2185,7 @@ end)
 			end
 		end
 	end)
+	Main:Line()
 Main:Toggle("Auto Enma Sword",false,function(vu)
 	getgenv().Yama = vu
 	
@@ -2567,6 +2572,7 @@ end)
 
 
 	ShopTab:Label("Abilities",true)
+	ShopTab:Line()
 	ShopTab:Button("Skyjump [ $10,000 Beli ]",function()
 		local args = {
 			[1] = "BuyHaki",
@@ -2608,6 +2614,7 @@ end)
 			end
 		end
 	end)
+	ShopTab:Line()
 	ShopTab:Label("Fighting Style",true)
 	ShopTab:Button("Black Leg",function()
 		local args = {
@@ -2673,7 +2680,7 @@ end)
 		local Target = game:GetService("ReplicatedStorage").Remotes["CommF_"];
 		Target:InvokeServer(string_1);
 	end)
-	
+	ShopTab:Line()
 	ShopTab:Label("Sword",true)
 	ShopTab:Button("Katana [ $1,000 Beli ]",function()
 		local args = {
@@ -2741,6 +2748,7 @@ end)
 	ShopTab:Button("Pole v.2 [ 5,000 Fragments )",function()
 		game.ReplicatedStorage.Remotes.CommF_:InvokeServer("ThunderGodTalk")
 	end)
+	ShopTab:Line()
 	ShopTab:Label("Gun",true)
 	ShopTab:Button("Slingshot [ $5,000 Beli ]",function()
 		local args = {
@@ -2780,6 +2788,7 @@ end)
 	ShopTab:Button("Kabucha [ 1,500 Fragments)",function()
 		game.ReplicatedStorage.Remotes.CommF_:InvokeServer("BlackbeardReward", "Slingshot", "2")
 	end)
+	ShopTab:Line()
 ShopTab:Label("Accessories",true)
 	ShopTab:Button("Black Cape [ $50,000 Beli ]",function()
 		local args = {
@@ -2802,7 +2811,7 @@ ShopTab:Label("Accessories",true)
 		}
 		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
 	end)
-	
+	ShopTab:Line()
 	ShopTab:Label("Race & etc.",true)
 	ShopTab:Button("Race Ghoul",function()
 		local args = {
