@@ -21,6 +21,240 @@ repeat wait() until game:GetService("Players").LocalPlayer.PlayerGui:FindFirstCh
 end
 -----
 -- Function
+function InfAb()
+        if getgenv().InfAbility then
+            if not game:GetService("Players").LocalPlayer.Character.HumanoidRootPart:FindFirstChild("Agility") then
+                local inf = Instance.new("ParticleEmitter")
+                inf.Acceleration = Vector3.new(0,0,0)
+                inf.Archivable = true
+                inf.Drag = 20
+                inf.EmissionDirection = Enum.NormalId.Top
+                inf.Enabled = true
+                inf.Lifetime = NumberRange.new(0,0)
+                inf.LightInfluence = 0
+                inf.LockedToPart = true
+                inf.Name = "Agility"
+                inf.Rate = 500
+                local numberKeypoints2 = {
+                    NumberSequenceKeypoint.new(0, 0);
+                    NumberSequenceKeypoint.new(1, 4); 
+                }
+                inf.Size = NumberSequence.new(numberKeypoints2)
+                inf.RotSpeed = NumberRange.new(9999, 99999)
+                inf.Rotation = NumberRange.new(0, 0)
+                inf.Speed = NumberRange.new(30, 30)
+                inf.SpreadAngle = Vector2.new(0,0,0,0)
+                inf.Texture = ""
+                inf.VelocityInheritance = 0
+                inf.ZOffset = 2
+                inf.Transparency = NumberSequence.new(0)
+                inf.Color = ColorSequence.new(Color3.fromRGB(0,0,0),Color3.fromRGB(0,0,0))
+                inf.Parent = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart
+            end
+        else
+            if game:GetService("Players").LocalPlayer.Character.HumanoidRootPart:FindFirstChild("Agility") then
+                game:GetService("Players").LocalPlayer.Character.HumanoidRootPart:FindFirstChild("Agility"):Destroy()
+            end
+        end
+    end
+    
+    local LocalPlayer = game:GetService'Players'.LocalPlayer
+    local originalstam = LocalPlayer.Character.Energy.Value
+function UpdateEspPlayer()
+		for i,v in pairs(game:GetService'Players':GetChildren()) do
+			pcall(function()
+				if not isnil(v.Character) then
+					if getgenv().ESPPlayer then
+						if not isnil(v.Character.Head) and not v.Character.Head:FindFirstChild('NameEsp'..Number) then
+							local bill = Instance.new('BillboardGui',v.Character.Head)
+							bill.Name = 'NameEsp'..Number
+							bill.ExtentsOffset = Vector3.new(0, 1, 0)
+							bill.Size = UDim2.new(1,200,1,30)
+							bill.Adornee = v.Character.Head
+							bill.AlwaysOnTop = true
+							local name = Instance.new('TextLabel',bill)
+							name.Font = "GothamBold"
+							name.FontSize = "Size14"
+							name.TextWrapped = true
+							name.Text = (v.Name ..' \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Character.Head.Position).Magnitude/3) ..' M')
+							name.Size = UDim2.new(1,0,1,0)
+							name.TextYAlignment = 'Top'
+							name.BackgroundTransparency = 1
+							name.TextStrokeTransparency = 0.5
+							if v.Team == game.Players.LocalPlayer.Team then
+								name.TextColor3 = Color3.new(0,255,0)
+							else
+								name.TextColor3 = Color3.new(255,0,0)
+							end
+						else
+							v.Character.Head['NameEsp'..Number].TextLabel.Text = (v.Name ..' | '.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Character.Head.Position).Magnitude/3) ..' M\nHealth : ' .. round(v.Character.Humanoid.Health*100/v.Character.Humanoid.MaxHealth) .. '%')
+						end
+					else
+						if v.Character.Head:FindFirstChild('NameEsp'..Number) then
+							v.Character.Head:FindFirstChild('NameEsp'..Number):Destroy()
+						end
+					end
+				end
+			end)
+		end
+	end
+    
+    function UpdateIslandESP() 
+        for i,v in pairs(game:GetService("Workspace")["_WorldOrigin"].Locations:GetChildren()) do
+            pcall(function()
+                if getgenv().IslandESP then 
+                    if v.Name ~= "Sea" then
+                        if not v:FindFirstChild('NameEsp') then
+                            local bill = Instance.new('BillboardGui',v)
+                            bill.Name = 'NameEsp'
+                            bill.ExtentsOffset = Vector3.new(0, 1, 0)
+                            bill.Size = UDim2.new(1,200,1,30)
+                            bill.Adornee = v
+                            bill.AlwaysOnTop = true
+                            local name = Instance.new('TextLabel',bill)
+                            name.Font = "GothamBold"
+                            name.FontSize = "Size14"
+                            name.TextWrapped = true
+                            name.Size = UDim2.new(1,0,1,0)
+                            name.TextYAlignment = 'Top'
+                            name.BackgroundTransparency = 1
+                            name.TextStrokeTransparency = 0.5
+                            name.TextColor3 = Color3.fromRGB(80, 245, 245)
+                        else
+                            v['NameEsp'].TextLabel.Text = (v.Name ..'   \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Position).Magnitude/3) ..' M')
+                        end
+                    end
+                else
+                    if v:FindFirstChild('NameEsp') then
+                        v:FindFirstChild('NameEsp'):Destroy()
+                    end
+                end
+            end)
+        end
+    end
+    
+    function UpdateChestEsp() 
+        for i,v in pairs(game:GetService("Workspace"):GetChildren()) do
+            pcall(function()
+                if string.find(v.Name,"Chest") then
+                    if getgenv().ChestESP then
+                        if string.find(v.Name,"Chest") then
+                            if not v:FindFirstChild('NameEsp'..Number) then
+                                local bill = Instance.new('BillboardGui',v)
+                                bill.Name = 'NameEsp'..Number
+                                bill.ExtentsOffset = Vector3.new(0, 1, 0)
+                                bill.Size = UDim2.new(1,200,1,30)
+                                bill.Adornee = v
+                                bill.AlwaysOnTop = true
+                                local name = Instance.new('TextLabel',bill)
+                                name.Font = "GothamBold"
+                                name.FontSize = "Size14"
+                                name.TextWrapped = true
+                                name.Size = UDim2.new(1,0,1,0)
+                                name.TextYAlignment = 'Top'
+                                name.BackgroundTransparency = 1
+                                name.TextStrokeTransparency = 0.5
+                                name.TextColor3 = Color3.fromRGB(0, 255, 250)
+                            if v.Name == "Chest1" then
+                                name.Text = ("Chest 1" ..' \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Position).Magnitude/3) ..' M')
+                            end
+                            if v.Name == "Chest2" then
+                                name.Text = ("Chest 2" ..' \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Position).Magnitude/3) ..' M')
+                            end
+                        if v.Name == "Chest3" then
+                            name.Text = ("Chest 3" ..' \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Position).Magnitude/3) ..' M')
+                        end
+                        else
+                            v['NameEsp'..Number].TextLabel.Text = (v.Name ..'   \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Position).Magnitude/3) ..' M')
+                        end
+                    end
+                else
+                    if v:FindFirstChild('NameEsp'..Number) then
+                    v:FindFirstChild('NameEsp'..Number):Destroy()
+                    end
+                end
+                end
+            end)
+        end
+    end
+    
+    function UpdateBfEsp() 
+        for i,v in pairs(game:GetService("Workspace"):GetChildren()) do
+            pcall(function()
+                if getgenv().DevilFruitESP then
+                    if string.find(v.Name, "Fruit") then   
+                        if not v.Handle:FindFirstChild('NameEsp'..Number) then
+                            local bill = Instance.new('BillboardGui',v.Handle)
+                            bill.Name = 'NameEsp'..Number
+                            bill.ExtentsOffset = Vector3.new(0, 1, 0)
+                            bill.Size = UDim2.new(1,200,1,30)
+                            bill.Adornee = v.Handle
+                            bill.AlwaysOnTop = true
+                            local name = Instance.new('TextLabel',bill)
+                            name.Font = "GothamBold"
+                            name.FontSize = "Size14"
+                            name.TextWrapped = true
+                            name.Size = UDim2.new(1,0,1,0)
+                            name.TextYAlignment = 'Top'
+                            name.BackgroundTransparency = 1
+                            name.TextStrokeTransparency = 0.5
+                            name.TextColor3 = Color3.fromRGB(255, 0, 0)
+                            name.Text = (v.Name ..' \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Handle.Position).Magnitude/3) ..' M')
+                        else
+                            v.Handle['NameEsp'..Number].TextLabel.Text = (v.Name ..'   \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Handle.Position).Magnitude/3) ..' M')
+                        end
+                    end
+                else
+                    if v.Handle:FindFirstChild('NameEsp'..Number) then
+                        v.Handle:FindFirstChild('NameEsp'..Number):Destroy()
+                        end
+                end
+            end)
+        end
+    end
+    
+    function UpdateFlowerEsp() 
+        for i,v in pairs(game:GetService("Workspace"):GetChildren()) do
+            pcall(function()
+                if v.Name == "Flower2" or v.Name == "Flower1" then
+                    if getgenv().FlowerESP then 
+                        if not v:FindFirstChild('NameEsp'..Number) then
+                            local bill = Instance.new('BillboardGui',v)
+                            bill.Name = 'NameEsp'..Number
+                            bill.ExtentsOffset = Vector3.new(0, 1, 0)
+                            bill.Size = UDim2.new(1,200,1,30)
+                            bill.Adornee = v
+                            bill.AlwaysOnTop = true
+                            local name = Instance.new('TextLabel',bill)
+                            name.Font = "GothamBold"
+                            name.FontSize = "Size14"
+                            name.TextWrapped = true
+                            name.Size = UDim2.new(1,0,1,0)
+                            name.TextYAlignment = 'Top'
+                            name.BackgroundTransparency = 1
+                            name.TextStrokeTransparency = 0.5
+                            name.TextColor3 = Color3.fromRGB(255, 0, 0)
+                        if v.Name == "Flower1" then 
+                            name.Text = ("Blue Flower" ..' \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Position).Magnitude/3) ..' M')
+                            name.TextColor3 = Color3.fromRGB(255, 0, 0)
+                        end
+                        if v.Name == "Flower2" then
+                            name.Text = ("Red Flower" ..' \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Position).Magnitude/3) ..' M')
+                            name.TextColor3 = Color3.fromRGB(255, 0, 0)
+                        end
+                    else
+                        v['NameEsp'..Number].TextLabel.Text = (v.Name ..'   \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Position).Magnitude/3) ..' M')
+                    end
+                    else
+                        if v:FindFirstChild('NameEsp'..Number) then
+                            v:FindFirstChild('NameEsp'..Number):Destroy()
+                        end
+                    end
+                end   
+            end)
+        end
+    end
+    
 function AutoHaki()
         if not game:GetService("Players").LocalPlayer.Character:FindFirstChild("HasBuso") then
             game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Buso")
@@ -1056,7 +1290,7 @@ function TP()
 											
 											chichdiem(CFrameMon)
 										end
-									until not v.Parent or v.Humanoid.Health <= 0 or _G.FarmLevel == false or game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false or not game:GetService("Workspace").Enemies:FindFirstChild(v.Name)
+									until not v.Parent or v.Humanoid.Health <= 0 or getgenv().AutoFarm == false or game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false or not game:GetService("Workspace").Enemies:FindFirstChild(v.Name)
 								end
 							end
 						end
@@ -2983,7 +3217,7 @@ end
 end
 end)
 Misc:Toggle("Soru No Cooldown",false,function(l)
-getgenv().soru = l
+getgenv().InfSoru = l
 end)
 spawn(function()
 while wait() do
@@ -2995,7 +3229,7 @@ for i, v in pairs(getgc()) do
 						if v2.LastUse then
 							repeat wait()
 								setupvalue(v, i2, {LastAfter = 0,LastUse = 0})
-							until not getgenv().soru
+							until not getgenv().InfSoru
 						end
 					end
 				end
@@ -3004,6 +3238,28 @@ for i, v in pairs(getgc()) do
 end
 end
 end)
+spawn(function()
+        while wait() do
+            pcall(function()
+                if getgenv().InfSoru and game:GetService("Players").LocalPlayer.Character:FindFirstChild("HumanoidRootPart") ~= nil  then
+                    for i,v in next, getgc() do
+                        if game:GetService("Players").LocalPlayer.Character.Soru then
+                            if typeof(v) == "function" and getfenv(v).script == game:GetService("Players").LocalPlayer.Character.Soru then
+                                for i2,v2 in next, getupvalues(v) do
+                                    if typeof(v2) == "table" then
+                                        repeat wait(0.1)
+                                            v2.LastUse = 0
+                                        until not getgenv().InfSoru or game:GetService("Players").LocalPlayer.Character.Humanoid.Health <= 0
+                                    end
+                                end
+                            end
+                        end
+                    end
+                end
+            end)
+        end
+    end)
+    
 Misc:Toggle("Race v4",false,function(v)
 getgenv().racev4 = v
 end)
@@ -3014,6 +3270,65 @@ racev4()
 end
 end
 end)
+Misc:Toggle("Infinite Ability",true,function(value)
+        getgenv().InfAbility = value
+        if value == false then
+            game:GetService("Players").LocalPlayer.Character.HumanoidRootPart:FindFirstChild("Agility"):Destroy()
+        end
+    end)
+    
+    spawn(function()
+        while wait() do
+            if getgenv().InfAbility then
+                InfAb()
+            end
+        end
+    end)
+    
+    Misc:Toggle("Infinite Obversation Range",getgenv().InfiniteObRange,function(value)
+        getgenv().InfiniteObRange = value
+        local VS = game:GetService("Players").LocalPlayer.VisionRadius.Value
+        while getgenv().InfiniteObRange do
+            wait()
+            local player = game:GetService("Players").LocalPlayer
+            local char = player.Character
+            local VisionRadius = player.VisionRadius
+            if player then
+                if char.Humanoid.Health <= 0 then 
+                    wait(5) 
+                end
+                VisionRadius.Value = math.huge
+            elseif getgenv().InfiniteObRange == false and player then
+                VisionRadius.Value = VS
+            end
+        end
+    end)
+    
+    Misc:Toggle("Infinite Geppo",getgenv().InfGeppo,function(value)
+        getgenv().InfGeppo = value
+    end)
+    
+    spawn(function()
+        while wait() do
+            pcall(function()
+                if getgenv().InfGeppo then
+                    for i,v in next, getgc() do
+                        if game:GetService("Players").LocalPlayer.Character.Geppo then
+                            if typeof(v) == "function" and getfenv(v).script == game:GetService("Players").LocalPlayer.Character.Geppo then
+                                for i2,v2 in next, getupvalues(v) do
+                                    if tostring(i2) == "9" then
+                                        repeat wait(.1)
+                                            setupvalue(v,i2,0)
+                                        until not getgenv().InfGeppo or game:GetService("Players").LocalPlayer.Character.Humanoid.Health <= 0 
+                                    end
+                                end
+                            end
+                        end
+                    end
+                end
+            end)
+        end
+    end)
 Misc:Toggle("No Cooldown Dodge",false,function(v)
 getgenv().rac4 = v
 end)
@@ -3399,6 +3714,140 @@ Misc:Toggle("Auto Click",autoclick,function(value)
 			end
 		end
 	end)
+	Misc:Toggle("Walk on Water",getgenv().WalkWater,function(value)
+        getgenv().WalkWater = value
+    end)
+    
+    spawn(function()
+        pcall(function()
+            while wait() do
+                if getgenv().WalkWater then
+                    if game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame.Y <= 1 then
+                        if not game:GetService("Workspace"):FindFirstChild("Water") then
+                            local Water = Instance.new("Part", game:GetService("Workspace"))
+                            Water.Name = "Water"
+                            Water.Size = Vector3.new(20,0.5,20)
+                            Water.Anchored = true
+                            Water.Material = "Neon"
+                            Water.Color = getgenv().Color
+                            game:GetService("Workspace").Water.CFrame = CFrame.new(game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame.X,game:GetService("Workspace").Camera["Water;"].CFrame.Y,game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame.Z)
+                        else
+                            game:GetService("Workspace").Water.CFrame = CFrame.new(game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame.X,game:GetService("Workspace").Camera["Water;"].CFrame.Y,game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame.Z)
+                        end
+                    elseif game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame.Y >= 1 and game:GetService("Workspace"):FindFirstChild("Water") then
+                        game:GetService("Workspace"):FindFirstChild("Water"):Destroy()
+                    end
+                else
+                    if game:GetService("Workspace"):FindFirstChild("Water") then
+                        game:GetService("Workspace"):FindFirstChild("Water"):Destroy()
+                    end
+                end
+            end
+        end)
+    end)
+    Misc:Toggle("ESP Player",false,function(value)
+        getgenv().ESPPlayer = value
+        while getgenv().ESPPlayer do wait()
+            UpdateEspPlayer()
+        end
+    end)
+    
+    Misc:Toggle("ESP Chest",false,function(value)
+        getgenv().ChestESP = value
+        while getgenv().ChestESP do wait()
+            UpdateChestEsp() 
+        end
+    end)
+    
+    Misc:Toggle("ESP Fruit",false,function(value)
+        getgenv().DevilFruitESP = value
+        while getgenv().DevilFruitESP do wait()
+            UpdateBfEsp() 
+        end
+    end)
+    
+    Misc:Toggle("ESP Flower",false,function(value)
+        getgenv().FlowerESP = value
+        while getgenv().FlowerESP do wait()
+            UpdateFlowerEsp() 
+        end
+    end)
+    
+    Misc:Toggle("ESP lsland",IslandESP,function(value)
+        getgenv().IslandESP = value
+        while getgenv().IslandESP do wait()
+            UpdateIslandESP() 
+        end
+    end)
+    Misc:Button("Rejoin",function()
+		local ts = game:GetService("TeleportService")
+		local p = game:GetService("Players").LocalPlayer
+		ts:Teleport(game.PlaceId, p)
+	end)
+	Misc:Button("Server Hop",function()
+		local PlaceID = game.PlaceId
+		local AllIDs = {}
+		local foundAnything = ""
+		local actualHour = os.date("!*t").hour
+		local Deleted = false
+		function TPReturner()
+			local Site;
+			if foundAnything == "" then
+				Site = game.HttpService:JSONDecode(game:HttpGet('https://games.roblox.com/v1/games/' .. PlaceID .. '/servers/Public?sortOrder=Asc&limit=100'))
+			else
+				Site = game.HttpService:JSONDecode(game:HttpGet('https://games.roblox.com/v1/games/' .. PlaceID .. '/servers/Public?sortOrder=Asc&limit=100&cursor=' .. foundAnything))
+			end
+			local ID = ""
+			if Site.nextPageCursor and Site.nextPageCursor ~= "null" and Site.nextPageCursor ~= nil then
+				foundAnything = Site.nextPageCursor
+			end
+			local num = 0;
+			for i,v in pairs(Site.data) do
+				local Possible = true
+				ID = tostring(v.id)
+				if tonumber(v.maxPlayers) > tonumber(v.playing) then
+					for _,Existing in pairs(AllIDs) do
+						if num ~= 0 then
+							if ID == tostring(Existing) then
+								Possible = false
+							end
+						else
+							if tonumber(actualHour) ~= tonumber(Existing) then
+								local delFile = pcall(function()
+									-- delfile("NotSameServers.json")
+									AllIDs = {}
+									table.insert(AllIDs, actualHour)
+								end)
+							end
+						end
+						num = num + 1
+					end
+					if Possible == true then
+						table.insert(AllIDs, ID)
+						wait()
+						pcall(function()
+							-- writefile("NotSameServers.json", game:GetService('HttpService'):JSONEncode(AllIDs))
+							wait()
+							game:GetService("TeleportService"):TeleportToPlaceInstance(PlaceID, ID, game.Players.LocalPlayer)
+						end)
+						wait(4)
+					end
+				end
+			end
+		end
+		function Teleport() 
+			while wait() do
+				pcall(function()
+					TPReturner()
+					if foundAnything ~= "" then
+						TPReturner()
+					end
+				end)
+			end
+		end
+		Teleport()
+	end)
+
 	Misc:Toggle("No Clip",false,function(value)
 		getgenv().NoClip = value
 	end)
