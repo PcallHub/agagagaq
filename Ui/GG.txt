@@ -644,7 +644,7 @@ FrameToggle1Corner.Parent = FrameToggle1
 
 FrameToggle2.Name = "FrameToggle2"
 FrameToggle2.Parent = FrameToggle1
-FrameToggle2.BackgroundColor3 = getgenv().Theme.Toggle.RightColor
+FrameToggle2.BackgroundColor3 = Color3.fromRGB(157, 39, 102)
 FrameToggle2.Position = UDim2.new(0.0489999987, 0, 0.0930000022, 0)
 FrameToggle2.Size = UDim2.new(0, 33, 0, 14)
 
